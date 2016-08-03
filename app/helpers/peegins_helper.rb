@@ -1,0 +1,2 @@
+module PeeginsHelper
+end

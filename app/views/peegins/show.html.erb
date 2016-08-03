@@ -1,0 +1,52 @@
+<section class="container all-peegin">
+  <div class="col-sm-8">
+
+
+    <div class="panel panel-default peegined">
+      <div class="panel-body">
+        <p class="pull-right"> <%= link_to 'Edit', edit_peegin_path(@peegin) %> | <%= link_to 'Delete', @peegin, method: :delete, data: { confirm: 'Are you sure?' } %> </p>
+        <h1 class="titled">
+          <%=@peegin.title %>
+        </h1>
+        <br>
+        <br>
+        <p class="described">
+        <%=@peegin.meaning %>
+        </p>
+        <br>
+        <p class="exampled">
+        <%=@peegin.example%>
+        </p>
+        <br>
+        <strong>By <a href="#">AMANi</a></strong>
+        <br>
+        <br>
+        <ul class="hate">
+         <li class="haterz"> 
+         <%= link_to "#" do%>
+         <%= image_tag "thumbs_up", height: "25px", width: "26px" %>
+         <% end %>
+         <span class="score">289</span></a></li>
+          <li class="haterz"><%= link_to "#" do%>
+         <%= image_tag "thumbs_down", height: "25px", width: "26px" %>
+
+         <% end %><span class="score">28</span></a></li>
+        </ul>
+
+        <ul class="socialed">
+          <li class="socialed">
+          <%= link_to "#" do%>
+          <%= image_tag "twitter.png", height: "25px", width: "31px" %>
+          <%end%>
+          </li>
+          <li class="socialed">
+            <%= link_to "#" do%>
+            <%= image_tag "facebook.png", height: "25px", width: "14px" %>
+            
+          </li>
+        </ul>
+      </div>
+
+     <%end%> 
+    </div>
+</div>
