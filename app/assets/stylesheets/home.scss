@@ -1,11 +1,11 @@
 .navbared{
-	
+
 	min-height: 62px;
 	padding-top: 10px;
 	background-color: #182634;
 	padding-left: 15px;
 	padding-right: 20px;
-	
+
 }
 
 .all-peegin{
@@ -43,7 +43,7 @@ div.col-sm-2{
 }
 
 .side-bar,.titled{
-	
+
 	font-weight: 900;
 	font-size: 26px;
 	line-height:1.45;
@@ -67,13 +67,13 @@ body{
 
 a {
 	text-decoration: none !important;
-	
+
 	color: #02a882;
 
 }
 
 .button-link{
-	
+
 }
 
 .create-peegin{
@@ -87,7 +87,7 @@ a {
 .side-panel{
 	background-color: #02a882;
 
-	
+
 }
 .described{
 	font-size: 18px;
@@ -129,7 +129,7 @@ color: #02a882 !important;
 
 .modal-header{
 	text-align: center;
-	
+
 }
 
 
@@ -146,13 +146,12 @@ color: #02a882 !important;
 
 
 
-input[type=text] {
+input[type=text],[type=email],[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
 }
-
 
 textarea {
     width: 100%;
@@ -164,3 +163,23 @@ textarea {
     background-color: #f8f8f8;
     resize: none;
 }
+
+.devise-share{
+	margin-top: 50px;
+}
+
+.dropdown-menu{
+	right: -80px !important;
+	left: auto;
+	height: 100px;
+	min-width: 200px;
+	text-align: center;
+	border: 1px solid rgba(0, 0, 0, 0);
+	padding: 15px 0;
+	background-color: #d8d8d8;
+}
+
+.mobile-drop{
+	left: -80px;
+	text-align: center;
+	}

@@ -1,3 +1,5 @@
+<section class="container all-peegin">
+
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -18,9 +20,11 @@
     </div>
   <% end -%>
 
-  <div class="actions">
+  <div class="actions ok">
     <%= f.submit "Log in" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+<p class="devise-share">
+    <%= link_to('Register', new_user_registration_path)  %> | <%= link_to "Forgot your password?", new_password_path(:user) %>
+</p>
+</section>

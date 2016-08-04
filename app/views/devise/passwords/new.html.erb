@@ -1,4 +1,5 @@
-<h2>Forgot your password?</h2>
+<section class="container all-peegin">
+  <h2>Forgot your password?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
@@ -9,8 +10,10 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Reset password" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+<p class="devise-share">
+    <%= link_to('Login', new_user_session_path)  %> | <%= link_to 'Register', new_user_registration_path %>
+</p>
+</section>
