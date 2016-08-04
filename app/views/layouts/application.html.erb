@@ -15,83 +15,12 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 <%= yield %>
+<% if user_signed_in? %>
+  <%= render '/layouts/nav_user' %>
+<% else %>
+  <%= render '/layouts/nav_guest' %>
+<% end %>
 
-<div class="navbared navbar-default navbar-fixed-top">
-
-  <div class="container">
-    <nav class="row">
-      <div class="col-md-10 hidden-xs hidden-sm">
-      <%= link_to peegins_path do %>
-		<%= image_tag "logo.png" , class: "brand"%>
-		<% end %>
-
-         <div class="input-group navbar-search">
-            <input type="search" class="form-control" placeholder="Search for a peegin...">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-              </span>
-          </div><!-- /input-group -->
-          </div>
-          <!-- mobile -->
-          <div class="col-xs-12 hidden-md hidden-lg">
-
-	          <%= link_to peegins_path do %>
-				<%= image_tag "p.png" , class: "brand-mobile",height: "62px", width: "43px"%>
-				<% end %>
-
-             <div class="input-group navbar-search search-mobile">
-                <input type="text" class="form-control" placeholder="Search for a peegin...">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                  </span>
-              </div><!-- /input-group -->
-              	<div class="ui-mobile">
-
-					<%= link_to  "#", class: "btns ui-mobile dropdown-toggle pull-right", "data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false" do %>
-						<%= image_tag "user.png" , height: "32px", width: "32px"%>
-            <ul class="dropdown-menu mobile-drop" role="menu">
-              <li><a href="#">Dropdown link</a></li>
-              <li><a href="#">Dropdown link</a></li>
-            </ul>
-					<% end %>
-
-
-
-					<%= link_to new_peegin_path, class: "btns ui-mobile" do %>
-						<%= image_tag "add.png" , height: "32px", width: "32px"%>
-					<% end %>
-
-         		 </div>
-         </div>
-
-
-      <div class="col-md-2 hidden-xs hidden-sm">
-      <span class ="btns navbar-right" >
-        <%= link_to "#", class: "dropdown-toggle", "data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false" do %>
-         <%= image_tag "user.png" , height: "42px", width: "42px"%>
-         <ul class="dropdown-menu" role="menu">
-           <li><a href="#">Dropdown link</a></li>
-           <li><a href="#">Dropdown link</a></li>
-         </ul>
-        <% end %>
-
-      </span>
-
-
-  <span class="btns navbar-right">
-
-    <%= link_to new_peegin_path do %>
-      <%= image_tag "add.png" , height: "42px", width: "42px"%>
-    <% end %>
-  </span>
-
-
-      </div>
-    </nav>
-
-  </div>
-
-</div>
 
 </body>
 </html>
