@@ -7,7 +7,9 @@
 
     <div class="panel panel-default peegined">
       <div class="panel-body">
+        <% if @peegin.user == current_user %>
         <p class="pull-right"> <%= link_to 'Edit', edit_peegin_path(@peegin) %> | <%= link_to 'Delete', @peegin, method: :delete, data: { confirm: 'Are you sure?' } %> </p>
+        <% end %>
         <h1 class="titled">
           <%=@peegin.title %>
         </h1>
@@ -21,7 +23,7 @@
         <%=@peegin.example%>
         </p>
         <br>
-        <strong>By <a href="#">AMANi</a></strong>
+        <strong>By <%= @peegin.user.name if @peegin.user %></strong>
         <br>
         <br>
         <ul class="hate">
