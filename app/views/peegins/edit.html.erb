@@ -1,11 +1,14 @@
 <section class="container all-peegin">
+
+  <%= render 'layouts/side_bar' %>
+
   <div class="col-sm-8">
 
           <%= form_for @peegin do |f| %>
             <%= f.text_field :title, :placeholder => "Word here" %> <br>
             <%= f.text_area :meaning, :placeholder => "Definition" %> <br>
             <%= f.text_field :example, :placeholder => "Exmaple" %> <br>
-            <%= f.submit "Update", class: "btn-submit" %>
+            <%= f.submit "Update", class: "btn-submit btn btn-primary" %>
           <% end %>
 
   </div>

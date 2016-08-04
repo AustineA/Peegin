@@ -2,6 +2,23 @@
 
 
 <section class="container all-peegin">
+  <div class="col-md-4 hidden-xs col-sm-4 pull-right">
+
+
+    <div class="panel panel-default side-panel">
+      <div class="panel-body ">
+        <h1 class="side-bar" id="side" >PEEGIN ENGLISH</h1><br>
+        <h1 class="side-bar" id="side" >DICTIONARY</h1><br>
+        <h1 class="side-bar" id="side" >IS DEFINED</h1><br>
+        <h1 class="side-bar" id="side" >BY YOU</h1><br>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
   <div class="col-sm-8">
 
 
@@ -10,7 +27,7 @@
             <%= f.text_field :title, :placeholder => "Word here" %> <br>
             <%= f.text_area :meaning, :placeholder => "Definition" %> <br>
             <%= f.text_field :example, :placeholder => "Exmaple" %> <br>
-            <%= f.submit "Sumit Your Peegin", class: "btn-submit" %>
+            <%= f.submit "Sumit Your Peegin", class: "btn-submit btn btn-primary" %>
           <% end %>
 
   </div>

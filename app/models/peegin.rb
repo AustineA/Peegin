@@ -1,12 +1,13 @@
 class Peegin < ActiveRecord::Base
-	
+	belongs_to :user
 	before_create :generate_permalink
-
 	def to_param
 		permalink
 	end
 
-	private 
+
+
+	private
 
 	def generate_permalink
 		pattern=self.title.parameterize
