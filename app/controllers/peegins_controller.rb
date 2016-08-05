@@ -1,11 +1,10 @@
 class PeeginsController < ApplicationController
 
-  before_action :set_peegin, only: [:show, :edit, :update, :destroy]
+  before_action :set_peegin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, except: [:index, :show]
 
-
   def index
-    @peegin = Peegin.all
+    @peegin = Peegin.all.order(:cached_votes_score => :desc)
   end
 
   def show
@@ -48,7 +47,18 @@ class PeeginsController < ApplicationController
     redirect_to peegins_path
   end
 
+  def upvote
+    @peegin.upvote_from current_user
+    redirect_to peegins_path
+  end
+
+  def downvote
+    @peegin.downvote_from current_user
+    redirect_to peegins_path
+  end
+
   private
+
 
     def set_peegin
         @peegin = Peegin.find_by_permalink(params[:id])

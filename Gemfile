@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'devise', '~> 4.2'
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :development, :test do
   gem 'byebug'
@@ -21,4 +22,3 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
-

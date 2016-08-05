@@ -1,6 +1,8 @@
 class Peegin < ActiveRecord::Base
 	belongs_to :user
 	before_create :generate_permalink
+	acts_as_votable
+	
 	def to_param
 		permalink
 	end
