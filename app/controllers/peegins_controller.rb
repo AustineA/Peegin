@@ -49,7 +49,7 @@ class PeeginsController < ApplicationController
 
   def upvote
     @peegin.upvote_from current_user
-    redirect_to peegins_path
+    redirect_to peegins_path, notice: 'Thanks for voting!'
   end
 
   def downvote
