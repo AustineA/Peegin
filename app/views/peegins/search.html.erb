@@ -1,0 +1,70 @@
+
+<section class="container all-peegin">
+
+  <%= render 'layouts/side_bar' %>
+
+
+
+    <%@peegins.each do |peegin|%>
+    <div class="col-sm-8">
+
+
+      <div class="panel panel-default peegined">
+          <div class="panel-body">
+            <% if peegin.user == current_user %>
+            <p class="pull-right"> <%= link_to 'Edit', edit_peegin_path(peegin) %> | <%= link_to 'Delete', peegin, method: :delete, data: { confirm: 'Are you sure you want to delet this Peegin?' }%> </p>
+            <% end %>
+            <%= link_to peegin do %>
+            <h1 class="titled" style="color:#182634">
+              <%=peegin.title %>
+            </h1>
+            <%end%>
+            <br>
+            <br>
+            <p class="described">
+            <%= peegin.meaning %>
+            </p>
+            <br>
+            <p class="exampled">
+            <%=peegin.example%>
+            </p>
+            <br>
+            <strong>By <%= peegin.user.name if peegin.user %></strong>
+            <br>
+            <br>
+            <ul class="hate">
+               <li class="haterz">
+                 <%= link_to like_peegin_path(peegin), method: :put do%>
+                 <%= image_tag "thumbs_up", height: "25px", width: "26px" %>
+                 <span class="score"><%= peegin.get_upvotes.size %></span>
+                 <% end %>
+               </li>
+                <li class="haterz">
+                  <%= link_to dislike_peegin_path(peegin), method: :put do%>
+                 <%= image_tag "thumbs_down", height: "25px", width: "26px" %>
+                 <span class="score"><%= peegin.get_downvotes.size %></span>
+                 <% end %>
+              </li>
+            </ul>
+
+            <ul class="socialed">
+              <li class="socialed">
+              <%= link_to "#" do%>
+              <%= image_tag "twitter.png", height: "25px", width: "31px" %>
+              <%end%>
+              </li>
+              <li class="socialed">
+                <%= link_to "#" do%>
+                <%= image_tag "facebook.png", height: "25px", width: "14px" %>
+                 <%end%>
+              </li>
+            </ul>
+          </div>
+
+
+
+        </div>
+  </div>
+
+  <%end%>
+</section>

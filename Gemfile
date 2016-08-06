@@ -13,6 +13,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'devise', '~> 4.2'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'searchkick', '~> 1.3', '>= 1.3.1'
 
 group :development, :test do
   gem 'byebug'

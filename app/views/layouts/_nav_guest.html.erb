@@ -7,25 +7,33 @@
 		<%= image_tag "logo.png" , class: "brand"%>
 		<% end %>
 
-         <div class="input-group navbar-search">
-            <input type="search" class="form-control" placeholder="Search for a peegin...">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-              </span>
-          </div><!-- /input-group -->
-          </div>
-          <!-- mobile -->
-          <div class="col-xs-12 hidden-md hidden-lg">
+    <div class="input-group navbar-search">
+      <%= form_tag search_peegins_path, method: :get, role: "search" do %>
+           <span class="input-group-btn">
+             <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for a peegin..." %>
+             <%= button_tag( :class => "btn btn-default search-margin") do %>
+            <span class="glyphicon glyphicon-search" aria-hidden="true"> </span>
+            <% end %>
+          </span>
+      <% end %>
+    </div><!-- /input-group -->
+</div>
+      <!-- mobile -->
+      <div class="col-xs-12 hidden-md hidden-lg">
 
-	          <%= link_to peegins_path do %>
-				<%= image_tag "p.png" , class: "brand-mobile",height: "62px", width: "43px"%>
-				<% end %>
+       <%= link_to peegins_path do %>
+   <%= image_tag "p.png" , class: "brand-mobile",height: "62px", width: "43px"%>
+   <% end %>
 
-             <div class="input-group navbar-search search-mobile">
-                <input type="text" class="form-control" placeholder="Search for a peegin...">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                  </span>
+         <div class="input-group navbar-search search-mobile">
+           <%= form_tag search_peegins_path, method: :get, role: "search" do %>
+           <span class="input-group-btn">
+               <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for a peegin..." %>
+               <%= button_tag( :class => "btn btn-default search-margin") do %>
+              <span class="glyphicon glyphicon-search" aria-hidden="true"> </span>
+              <% end %>
+            </span>
+           <% end %>
               </div><!-- /input-group -->
               	<div class="ui-mobile">
 

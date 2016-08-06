@@ -1,7 +1,18 @@
 class PeeginsController < ApplicationController
 
   before_action :set_peegin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
+
+
+
+  def search
+
+  if params[:search].present?
+    @peegins = Peegin.search(params[:search])
+  else
+  redirect_to peegins_path
+  end
+end
 
   def index
     @peegin = Peegin.all.order(:cached_votes_score => :desc)
