@@ -1,3 +1,6 @@
+<% @meta_title="Peegin - Search result" %>
+<% @meta_description="Peegin English Diction" %>
+
 
 <section class="container all-peegin">
 
@@ -49,14 +52,7 @@
 
             <ul class="socialed">
               <li class="socialed">
-              <%= link_to "#" do%>
-              <%= image_tag "twitter.png", height: "25px", width: "31px" %>
-              <%end%>
-              </li>
-              <li class="socialed">
-                <%= link_to "#" do%>
-                <%= image_tag "facebook.png", height: "25px", width: "14px" %>
-                 <%end%>
+                <%= social_share_button_tag("I just added the meaning of \'#{peegin.title}' to Peegin Dictionary") %>
               </li>
             </ul>
           </div>

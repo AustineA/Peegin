@@ -13,4 +13,34 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "home"
+@import "home";
+@import "social-share-button";
+
+
+$size: 24px;
+$fbi: url("facebook.png");
+$fbi-w: 14px;
+$fbi-h: 25px;
+
+$ti: url("twitter.png");
+$ti-w: 31px;
+
+
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $fbi-w $fbi-h;
+    height: $fbi-h;
+    width: $fbi-w;
+  }
+  .ssb-twitter{
+    background-image: $ti;
+    background-size: $ti-w $fbi-h;
+    height: $fbi-h;
+    width: $ti-w;
+  }
+
+  .ssb-facebook{
+    background-image: $fbi;
+  }
+}

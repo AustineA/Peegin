@@ -1,0 +1,4 @@
+<%= link_to like_peegin_path(@peegin), class: "upvote" method: :put, remote: true, id: "upvote-#{peegin.id}" do%>
+<%= image_tag "thumbs_up", height: "25px", width: "26px" %>
+<span class="score"><%= @peegin.get_upvotes.size %></span>
+<% end %>

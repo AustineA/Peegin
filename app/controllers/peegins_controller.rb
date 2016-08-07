@@ -1,17 +1,20 @@
 class PeeginsController < ApplicationController
 
   before_action :set_peegin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :authenticate_user!, except: [:index, :show, :search]
+  before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote]
 
 
 
   def search
 
-  if params[:search].present?
-    @peegins = Peegin.search(params[:search])
-  else
-  redirect_to peegins_path
+    if params[:search].present?
+      @peegins = Peegin.search(params[:search])
+
+    else
+    redirect_to peegins_path
   end
+
+
 end
 
   def index
@@ -59,13 +62,21 @@ end
   end
 
   def upvote
-    @peegin.upvote_from current_user
-    redirect_to peegins_path, notice: 'Thanks for voting!'
+    if user_signed_in?
+      @peegin.upvote_from current_user
+      redirect_to peegin_path, notice: 'Thanks for voting! Please share with your friends'
+    else
+      redirect_to peegin_path, alert: 'Sorry You need to sign in to vote'
+    end
   end
 
   def downvote
-    @peegin.downvote_from current_user
-    redirect_to peegins_path
+    if user_signed_in?
+      @peegin.downvote_from current_user
+      redirect_to peegin_path, notice: 'Ouch! your vote has been counted. Please share with your friends'
+    else
+      redirect_to peegin_path, alert: 'Sorry you need to sign in to vote'
+    end
   end
 
   private
