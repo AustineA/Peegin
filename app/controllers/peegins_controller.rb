@@ -8,8 +8,7 @@ class PeeginsController < ApplicationController
   def search
 
     if params[:search].present?
-      @peegins = Peegin.search(params[:search])
-
+      @peegins = Peegin.search params[:search], order: { cached_votes_score: :desc}
     else
     redirect_to peegins_path
   end
@@ -18,7 +17,7 @@ class PeeginsController < ApplicationController
 end
 
   def index
-    @peegin = Peegin.all.order(:cached_votes_score => :desc)
+    @peegin = Peegin.all.order( cached_votes_score: :desc, created_at: :desc)
   end
 
   def show
