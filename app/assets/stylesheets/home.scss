@@ -204,3 +204,21 @@ textarea {
 	left: -80px;
 	text-align: center;
 	}
+
+.pagination > .active > span {
+	background-color: #02a882;
+	border-color: #02a882;
+}
+
+.pagination > li > a {
+	color: #02a882;
+}
+
+.pagination > li > a:hover {
+color: #182634;
+}
+
+.pagination > .active > span, .pagination > .active > span:hover{
+	background-color: #182634;
+	border-color: #182634;
+}
