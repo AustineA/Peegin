@@ -42,8 +42,8 @@ div.col-sm-2{
 .search-mobile{
 	width: 90%;
 	margin-right: 40px;
-	margin-bottom: 30px;
-	margin-top: 5px;
+	margin-bottom: 11px;
+	margin-top: 1px;
 }
 
 .navbar-btn{
@@ -251,17 +251,22 @@ and (max-width : 982px){
   }
 
   .socialed {
-  	margin-top: -25px;
+  	margin-top: -14px;
   }
 
 	.container {
-		width: 95%;
+		width: 100%;
 	}
 
 	.altered{
 		margin-top: 189px;
 		margin-bottom: -150px;
 
+	}
+
+	.col-xs-12, .col-sm-12,.col-md-8 {
+		padding-left: 0px;
+		padding-right: 0px;
 	}
 
 }
