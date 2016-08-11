@@ -80,9 +80,8 @@ div.col-sm-2{
 }
 
 body{
-
+	height: auto;
 	background-color: #f1f1f1;
-
 }
 
 a {
@@ -225,7 +224,17 @@ color: #182634;
 	border-color: #182634;
 }
 
+footer.page-footer {
+	background: #182634;
+	padding: 30px 0;
+	color: #FAD93D;
+	width: 100%;
+  margin-top:50px;
+}
 
+.copy-right {
+	color: #FAD93D;
+}
 @media only screen and (max-width: 768px)
 and (max-width : 982px){
 
@@ -263,7 +272,10 @@ and (max-width : 982px){
 		margin-bottom: -150px;
 
 	}
-
+	footer.page-footer {
+	padding-left: 13px;
+	padding-right: 13px;
+	}
 	.col-xs-12, .col-sm-12,.col-md-8 {
 		padding-left: 0px;
 		padding-right: 0px;
