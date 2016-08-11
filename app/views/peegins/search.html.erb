@@ -37,13 +37,13 @@
             <ul class="hate">
                <li class="haterz">
                  <%= link_to like_peegin_path(peegin), method: :put do%>
-                 <%= asset_path "thumbs_up", height: "25px", width: "26px" %>
+                 <%= image_tag "thumbs_up", height: "25px", width: "26px" %>
                  <span class="score"><%= peegin.get_upvotes.size %></span>
                  <% end %>
                </li>
                 <li class="haterz">
                   <%= link_to dislike_peegin_path(peegin), method: :put do%>
-                 <%= asset_path "thumbs_down", height: "25px", width: "26px" %>
+                 <%= image_tag "thumbs_down", height: "25px", width: "26px" %>
                  <span class="score"><%= peegin.get_downvotes.size %></span>
                  <% end %>
               </li>
