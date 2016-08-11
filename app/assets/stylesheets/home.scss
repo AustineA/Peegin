@@ -224,3 +224,34 @@ color: #182634;
 	background-color: #182634;
 	border-color: #182634;
 }
+
+
+@media only screen and (max-width: 768px)
+and (max-width : 982px){
+
+  .all-peegin {
+  	margin-top: 208px;
+  }
+
+  .socialed {
+  	margin-top: -25px;
+  }
+
+
+}
+
+@media (max-width : 991px){
+
+  .all-peegin {
+  	margin-top: 208px;
+  }
+
+  .socialed {
+  	margin-top: -25px;
+  }
+
+	.container {
+		width: 95%;
+	}
+
+}
