@@ -1,4 +1,5 @@
-
+<% @meta_title="Peegin - Define a new Peegin" %>
+<% @meta_description="Peegin English Diction" %>
 
 
 <section class="container all-peegin">
@@ -24,6 +25,19 @@
 
 
           <%= form_for @peegin do |f| %>
+          <% if @peegin.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@peegin.errors.count, "error") %> prohibited this peegin from being saved:</h2>
+
+              <ul>
+              <% @peegin.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+
             <%= f.text_field :title, :placeholder => "Word here" %> <br>
             <%= f.text_area :meaning, :placeholder => "Definition" %> <br>
             <%= f.text_field :example, :placeholder => "Exmaple" %> <br>
