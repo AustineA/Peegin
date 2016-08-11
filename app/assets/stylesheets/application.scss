@@ -44,3 +44,18 @@ $ti-w: 31px;
     background-image: $fbi;
   }
 }
+
+@media screen
+  and (device-width: 360px)
+  and (device-height: 640px)
+  and (-webkit-device-pixel-ratio: 3)
+  and (orientation: portrait) {
+  /* line 10, /Users/Amani/.rvm/gems/ruby-2.3.0/gems/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/_grid.scss */
+  .container {
+    width: 95%;
+  }
+
+  .all-peegin {
+    margin-top: 195px;
+  }
+}
