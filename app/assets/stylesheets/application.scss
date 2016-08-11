@@ -16,13 +16,12 @@
 @import "home";
 @import "social-share-button";
 
-
 $size: 24px;
-$fbi: url("facebook.png");
+$fbi: image-url("facebook.png");
 $fbi-w: 14px;
 $fbi-h: 25px;
 
-$ti: url("twitter.png");
+$ti: image-url("twitter.png");
 $ti-w: 31px;
 
 
