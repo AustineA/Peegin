@@ -34,12 +34,14 @@
             	</ul>
             <% end %>
 
-             <%= f.label :title, "Word Your Want To Define" %>
+             <%= f.label :title, "Enter The Word Your Want To Define" %>
             <%= f.text_field :title, class:"tl-h", :placeholder => "eg. Epp" %> <br>
-            <%= f.label :meaning, "Enter The Meaning Your Word" %>
+            <%= f.label :meaning, "Enter The Meaning Of Your Word" %>
             <%= f.text_area :meaning, class:"mn-h",:placeholder => "Means help, either to help some or ask for help" %> <br>
             <%= f.label :example, "Make a Sentence With Your Word" %>
             <%= f.text_area :example, class:"eg-h",:placeholder => "Aunty please epp me."%> <br>
+            <%= f.label :origin, "Where Did The Meaning Of This Word Originate From?" %>
+            <%= f.text_field :origin, class:"og-h",:placeholder => "eg. Lagos"%> <br>
             <%= f.submit "Sumit Your Peegin", class: "btn-submit btn btn-primary" %>
             <%= link_to "Back", peegins_path(@peegin), class: "btn btn-primary" %>
           <% end %>

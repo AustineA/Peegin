@@ -10,7 +10,7 @@
         <div class="input-group navbar-search">
           <%= form_tag search_peegins_path, method: :get, role: "search" do %>
                <span class="input-group-btn">
-                 <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for a peegin..." %>
+                 <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for a peegin...like \'Epp' " %>
                  <%= button_tag( :class => "btn btn-default search-margin") do %>
                 <span class="glyphicon glyphicon-search" aria-hidden="true"> </span>
                 <% end %>
@@ -28,7 +28,7 @@
              <div class="input-group navbar-search search-mobile">
                <%= form_tag search_peegins_path, method: :get, role: "search" do %>
                   <span class="input-group-btn">
-                      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for a peegin..." %>
+                      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for a peegin...like \'Epp' " %>
                       <%= button_tag( :class => "btn btn-default search-margin") do %>
                      <span class="glyphicon glyphicon-search" aria-hidden="true"> </span>
                      <% end %>

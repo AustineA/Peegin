@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805181458) do
+ActiveRecord::Schema.define(version: 20160812191618) do
 
   create_table "peegins", force: :cascade do |t|
     t.string   "title"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160805181458) do
     t.integer  "cached_weighted_score",   default: 0
     t.integer  "cached_weighted_total",   default: 0
     t.float    "cached_weighted_average", default: 0.0
+    t.string   "origin"
   end
 
   add_index "peegins", ["cached_votes_down"], name: "index_peegins_on_cached_votes_down"

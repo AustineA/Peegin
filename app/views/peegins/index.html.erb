@@ -31,6 +31,12 @@
         <%=peegin.example%>
         </p>
         <br>
+        <% if peegin.origin? %>
+        <p class="exampled">
+         <strong> <%="Originated in: #{peegin.origin}"%> </strong>
+        </p>
+        <% end %>
+        <br>
         <strong>By <%= peegin.user.name if peegin.user %></strong>
         <br>
         <br>
