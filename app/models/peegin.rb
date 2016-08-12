@@ -3,9 +3,12 @@ class Peegin < ActiveRecord::Base
 	belongs_to :user
 	before_create :generate_permalink
 	acts_as_votable
-	validates :title, length: { maximum: 50 }
-	validates :meaning, length: { maximum: 500 }
-	validates :example, length: { maximum: 500 }
+
+	validates_presence_of :title, :meaning, :example, { :message => "Content cannot be blank" }
+	validates :title, :length => { :maximum => 50}
+	validates :meaning, :length => { :maximum => 500}
+	validates :example, :length => { :maximum => 150}
+
 	def to_param
 		permalink
 	end

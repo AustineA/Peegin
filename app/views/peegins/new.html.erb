@@ -25,10 +25,21 @@
 
 
           <%= form_for @peegin do |f| %>
-            <%= f.text_field :title, :placeholder => "Word here" %> <br>
+
+          <% if @peegin.errors.any? %>
+            	<ul class="alert-alert error-val">
+            		<% @peegin.errors.full_messages.each do |message| %>
+            		<li><%= message %></li>
+            		<% end %>
+            	</ul>
+            <% end %>
+
+
+            <%= f.text_field :title,:placeholder => "Word here" %> <br>
             <%= f.text_area :meaning, :placeholder => "Definition" %> <br>
             <%= f.text_field :example, :placeholder => "Exmaple" %> <br>
             <%= f.submit "Sumit Your Peegin", class: "btn-submit btn btn-primary" %>
+            <%= link_to "Back", peegins_path(@peegin), class: "btn btn-primary" %>
           <% end %>
 
   </div>

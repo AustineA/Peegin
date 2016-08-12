@@ -29,6 +29,13 @@
 	color: #763c3c;
 }
 
+.error-val{
+	border: 1px solid #f0d8d8 ;
+	border-radius: 4px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
 div.col-sm-2{
 	width: 10.2%;
 }
@@ -170,6 +177,8 @@ input[type=text],[type=email],[type=password] {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
+		border: 2px solid #ccc;
+    border-radius: 4px;
 }
 
 .search-margin{
