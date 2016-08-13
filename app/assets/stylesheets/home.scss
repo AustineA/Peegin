@@ -86,6 +86,38 @@ div.col-sm-2{
 	float: right;
 }
 
+.heading{
+	float: left;
+	background-color: #FAD93D;
+	line-height:1.45;
+	display: inline;
+	font-weight: 700;
+	font-size: 15px;
+	line-break: strict;
+	padding: 0 5px;
+}
+
+.helper-b{
+	float: left;
+	background-color: #182634;
+	padding: 5px;
+	border: 1 solid #182634;
+	border-radius: 4px;
+	margin-top: -10px;
+}
+
+button.close.mob {
+	background: #FAD93D;
+	padding-left:6px;
+	padding-right: 6px;
+	padding-bottom: 3px;
+	border-radius: 20px;
+}
+
+.close.mob{
+	opacity: 1;
+}
+
 body{
 	height: auto;
 	background-color: #f1f1f1;
@@ -260,11 +292,6 @@ footer.page-footer {
 }
 @media only screen and (max-width: 768px)
 and (max-width : 982px){
-
-  .all-peegin {
-  	margin-top: 178px;
-  }
-
   .socialed {
   	margin-top: -25px;
   }
@@ -278,8 +305,8 @@ and (max-width : 982px){
 
 @media (max-width : 991px){
 
-  .all-peegin {
-  	margin-top: 208px;
+	.all-peegin {
+  	margin-top: 178px;
   }
 
   .socialed {
@@ -303,5 +330,4 @@ and (max-width : 982px){
 		padding-left: 0px;
 		padding-right: 0px;
 	}
-
 }
