@@ -16,3 +16,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+// GA racking code
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82559609-<%= Rails.env.production? ? '1' : '2' %>', 'auto');
+// I have 2 GA properties- one for debug and another for production
+
+// accommodate Turbolinks and track page views
+$(document).on('ready page:change', function() {
+    ga('send', 'pageview’);
+});
