@@ -51,7 +51,11 @@
         </ul>
         <ul class="socialed">
           <li class="socialed">
+            <% if @peegin.user == current_user %>
             <%= social_share_button_tag("I just added the meaning of \'#{@peegin.title}' to Peegin Dictionary") %>
+            <%else%>
+            <%= social_share_button_tag("Hey check out the meaning of \'#{@peegin.title}' in Peegin Dictionary") %>
+          <% end %>
           </li>
         </ul>
       </div>

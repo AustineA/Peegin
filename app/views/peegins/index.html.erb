@@ -11,12 +11,12 @@
   </div>
 
     <%@peegin.each do |peegin|%>
-  <div class="col-md-8 col-sm-12 col-xs-12 ">
+  <div class="col-md-8 col-sm-12 col-xs-12 " id="del">
 
     <div class="panel panel-default peegined">
       <div class="panel-body">
         <% if peegin.user == current_user %>
-        <p class="pull-right"> <%= link_to 'Edit', edit_peegin_path(peegin) %> | <%= link_to 'Delete', peegin, method: :delete, data: { confirm: 'Are you sure you want to delet this Peegin?' }%> </p>
+        <p class="pull-right"> <%= link_to 'Edit', edit_peegin_path(peegin) %> | <%= link_to 'Delete', peegin, method: :delete, data: { confirm: 'Are you sure you want to delet this Peegin?' }, :remote => true, :class => 'delete_peegin' %> </p>
         <% end %>
         <%= link_to peegin do %>
         <h1 class="titled" style="color:#182634">
@@ -60,7 +60,11 @@
 
         <ul class="socialed">
           <li class="socialed">
+            <% if peegin.user == current_user %>
             <%= social_share_button_tag("I just added the meaning of \'#{peegin.title}' to Peegin Dictionary") %>
+            <%else%>
+            <%= social_share_button_tag("Hey check out the meaning of \'#{peegin.title}' in Peegin Dictionary") %>
+          <% end %>
           </li>
         </ul>
       </div>

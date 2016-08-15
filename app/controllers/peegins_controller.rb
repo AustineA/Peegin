@@ -56,8 +56,12 @@ end
   def destroy
 
     @peegin.destroy
+    respond_to do |format|
+      format.html { redirect_to peegins_path }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+   end
 
-    redirect_to peegins_path
   end
 
   def upvote
