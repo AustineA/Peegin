@@ -16,12 +16,7 @@ class PeeginsController < ApplicationController
 end
 
   def index
-
-      if Peegin.where("DATE(created_at) = ?", Date.today-1).exists?
-        @peegin = Peegin.find(:all, :conditions => ["DATE(created_at) = ?", Date.today-1]).order( cached_votes_score: :desc, created_at: :desc).paginate(:page => params[:page], :per_page => 10)
-      else
-        @peegin = Peegin.all.order( cached_votes_score: :desc, created_at: :desc).paginate(:page => params[:page], :per_page => 10)
-      end
+    @peegin = Peegin.all.order( cached_votes_score: :desc, created_at: :desc).paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
