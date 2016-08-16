@@ -8,7 +8,7 @@ class PeeginsController < ApplicationController
   def search
 
     if params[:search].present?
-      @peegins = Peegin.search params[:search], order: { cached_votes_score: :desc},  fields: ["title^10", "origin"], page: params[:page], per_page: 10
+      @peegins = Peegin.search params[:search], order: { cached_votes_score: :desc},  fields: ["title^10", "origin"], page: params[:page], per_page: 8
     else
     redirect_to peegins_path
   end
@@ -16,7 +16,12 @@ class PeeginsController < ApplicationController
 end
 
   def index
-    @peegin = Peegin.all.order( cached_votes_score: :desc, created_at: :desc).paginate(:page => params[:page], :per_page => 8)
+
+      if Peegin.where("DATE(created_at) = ?", Date.today-1).exists?
+        @peegin = Peegin.find(:all, :conditions => ["DATE(created_at) = ?", Date.today-1]).order( cached_votes_score: :desc, created_at: :desc).paginate(:page => params[:page], :per_page => 10)
+      else
+        @peegin = Peegin.all.order( cached_votes_score: :desc, created_at: :desc).paginate(:page => params[:page], :per_page => 10)
+      end
   end
 
   def show
