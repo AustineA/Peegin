@@ -68,7 +68,7 @@ end
       @peegin.upvote_from current_user
       redirect_to peegin_path, notice: 'Thanks for voting! Please share with your friends'
     else
-      redirect_to peegin_path, alert: "Sorry You need to sign in to vote"
+      redirect_to peegin_path, alert:'Sorry You need to Sign in to vote'
     end
   end
 
@@ -82,6 +82,7 @@ end
   end
 
   private
+
 
 
     def set_peegin
