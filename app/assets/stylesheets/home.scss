@@ -299,7 +299,9 @@ and (max-width : 982px){
   .socialed {
   	margin-top: -25px;
   }
-
+	.renewed{
+		margin-bottom: 70px;
+	}
 	.peegined{
 		padding: 0;
 	}
@@ -308,9 +310,7 @@ and (max-width : 982px){
 		margin-bottom: -100px;
 
 	}
-	.navbar-fixed-top.sessions.new, .registrations.edit, .peegins.new, .registrations.new{
-		position: absolute;
-	}
+
 }
 
 @media (max-width : 991px){
