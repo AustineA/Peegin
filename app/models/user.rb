@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :peegins
+  validates_presence_of :name, { :message => "Content cannot be blank" }
+
 end
