@@ -207,6 +207,7 @@ input[type=text],[type=email],[type=password] {
     box-sizing: border-box;
 		border: 2px solid #ccc;
     border-radius: 4px;
+		background: #f1f1f1;
 
 }
 
@@ -217,10 +218,12 @@ textarea.eg-h{
 
 input[type=text].tl-h,input[type=text].og-h{
 		  margin: 0 0 20px 0;
+
 }
 
 input[type=text].search-pad{
 		padding: 5px 20px;
+		background: #fff;
 }
 
 input[type=text].mn-h{
@@ -239,6 +242,7 @@ textarea {
     border-radius: 4px;
 		margin: 0 0 20px 0;
     resize: none;
+		background: #f1f1f1;
 }
 
 .devise-share{
@@ -295,6 +299,10 @@ and (max-width : 982px){
   .socialed {
   	margin-top: -25px;
   }
+
+	.peegined{
+		padding: 0;
+	}
 	.altered{
 		margin-top: 120px;
 		margin-bottom: -100px;
@@ -311,6 +319,11 @@ and (max-width : 982px){
   	margin-top: 120px;
   }
 
+	.formed {
+		padding-left: 0;
+		padding-right: 0;
+		margin-bottom: 50px;
+	}
   .socialed {
   	margin-top: -14px;
   }
