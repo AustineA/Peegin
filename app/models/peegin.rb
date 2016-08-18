@@ -4,11 +4,12 @@ class Peegin < ActiveRecord::Base
 	before_create :generate_permalink
 	acts_as_votable
 
-	validates_presence_of :title, :meaning, :example, { :message => "Content cannot be blank" }
+	validates_presence_of :title, :meaning, :example, :synonyms, { :message => "cannot be blank" }
 	validates :title, :length => { :maximum => 50}
 	validates :meaning, :length => { :maximum => 500}
 	validates :example, :length => { :maximum => 150}
 	validates :origin, :length => { :maximum => 50}
+	validates :synonyms, :length => { :maximum => 50}
 
 
 	def to_param

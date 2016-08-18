@@ -8,7 +8,7 @@ class PeeginsController < ApplicationController
   def search
 
     if params[:search].present?
-      @peegins = Peegin.search params[:search], order: { cached_votes_score: :desc},  fields: ["title^10", "origin"], page: params[:page], per_page: 8
+      @peegins = Peegin.search params[:search], order: { cached_votes_score: :desc},  fields: ["title^10", "origin", "synonyms"], page: params[:page], per_page: 8
     else
     redirect_to peegins_path
   end
@@ -90,6 +90,6 @@ end
       end
 
     def peegin_params
-      params.require(:peegin).permit(:title, :meaning, :example, :slug, :origin)
+      params.require(:peegin).permit(:title, :meaning, :example, :slug, :origin, :synonyms)
     end
 end
