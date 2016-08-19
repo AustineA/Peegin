@@ -99,8 +99,16 @@ div.col-sm-2{
 	float: left;
 	background-color: #182634;
 	padding: 5px;
-	border: 1 solid #182634;
+	border: 1px solid #FAD93D;
 	border-radius: 4px;
+}
+.helper-b.btn2{
+	padding: 9px;
+	background: #FAD93D;
+	border: 1px solid #182634;
+	color: #182634;
+	margin-left: 5px;
+	font-weight: bold;
 }
 
 button.close.mob {
@@ -328,6 +336,9 @@ and (max-width : 982px){
   	margin-top: -5px;
   }
 
+	.signing{
+		color: black;
+	}
 	.container {
 		width: 100%;
 	}

@@ -2,16 +2,16 @@
 
   <div class="panel-body ">
     <p class="heading" >PEEGIN ENGLISH DICTIONARY IS DEFINED BY YOU </p>
-<br>
-<br>
-    <div class="helper-b">
-      <%= link_to new_peegin_path  do %>
-        <%= image_tag "add.png", class: "btn1", height: "28px", width: "28px" %>
-
+  <br>
+  <br>
+  <%= link_to new_peegin_path  do %>
+      <div class="helper-b">
+          <%= image_tag "add.png", class: "btn1", height: "28px", width: "28px" %>
           <span style="color: #FAD93D !important;">Add A New Word</span>
-
-        <% end %>
-    </div>
-
+      </div>
+  <% end %>
+<% if user_signed_in? == false %>
+  <%= link_to "Sign up", new_user_registration_path, class: "helper-b btn2" %>
+<%end%>
   </div>
 </div>
