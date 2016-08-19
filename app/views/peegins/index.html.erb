@@ -15,7 +15,7 @@
 
     <div class="panel panel-default peegined">
       <div class="panel-body">
-        <% if peegin.user == current_user %>
+        <% if peegin.user == current_user || current_user.try(:admin?) %>
         <p class="pull-right"> <%= link_to 'Edit', edit_peegin_path(peegin) %> | <%= link_to 'Delete', peegin, method: :delete, data: { confirm: 'Are you sure you want to delet this Peegin?' }, :remote => true, :class => 'delete_peegin' %> </p>
         <% end %>
         <%= link_to peegin do %>
@@ -34,7 +34,7 @@
             <i>
               <%=simple_format(peegin.example)%>
             </i>
-        
+
 
         </p>
         <br>
