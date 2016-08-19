@@ -107,7 +107,7 @@ div.col-sm-2{
 	background: #02a882;
 	border: 1px solid #FAD93D;
 	color: #FAD93D;
-	margin-left: 5px;
+
 }
 
 button.close.mob {
@@ -315,6 +315,10 @@ and (max-width : 982px){
 		margin-bottom: -100px;
 
 	}
+
+	.helper-b.btn2 {
+    float: right;
+}
 	.navbar-fixed-top.sessions.new, .registrations.edit, .peegins.new, .registrations.new{
 		position: absolute;
 	}
