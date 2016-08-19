@@ -7,7 +7,7 @@
 
     <div class="panel panel-default peegined">
       <div class="panel-body">
-        <% if @peegin.user == current_user %>
+        <% if @peegin.user == current_user || current_user.try(:admin?) %>
         <p class="pull-right"> <%= link_to '<< Back', :back %> | <%= link_to 'Edit', edit_peegin_path(@peegin) %> | <%= link_to 'Delete', @peegin, method: :delete, data: { confirm: 'Are you sure?' } %> </p>
         <% else %>
           <p class="pull-right"> <%= link_to '<< Back', :back %>
