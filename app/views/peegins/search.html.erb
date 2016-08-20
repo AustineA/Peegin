@@ -33,13 +33,6 @@
               </i>
             </p>
             <br>
-            <p class="exampled">
-              <%if peegin.synonyms?%>
-              <strong>Synonyms:</strong>
-            <%=peegin.synonyms.split(/\W+/).to_s%>
-            </p>
-            <%end%>
-            <br>
             <% if peegin.origin? %>
             <p class="origin">
              <%="Origin: #{peegin.origin}"%>
