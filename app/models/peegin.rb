@@ -1,5 +1,5 @@
 class Peegin < ActiveRecord::Base
-	searchkick  match: :word_start, searchable: [:title, :origin, :synonyms]
+	searchkick 
 	belongs_to :user
 	before_create :generate_permalink
 	acts_as_votable
