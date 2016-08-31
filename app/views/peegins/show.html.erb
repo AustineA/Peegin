@@ -61,9 +61,9 @@
         <ul class="socialed">
           <li class="socialed">
             <% if @peegin.user == current_user %>
-            <%= social_share_button_tag("I just added the meaning of \'#{@peegin.title}' to Peegin Dictionary") %>
+            <%= social_share_button_tag("I just added the meaning of \'#{@peegin.title}' to Peegin Dictionary", :image => ("http://amaniart.net/wp-content/uploads/2016/08/peegin.jpg"), via: "Peegin_") %>
             <%else%>
-            <%= social_share_button_tag("Hey check out the meaning of \'#{@peegin.title}' in Peegin Dictionary") %>
+            <%= social_share_button_tag("Hey check out the meaning of \'#{@peegin.title}' in Peegin Dictionary", :image => ("http://amaniart.net/wp-content/uploads/2016/08/peegin.jpg"), via: "Peegin_") %>
           <% end %>
           </li>
           <li class="socialed">
