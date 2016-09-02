@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :peegins
   validates_presence_of :name, { :message => "Content cannot be blank" }
+  validates :name, :length => { :minimum => 1}
 
   def make_admin!
     self.update_attribute(:admin, true)
