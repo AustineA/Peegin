@@ -16,7 +16,7 @@ class PeeginsController < ApplicationController
 end
 
   def index
-    @peegin = Peegin.all.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10)
+    @peegin = Peegin.all.order(created_at: :desc).paginate(:page => params[:page], :per_page => 15)
   end
 
   def show
