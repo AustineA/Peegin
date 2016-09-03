@@ -292,12 +292,16 @@ color: #182634;
 
 footer.page-footer {
 	background: #182634;
-	padding: 30px 0;
+	padding:30px 0 10px 0;
 	color: #FAD93D;
 	width: 100%;
   margin-top:50px;
 }
-
+.center-footer{
+	text-align: center;
+	display: block;
+	margin-top: -20px;
+}
 .copy-right {
 	color: #FAD93D;
 }
@@ -350,6 +354,9 @@ and (max-width : 982px){
 		margin-top: 120px;
 		margin-bottom: -100px;
 
+	}
+	.center-footer{
+		margin-top: 25px;
 	}
 	footer.page-footer {
 	padding-left: 13px;

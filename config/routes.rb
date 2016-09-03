@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   end
 post 'peegins' => 'peegins#create'
 
+get "/pages/:page" => "pages#show"
+
   root 'peegins#index'
+
 
 end
