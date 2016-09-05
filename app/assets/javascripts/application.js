@@ -16,3 +16,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(function (){
+  $(document).ready(function() {
+    if ($('.pagination').length) {
+      $(window).scroll(function() {
+        var url = $('.pagination .next_page').attr('href');
+        if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+        $('.pagination').html('<img src="/assets/ajax-loader.gif" alt="Loading..." title="Loading..." />')
+          return $.getScript(url);
+        }
+      });
+      return $(window).scroll();
+    }
+  });
+});
