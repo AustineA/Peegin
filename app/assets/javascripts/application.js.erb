@@ -21,7 +21,7 @@ $(function (){
     if ($('.pagination').length) {
       $(window).scroll(function() {
         var url = $('.pagination .next_page').attr('href');
-        if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 90) {
+        if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 40) {
         $('.pagination').html('<%=image_tag "ajax-loader.gif"%>')
           return $.getScript(url);
         }
