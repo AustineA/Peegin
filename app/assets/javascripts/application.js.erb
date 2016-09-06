@@ -22,7 +22,7 @@ $(function (){
       $(window).scroll(function() {
         var url = $('.pagination .next_page').attr('href');
         if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
-        $('.pagination').html('<img src="/assets/ajax-loader.gif" alt="Loading..." title="Loading..." />')
+        $('.pagination').html('<%=image_tag "ajax-loader.gif"%>')
           return $.getScript(url);
         }
       });
