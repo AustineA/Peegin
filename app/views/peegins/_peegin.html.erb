@@ -54,9 +54,9 @@
 
       <li class="socialed">
         <% if peegin.user == current_user %>
-        <%= social_share_button_tag("I just added the meaning of \'#{peegin.title}' to Peegin Dictionary", :url => "http://peegin.com#{peegin_path(peegin)}", :image => ("http://amaniart.net/wp-content/uploads/2016/08/peegin.jpg"), via: "Peegin_") %>
+        <%= social_share_button_tag("I just added the meaning of \'#{peegin.title}' to Peegin Dictionary", :url => "http://peegin.com#{peegin_path(peegin)}", :image => ("http://amaniart.net/peegin.jpg"), via: "Peegin_") %>
         <%else%>
-        <%= social_share_button_tag("Hey check out the meaning of \'#{peegin.title}' in Peegin Dictionary", :url => "http://peegin.com#{peegin_path(peegin)}", :image => ("http://amaniart.net/wp-content/uploads/2016/08/peegin.jpg"), via: "Peegin_") %>
+        <%= social_share_button_tag("Hey check out the meaning of \'#{peegin.title}' in Peegin Dictionary", :url => "http://peegin.com#{peegin_path(peegin)}", :image => ("http://amaniart.net/peegin.jpg"), via: "Peegin_") %>
       <% end %>
       </li>
       <li class="socialed">
