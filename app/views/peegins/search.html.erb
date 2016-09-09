@@ -6,7 +6,9 @@
   <%= render 'layouts/side_bar' %>
 
 
-
+<% if params[:search].nil?%>
+<%= "search for #{params[:search]} not found"%>
+<%else%>
     <%@peegins.each do |peegin|%>
     <div class="col-md-8 col-sm-12 col-xs-12">
 
@@ -70,13 +72,14 @@
                 <strong>Share to</strong>
               </li>
             </ul>
-          </div>
 
+          </div>
 
 
         </div>
   </div>
 
+  <%end%>
   <%end%>
 </section>
 
