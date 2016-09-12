@@ -1,6 +1,6 @@
 $('#peegin').append('<%= j render(@peegin) %>');
 <% if @peegin.next_page %>
-  $('.pagination').replaceWith('<%= j will_paginate(@peegin) %>');
+  $('.pagination').hide().replaceWith('<%= j will_paginate(@peegin) %>');
 <% else %>
   $('.pagination').remove();
 <% end %>
