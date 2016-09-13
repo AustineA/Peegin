@@ -47,10 +47,8 @@ div.col-sm-2{
 }
 
 .search-mobile{
-	width: 90%;
+	width: 92%;
 	margin-right: 40px;
-	margin-bottom: 11px;
-	margin-top: 1px;
 }
 
 .navbar-btn{
@@ -333,12 +331,19 @@ and (max-width : 982px){
 	.navbar-fixed-top.sessions.new, .registrations.edit, .peegins.new, .registrations.new{
 		position: absolute;
 	}
+
+
+	.navbared{
+		padding-top: 5px;
+	}
 }
+
+
 
 @media (max-width : 991px){
 
 	.all-peegin {
-  	margin-top: 120px;
+  	margin-top: 100px;
   }
 
 	.formed {
@@ -358,8 +363,8 @@ and (max-width : 982px){
 	}
 
 	.altered{
-		margin-top: 120px;
-		margin-bottom: -100px;
+		margin-top: 81px;
+		margin-bottom: -80px;
 
 	}
 	.center-footer{
