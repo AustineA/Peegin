@@ -344,9 +344,20 @@ and (max-width : 982px){
 @media (max-width : 991px){
 
 	.all-peegin {
-  	margin-top: 100px;
+  	margin-top: 80px;
   }
+	.container.all-peegin{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
 
+	.panel-body{
+		padding: 20px;
+	}
+	.panel{
+		margin-bottom: 5px;
+		border-radius: 0px;
+	}
 	.formed {
 		padding-left: 0;
 		padding-right: 0;
