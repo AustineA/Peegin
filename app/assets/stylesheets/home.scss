@@ -4,7 +4,7 @@
 	padding-top: 10px;
 	background-color: #182634;
 	padding-left: 15px;
-	padding-right: 20px;
+	padding-right: 15px;
 
 }
 
@@ -228,7 +228,6 @@ input[type=text].tl-h,input[type=text].og-h{
 
 input[type=text].search-pad{
 		padding: 5px 20px;
-		background: #fff;
 }
 
 input[type=text].mn-h{
@@ -236,7 +235,7 @@ input[type=text].mn-h{
 }
 
 .search-margin{
-	margin: 8px
+	margin: 8px;
 }
 textarea {
     width: 100%;
@@ -274,7 +273,9 @@ textarea {
 	background-color: #02a882;
 	border-color: #02a882;
 }
-
+.pagination{
+	display: none;
+}
 .pagination > li > a {
 	color: #02a882;
 }
@@ -345,7 +346,41 @@ and (max-width : 982px){
 	.all-peegin {
   	margin-top: 100px;
   }
+	.search-margin{
+		background-color: #425262;
+		border-color: #425262;
+		color: #c1c1c1;
+	}
+	input[type=text].search-pad{
+			color: #fff;
+			background: #182634;
+			border: 2px solid #425262;
+	}
 
+	.search-pad::-webkit-input-placeholder{
+				color: #425262;
+		}
+	.search-pad::-moz-placeholder{
+					color: #425262;
+		}
+	.search-pad:-ms-input-placeholder{
+						color: #425262;
+		}
+
+	.search-pad:focus::-webkit-input-placeholder{
+				color: #555555;
+		}
+	.search-pad:focus::-moz-placeholder{
+				color: #555555;
+		}
+	.search-pad:focus:-ms-input-placeholder{
+				color: #555555;
+		}
+		input[type=text].search-pad:focus{
+			background: #f1f1f1;
+			color: #555555;
+			border: 2px solid #f1f1f1;
+		}
 	.formed {
 		padding-left: 0;
 		padding-right: 0;
