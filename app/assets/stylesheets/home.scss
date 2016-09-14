@@ -311,12 +311,15 @@ footer.page-footer {
 		padding: 4px;
 	}
 }
+
 @media only screen and (max-width: 768px)
 and (max-width : 982px){
   .socialed {
   	margin-top: -25px;
   }
-
+	.search-mobile{
+		width: 91% !important;
+	}
 	.peegined{
 		padding: 0;
 	}
@@ -360,6 +363,11 @@ and (max-width : 982px){
 		margin-left: -1px;
 		margin-right: -1px;
 	}
+
+	.panel.panel-default.peegined.peegins.show, .panel.panel-default.peegined.peegins.search,.panel.panel-default.peegined.peegins.new{
+		margin-top: 10px;
+	}
+
 	.formed {
 		padding-left: 0;
 		padding-right: 0;
@@ -380,6 +388,10 @@ and (max-width : 982px){
 		margin-top: 81px;
 		margin-bottom: -80px;
 
+	}
+
+	.search-mobile{
+		width: 96%;
 	}
 	.center-footer{
 		margin-top: 25px;
