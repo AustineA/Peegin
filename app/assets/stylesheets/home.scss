@@ -274,7 +274,7 @@ textarea {
 	border-color: #02a882;
 }
 .pagination{
-	display: none;
+	text-align: center;
 }
 .pagination > li > a {
 	color: #02a882;
@@ -318,7 +318,7 @@ and (max-width : 982px){
   	margin-top: -25px;
   }
 	.search-mobile{
-		width: 90% !important;
+		width: 89% !important;
 	}
 	.peegined{
 		padding: 0;

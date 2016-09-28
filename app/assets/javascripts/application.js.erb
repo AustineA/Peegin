@@ -24,7 +24,7 @@ var intLoad
       $(window).scroll(function() {
         var url = $('.pagination .next_page').attr('href');
         if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 100) {
-        $('.pagination').html('<%=image_tag "ajax-loader.gif"%>')
+        $('.pagination').html('<%=image_tag "ajax-loader.gif"%>  Loading')
           return $.getScript(url);
         }
       });
