@@ -1,0 +1,78 @@
+<% @meta_title="#{@user.name}\'s - Peegins" %>
+<% @meta_description="Peegin Dictionary - Is a pidgin english dictionary and translator. Where anyone can define the meaning of any word without hassle." %>
+
+
+<section class="container all-peegin">
+
+  <%= render 'layouts/side_bar' %>
+
+  <div class="col-md-8 col-sm-12 col-xs-12">
+
+  <% @all_user_peegin.each do |peegin| %>
+
+    <div class="panel panel-default peegined">
+      <div class="panel-body">
+
+        <p class="pull-right"> <%= link_to '<< Back', :back %> </p>
+          <%= link_to peegin do %>
+          <h1 class="titled" style="color:#182634">
+            <%=peegin.title %>
+          </h1>
+          <%end%>
+        <br>
+        <br>
+        <strong>Meaning</strong>
+        <p class="described">
+        <%=simple_format(peegin.meaning) %>
+        </p>
+        <br>
+        <strong>Example</strong>
+        <p class="exampled">
+          <i>
+        <%=simple_format(peegin.example)%>
+          </i>
+        </p>
+        <br>
+        <% if peegin.origin? %>
+        <p class="origin">
+         <%="Origin: #{peegin.origin}"%>
+        </p>
+        <% end %>
+        <br>
+        <br>
+        <strong>By <%= peegin.user.name if peegin.user %></strong>
+        <br>
+        <br>
+        <ul class="hate">
+           <li class="haterz">
+             <%= link_to like_peegin_path(peegin), method: :put do%>
+             <%= image_tag "thumbs_up", height: "25px", width: "26px" %>
+             <span class="score"><%= peegin.get_upvotes.size %></span>
+             <% end %>
+           </li>
+            <li class="haterz">
+              <%= link_to dislike_peegin_path(peegin), method: :put do%>
+             <%= image_tag "thumbs_down", height: "25px", width: "26px" %>
+             <span class="score"><%= peegin.get_downvotes.size %></span>
+             <% end %>
+          </li>
+        </ul>
+        <ul class="socialed">
+
+          <li class="socialed">
+            <% if peegin.user == current_user %>
+            <%= social_share_button_tag("I just added the meaning of \'#{peegin.title}' to Peegin Dictionary", :url => "http://peegin.com#{peegin_path(peegin)}", :image => ("http://amaniart.net/wp-content/uploads/2016/08/peegin.jpg"), via: "Peegin_") %>
+            <%else%>
+            <%= social_share_button_tag("Hey check out the meaning of \'#{peegin.title}' in Peegin Dictionary", :url => "http://peegin.com#{peegin_path(peegin)}", :image => ("http://amaniart.net/wp-content/uploads/2016/08/peegin.jpg"), via: "Peegin_") %>
+          <% end %>
+          </li>
+          <li class="socialed">
+            <strong>Share to</strong>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+    <% end %>
+</div>
+</section>

@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 	     get 'search'
     end
     member do
+	     get 'userpeegins'
+    end
+    member do
       put "like" => "peegins#upvote"
       put "dislike" => "peegins#downvote"
     end

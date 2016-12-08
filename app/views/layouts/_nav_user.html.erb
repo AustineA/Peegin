@@ -25,6 +25,9 @@
               <%= link_to  "#", class: "btns ui-mobile dropdown-toggle pull-right", "data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false" do %>
                 <%= image_tag "user.png" , height: "30px", width: "30px"%>
                 <ul class="dropdown-menu mobile-drop" role="menu">
+                  <% if current_user.peegins.present? %>
+                  <li> <%= link_to "My Peegins", userpeegins_peegin_path(current_user)%> </li>
+                  <%end%>
                   <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
                   <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
                   <li>Logged in as <strong><%= current_user.name %></strong>.</li>
@@ -62,10 +65,12 @@
         <%= link_to "#", class: "dropdown-toggle", "data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false" do %>
          <%= image_tag "user.png" , height: "42px", width: "42px"%>
          <ul class="dropdown-menu" role="menu">
-           <li>Logged in as <strong><%= current_user.name %></strong>.</li>
+           <li>Logged in as <strong><%= current_user.name %></strong></li>
            <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+            <% if current_user.peegins.present? %>
+            <li> <%= link_to "My Peegins", userpeegins_peegin_path(current_user)%> </li>
+            <%end%>
            <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
-
          </ul>
         <% end %>
 

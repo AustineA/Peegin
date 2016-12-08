@@ -1,19 +1,27 @@
 class PeeginsController < ApplicationController
 
   before_action :set_peegin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote]
+  before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins]
 
 
 
   def search
 
-    if params[:search].present?
-      @peegins = Peegin.search params[:search], order: { cached_votes_score: :desc},  fields: [:title, :origin, :synonyms],misspellings: {edit_distance: 0}, page: params[:page], per_page: 8
-    else
-    redirect_to peegins_path
+      if params[:search].present?
+        @peegins = Peegin.search params[:search], order: { cached_votes_score: :desc},  fields: [:title, :origin, :synonyms],misspellings: {edit_distance: 0}, page: params[:page], per_page: 8
+      else
+      redirect_to peegins_path
+      end
+
   end
 
-end
+  def userpeegins
+    @user = User.find(params[:id])
+    @all_user_peegin = @user.peegins
+
+  end
+
+
 
   def index
     @peegin = Peegin.all.order(cached_votes_score: :desc).paginate(:page => params[:page], :per_page => 10)

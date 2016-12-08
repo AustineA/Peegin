@@ -32,7 +32,9 @@
     <% end %>
     <br>
     <br>
-    <strong>By <%= peegin.user.name if peegin.user %></strong>
+    <%= link_to userpeegins_peegin_path(peegin.user) do %>
+    <span style="color:#182634"><strong>By <%= peegin.user.name if peegin.user %></strong></span>
+    <% end %>
     <br>
     <br>
     <ul class="hate">
