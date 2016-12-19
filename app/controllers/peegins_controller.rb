@@ -24,7 +24,7 @@ class PeeginsController < ApplicationController
 
 
   def index
-    @peegin = Peegin.all.order(cached_votes_score: :desc).paginate(:page => params[:page], :per_page => 10)
+    @peegin = Peegin.all.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
