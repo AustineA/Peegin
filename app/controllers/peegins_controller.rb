@@ -36,7 +36,12 @@ class PeeginsController < ApplicationController
   end
 
   def new
+    if current_user.name?
     @peegin = current_user.peegins.build
+  else
+    redirect_to root_path, alert: 'Add a Name to your account and continue'
+
+  end
   end
 
   def edit
@@ -44,8 +49,8 @@ class PeeginsController < ApplicationController
   end
 
   def create
-    @peegin = current_user.peegins.build(peegin_params)
 
+    @peegin = current_user.peegins.build(peegin_params)
     if @peegin.save
       redirect_to @peegin, notice: 'Your Peegin has been added'
     else

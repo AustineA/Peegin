@@ -5,15 +5,15 @@
 <section class="container all-peegin">
 
   <%= render 'layouts/side_bar' %>
-
   <div class="col-md-8 col-sm-12 col-xs-12">
 
   <% @all_user_peegin.each do |peegin| %>
 
     <div class="panel panel-default peegined">
       <div class="panel-body">
-
-        <p class="pull-right"> <%= link_to '<< Back', :back %> </p>
+        <% if peegin.user == current_user || current_user.try(:admin?) %>
+        <p class="pull-right"> <%= link_to 'Edit', edit_peegin_path(peegin) %> | <%= link_to 'Delete', peegin, method: :delete, data: { confirm: 'Are you sure?' } %> </p>
+        <% end %>
           <%= link_to peegin do %>
           <h1 class="titled" style="color:#182634">
             <%=peegin.title %>
@@ -40,7 +40,7 @@
         <% end %>
         <br>
         <br>
-        <strong>By <%= peegin.user.name if peegin.user %></strong>
+          <span style="color:#182634"><strong>By <span style="color:#02a882"> <%= peegin.user.name if peegin.user %></span> <%= peegin.created_at.strftime( "%B %e, %Y")%></strong></span>
         <br>
         <br>
         <ul class="hate">
@@ -55,6 +55,10 @@
              <%= image_tag "thumbs_down", height: "25px", width: "26px" %>
              <span class="score"><%= peegin.get_downvotes.size %></span>
              <% end %>
+          </li>
+
+          <li class="haterz views">
+            <%= "#{peegin.impressionist_count} Views" %>
           </li>
         </ul>
         <ul class="socialed">

@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
       permitted_params = [:email, :password, :password_confirmation, :name]
 
       if params[:action] == 'update'
-        devise_parameter_sanitizer.for(:account_update) {
+        devise_parameter_sanitizer.permit(:account_update) {
           |u| u.permit(permitted_params << :current_password)
         }
       elsif params[:action] == 'create'

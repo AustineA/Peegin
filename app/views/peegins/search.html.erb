@@ -29,22 +29,19 @@
             <%= simple_format(peegin.meaning) %>
             </p>
             <br>
-            <p class="exampled">
-              <i>
-                <%=simple_format(peegin.example)%>
-              </i>
-            </p>
-            <br>
+
             <% if peegin.origin? %>
+            <%= link_to peegin do %>
             <p class="origin">
-             <%="Origin: #{peegin.origin}"%>
+             <%="See Examples"%>
             </p>
+            <% end %>
             <% end %>
             <br>
             <br>
             <% if peegin.user %>
               <%= link_to userpeegins_peegin_path(peegin.user) do %>
-                <span style="color:#182634"><strong>By <%= peegin.user.name %></strong></span>
+                <span style="color:#182634"><strong>By <span style="color:#02a882"> <%= peegin.user.name %></span> <%= peegin.created_at.strftime( "%B %e, %Y")%></strong></span>
               <% end %>
             <% end %>
             <br>
@@ -62,6 +59,9 @@
                  <span class="score"><%= peegin.get_downvotes.size %></span>
                  <% end %>
               </li>
+              <li class="haterz views">
+                <%= "#{peegin.impressionist_count} Views" %>
+              </li>
             </ul>
 
             <ul class="socialed">
@@ -71,9 +71,6 @@
                 <%else%>
                 <%= social_share_button_tag("Hey check out the meaning of \'#{peegin.title}' in Peegin Dictionary", :url => "http://peegin.com#{peegin_path(peegin)}", :image => ("http://amaniart.net/wp-content/uploads/2016/08/peegin.jpg"), via: "Peegin_") %>
               <% end %>
-              </li>
-              <li class="socialed">
-                <strong>Share to</strong>
               </li>
             </ul>
 

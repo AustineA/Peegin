@@ -154,7 +154,8 @@ a {
 	font-style: italic;
 	background-color: #182634;
 	display: inline;
-	padding: 3px;
+	padding: 8px;
+	border-radius: 4px;
 	font-weight: bold;
 }
 
@@ -327,6 +328,10 @@ and (max-width : 982px){
   .socialed {
   	margin-top: -25px;
   }
+
+	.views{
+		font-size: 12px;
+	}
 	.search-mobile{
 		width: 89% !important;
 	}
