@@ -2,13 +2,14 @@ class PeeginsController < ApplicationController
 
   before_action :set_peegin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins]
+  impressionist :actions=>[:show]
 
 
 
   def search
 
       if params[:search].present?
-        @peegins = Peegin.search params[:search], order: { cached_votes_score: :desc},  fields: [:title, :origin, :synonyms],misspellings: {edit_distance: 0}, page: params[:page], per_page: 8
+        @peegins = Peegin.search params[:search], order: { cached_votes_score: :desc},  fields: [:title, :origin, :synonyms],misspellings: {edit_distance: 2}, page: params[:page], per_page: 8
       else
       redirect_to peegins_path
       end
@@ -30,6 +31,8 @@ class PeeginsController < ApplicationController
   def show
     @meta_title = @peegin.title
     @meta_description = @peegin.meaning
+    @peegin = Peegin.find_by_permalink(params[:id])
+   impressionist(@peegin) # 2nd argument is optional
   end
 
   def new

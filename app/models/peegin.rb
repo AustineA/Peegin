@@ -1,8 +1,9 @@
 class Peegin < ActiveRecord::Base
-	searchkick 
+	searchkick
 	belongs_to :user
 	before_create :generate_permalink
 	acts_as_votable
+	is_impressionable
 
 	validates_presence_of :title, :meaning, :example, :synonyms, { :message => "cannot be blank" }
 	validates :title, :length => { :maximum => 50}

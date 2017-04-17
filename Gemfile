@@ -16,6 +16,7 @@ gem 'searchkick', '~> 1.3', '>= 1.3.1'
 gem 'social-share-button', '~> 0.3.1'
 gem 'will_paginate', '~> 3.1'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+gem 'impressionist'
 
 
 
