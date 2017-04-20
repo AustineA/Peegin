@@ -9,23 +9,26 @@ class PeeginsController < ApplicationController
   def search
 
       if params[:search].present?
-        @peegins = Peegin.search params[:search], order: { cached_votes_score: :desc},  fields: [:title, :origin, :synonyms],misspellings: {edit_distance: 2}, page: params[:page], per_page: 8
+        @peegins = Peegin.search params[:search], order: { cached_votes_score: :desc},  fields: [:title, :origin, :synonyms],misspellings: {edit_distance: 0}, page: params[:page], per_page: 8
       else
       redirect_to peegins_path
       end
 
+      @searchem = Peegin.random
   end
 
   def userpeegins
     @user = User.find(params[:id])
     @all_user_peegin = @user.peegins
 
+    @usered = Peegin.random
   end
 
 
 
   def index
     @peegin = Peegin.all.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10)
+    @lol = Peegin.random
   end
 
   def show
@@ -33,6 +36,8 @@ class PeeginsController < ApplicationController
     @meta_description = @peegin.meaning
     @peegin = Peegin.find_by_permalink(params[:id])
    impressionist(@peegin) # 2nd argument is optional
+
+   @showthem = Peegin.random
   end
 
   def new

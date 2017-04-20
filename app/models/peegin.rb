@@ -4,6 +4,7 @@ class Peegin < ActiveRecord::Base
 	before_create :generate_permalink
 	acts_as_votable
 	is_impressionable
+	include Randomable
 
 	validates_presence_of :title, :meaning, :example, :synonyms, { :message => "cannot be blank" }
 	validates :title, :length => { :maximum => 50}
