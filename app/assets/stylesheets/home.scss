@@ -356,11 +356,20 @@ footer.page-footer {
 	color: #FAD93D;
 }
 
+
+.show {
+    margin-bottom: 190px;
+}
+
 @media (max-width : 567px){
 	.helper-b{
 		font-size: 12px;
 		padding: 4px;
 	}
+
+  .show {
+      margin-bottom: 0px;
+  }
 }
 
 @media only screen and (max-width: 768px)
@@ -375,6 +384,9 @@ and (max-width : 982px){
 	.search-mobile{
 		width: 89% !important;
 	}
+  .show {
+      margin-bottom: 0px;
+  }
 	.peegined{
 		padding: 0;
 	}

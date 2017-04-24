@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.3.1"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -17,8 +18,7 @@ gem 'social-share-button', '~> 0.3.1'
 gem 'will_paginate', '~> 3.1'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 gem 'impressionist'
-
-
+gem 'json', github: 'flori/json', branch: 'v1.8'
 
 group :development, :test do
   gem 'byebug'
