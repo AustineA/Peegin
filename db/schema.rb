@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20170417142022) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "impressions", force: :cascade do |t|
     t.string   "impressionable_type"
     t.integer  "impressionable_id"
@@ -30,15 +33,15 @@ ActiveRecord::Schema.define(version: 20170417142022) do
     t.datetime "updated_at"
   end
 
-  add_index "impressions", ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index"
-  add_index "impressions", ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index"
-  add_index "impressions", ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index"
-  add_index "impressions", ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index"
-  add_index "impressions", ["impressionable_type", "impressionable_id", "params"], name: "poly_params_request_index"
-  add_index "impressions", ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index"
-  add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
-  add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
-  add_index "impressions", ["user_id"], name: "index_impressions_on_user_id"
+  add_index "impressions", ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index", using: :btree
+  add_index "impressions", ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index", using: :btree
+  add_index "impressions", ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "params"], name: "poly_params_request_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index", using: :btree
+  add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", using: :btree
+  add_index "impressions", ["user_id"], name: "index_impressions_on_user_id", using: :btree
 
   create_table "peegins", force: :cascade do |t|
     t.string   "title"
@@ -59,14 +62,14 @@ ActiveRecord::Schema.define(version: 20170417142022) do
     t.string   "synonyms"
   end
 
-  add_index "peegins", ["cached_votes_down"], name: "index_peegins_on_cached_votes_down"
-  add_index "peegins", ["cached_votes_score"], name: "index_peegins_on_cached_votes_score"
-  add_index "peegins", ["cached_votes_total"], name: "index_peegins_on_cached_votes_total"
-  add_index "peegins", ["cached_votes_up"], name: "index_peegins_on_cached_votes_up"
-  add_index "peegins", ["cached_weighted_average"], name: "index_peegins_on_cached_weighted_average"
-  add_index "peegins", ["cached_weighted_score"], name: "index_peegins_on_cached_weighted_score"
-  add_index "peegins", ["cached_weighted_total"], name: "index_peegins_on_cached_weighted_total"
-  add_index "peegins", ["user_id"], name: "index_peegins_on_user_id"
+  add_index "peegins", ["cached_votes_down"], name: "index_peegins_on_cached_votes_down", using: :btree
+  add_index "peegins", ["cached_votes_score"], name: "index_peegins_on_cached_votes_score", using: :btree
+  add_index "peegins", ["cached_votes_total"], name: "index_peegins_on_cached_votes_total", using: :btree
+  add_index "peegins", ["cached_votes_up"], name: "index_peegins_on_cached_votes_up", using: :btree
+  add_index "peegins", ["cached_weighted_average"], name: "index_peegins_on_cached_weighted_average", using: :btree
+  add_index "peegins", ["cached_weighted_score"], name: "index_peegins_on_cached_weighted_score", using: :btree
+  add_index "peegins", ["cached_weighted_total"], name: "index_peegins_on_cached_weighted_total", using: :btree
+  add_index "peegins", ["user_id"], name: "index_peegins_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -85,8 +88,8 @@ ActiveRecord::Schema.define(version: 20170417142022) do
     t.boolean  "admin"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "votes", force: :cascade do |t|
     t.integer  "votable_id"
@@ -100,7 +103,7 @@ ActiveRecord::Schema.define(version: 20170417142022) do
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
 end
