@@ -24,6 +24,6 @@ test:
 
 production:
   adapter: postgresql
+  url: <%= ENV['POSTGRESQL_URL'] %>
   encoding: unicode
   pool: 5
-  url: <%= ENV['POSTGRESQL_URL'] %>
