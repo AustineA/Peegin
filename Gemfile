@@ -21,6 +21,7 @@ gem 'impressionist'
 gem 'json', github: 'flori/json', branch: 'v1.8'
 gem 'jquery-turbolinks'
 gem 'pg'
+gem 'puma'
 
 group :development, :test do
   gem 'byebug'
