@@ -14,7 +14,7 @@ Devise.setup do |config|
   config.reset_password_within = 6.hours
   config.sign_out_via = :delete
   config.omniauth :facebook, '182794135483291' , '1487c8ebd70bb7bb33e0893c25565ee6',
-                  scope: 'public_profile' 'name',
+                  scope: 'email', info_fields: 'email, name',
                   callback_url: 'http://peegin.com/users/auth/facebook/callback'
 
 end
