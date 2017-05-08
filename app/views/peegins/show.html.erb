@@ -2,6 +2,8 @@
 
   <%= render 'layouts/side_bar' %>
 
+<div class="col-md-8 col-sm-12 col-xs-12">
+
   <div class="panel panel-default side-panel btn-nu" id="close-it">
     <div class="panel-body ">
       <%= link_to new_peegin_path  do %>
@@ -13,14 +15,6 @@
   </div>
 
 
-
-
-
-
-
-
-
-<div class="col-md-8 col-sm-12 col-xs-12">
     <div class="panel panel-default peegined <%= controller_name %> <%= action_name %>">
       <div class="panel-body">
         <% if @peegin.user == current_user || current_user.try(:admin?) %>

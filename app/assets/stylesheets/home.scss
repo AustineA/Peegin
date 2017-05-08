@@ -37,6 +37,15 @@
   z-index: 50px;
 }
 
+.helper-b.ed-btn{
+  width: 100%;
+  border: 1px solid #182634;
+  background-color: #182634;
+}
+
+.side-panel.btn-nu{
+  background-color: #182634;
+}
 
 .navbared{
 
@@ -167,11 +176,7 @@ div.col-sm-2{
   justify-content: center;
 }
 
-.helper-b.ed-btn{
-  width: 100%;
-  border: 1px solid #FAD93D;
-  background-color: #182634;
-}
+
 
 button.close.mob {
 	margin-bottom: 5px;
@@ -402,7 +407,9 @@ and (max-width : 982px){
   .socialed {
   	margin-top: -25px;
   }
-
+  .side-panel.btn-nu{
+    background-color: #02a882;
+  }
 	.views{
 		font-size: 12px;
 	}
@@ -421,6 +428,11 @@ and (max-width : 982px){
 
 	}
 
+  .helper-b.ed-btn{
+    width: 100%;
+    border: 1px solid #FAD93D;
+    background-color: #182634;
+  }
 	.helper-b.btn2 {
     float: right;
 }
@@ -432,12 +444,26 @@ and (max-width : 982px){
 	.navbared{
 		padding-top: 8px;
 	}
+
+.side-panel .btn-nu{
+      background-color: #182634;
+}
+
 }
 
 
 
 @media (max-width : 991px){
 
+  .helper-b.ed-btn{
+    width: 100%;
+    border: 1px solid #FAD93D !important;
+    background-color: #182634;
+  }
+
+.side-panel.btn-nu{
+  background-color: #02a882;
+}
 	.all-peegin {
   	margin-top: 80px;
   }
