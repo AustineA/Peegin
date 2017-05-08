@@ -46,13 +46,13 @@
         <ul class="hate">
            <li class="haterz">
              <%= link_to like_peegin_path(peegin), method: :put do%>
-             <%= image_tag "thumbs_up", height: "25px", width: "26px" %>
+            <i class="fa fa-thumbs-up fa-2x ic"></i>
              <span class="score"><%= peegin.get_upvotes.size %></span>
              <% end %>
            </li>
             <li class="haterz">
               <%= link_to dislike_peegin_path(peegin), method: :put do%>
-             <%= image_tag "thumbs_down", height: "25px", width: "26px" %>
+              <i class="fa fa-thumbs-down fa-2x ic"></i>
              <span class="score"><%= peegin.get_downvotes.size %></span>
              <% end %>
           </li>
@@ -65,13 +65,13 @@
 
           <li class="socialed">
             <% if peegin.user == current_user %>
-            <%= social_share_button_tag("I just added the meaning of \'#{peegin.title}' to Peegin Dictionary", :url => "http://peegin.com#{peegin_path(peegin)}", :image => ("http://amaniart.net/wp-content/uploads/2016/08/peegin.jpg"), via: "Peegin_") %>
+            <%= social_share_button_tag("I just added the meaning of \'#{peegin.title}' to Peegin Dictionary", :url => "http://peegin.com#{peegin_path(peegin)}", :image => ("https://www.dropbox.com/s/8t3kfr23pkb2a5k/FB-Cover.jpg"), via: "Peegin_") %>
             <%else%>
-            <%= social_share_button_tag("Hey check out the meaning of \'#{peegin.title}' in Peegin Dictionary", :url => "http://peegin.com#{peegin_path(peegin)}", :image => ("http://amaniart.net/wp-content/uploads/2016/08/peegin.jpg"), via: "Peegin_") %>
+            <%= social_share_button_tag("Hey check out the meaning of \'#{peegin.title}' in Peegin Dictionary", :url => "http://peegin.com#{peegin_path(peegin)}", :image => ("https://www.dropbox.com/s/8t3kfr23pkb2a5k/FB-Cover.jpg"), via: "Peegin_") %>
           <% end %>
           </li>
           <li class="socialed">
-            <strong>Share to</strong>
+
           </li>
         </ul>
 

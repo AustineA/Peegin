@@ -4,14 +4,21 @@
     <p class="heading" >PEEGIN ENGLISH DICTIONARY IS DEFINED BY YOU </p>
   <br>
   <br>
+
+<% if user_signed_in? == true %>
   <%= link_to new_peegin_path  do %>
-      <div class="helper-b">
-          <%= image_tag "add.png", class: "btn1", height: "28px", width: "28px" %>
-          <span style="color: #FAD93D !important;">Add A New Word</span>
+      <div class="helper-b ed-btn">
+          <i class="fa fa-pencil-square-o fa-2x btn1 ed"></i> <div class="nu-ad"style="color: #FAD93D !important;">Add A New Word</div>
       </div>
   <% end %>
+<% end %>
+
 <% if user_signed_in? == false %>
-  <%= link_to "Create An Account", new_user_registration_path, class: "helper-b btn2" %>
+  <%= link_to user_facebook_omniauth_authorize_path  do %>
+  <div class="helper-b btn2">
+    <i class="fa fa-facebook"></i> <span> Sign In With Facebook</span>
+  </div>
+<%end%>
 <%end%>
   </div>
 </div>
