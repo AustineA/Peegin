@@ -44,15 +44,15 @@ class PeeginsController < ApplicationController
               description: @peegin.meaning,
               type:     'website',
               url:      peegin_url(@peegin),
-              image:    'https://www.dropbox.com/s/8t3kfr23pkb2a5k/FB-Cover.jpg'
+              image:    view_context.image_url('facebook-card.jpg')
             },
 
             twitter: {
               site_name: @peegin.title,
               site: '@peegin_',
-              card: 'summary',
+              card: 'summary_large_image',
               description: @peegin.meaning,
-              image: 'https://www.dropbox.com/s/8t3kfr23pkb2a5k/FB-Cover.jpg'
+              image: view_context.image_url('twitter-card.jpg')
              }
 
 

@@ -78,9 +78,9 @@
         <ul class="socialed">
           <li class="socialed">
             <% if @peegin.user == current_user %>
-            <%= social_share_button_tag("I just added the meaning of \'#{@peegin.title}' to Peegin Dictionary", :image => ("https://www.dropbox.com/s/8t3kfr23pkb2a5k/FB-Cover.jpg"), via: "Peegin_") %>
+            <%= social_share_button_tag("I just add the meaning of \'#{@peegin.title}' inside Peegin Dictionary, go add your own pidgin", :image => ("https://www.dropbox.com/s/8t3kfr23pkb2a5k/FB-Cover.jpg"), via: "Peegin_") %>
             <%else%>
-            <%= social_share_button_tag("Hey check out the meaning of \'#{@peegin.title}' in Peegin Dictionary", :image => ("https://www.dropbox.com/s/8t3kfr23pkb2a5k/FB-Cover.jpg"), via: "Peegin_") %>
+            <%= social_share_button_tag("Oya make you go check out weytin  \'#{@peegin.title}' mean for Peegin Dictionary", :image => ("https://www.dropbox.com/s/8t3kfr23pkb2a5k/FB-Cover.jpg"), via: "Peegin_") %>
           <% end %>
           </li>
 
