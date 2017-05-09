@@ -233,7 +233,7 @@ DEPENDENCIES
   rails (= 4.2.6)
   rails_12factor
   sass-rails (~> 5.0)
-  searchkick (~> 2.2, >= 2.2.1)
+  searchkick (~> 2.1)
   social-share-button (~> 0.10.0)
   spring
   turbolinks
