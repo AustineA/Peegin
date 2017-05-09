@@ -32,12 +32,30 @@ class PeeginsController < ApplicationController
   end
 
   def show
-    @meta_title = @peegin.title
+    @meta_title = @peegin.title + " - meaning in pidgin english | Peegin Dictionary"
     @meta_description = @peegin.meaning
     @peegin = Peegin.find_by_permalink(params[:id])
    impressionist(@peegin) # 2nd argument is optional
 
    @showthem = Peegin.random
+
+   set_meta_tags og: {
+              title:    @peegin.title,
+              description: @peegin.meaning,
+              type:     'website',
+              url:      peegin_url(@peegin),
+              image:    'https://www.dropbox.com/s/8t3kfr23pkb2a5k/FB-Cover.jpg'
+            },
+
+            twitter: {
+              site_name: @peegin.title,
+              site: '@peegin_',
+              card: 'summary',
+              description: @peegin.meaning,
+              image: 'https://www.dropbox.com/s/8t3kfr23pkb2a5k/FB-Cover.jpg'
+             }
+
+
   end
 
   def new

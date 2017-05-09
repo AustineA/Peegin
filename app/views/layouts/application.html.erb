@@ -9,17 +9,8 @@
   <%= csrf_meta_tags %>
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="msvalidate.01" content="D14A70D1C5D1A36845802F9579B61701" />
-  <!-- You can use open graph tags to customize link previews.
-    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-    <% if content_for?(:meta_og) %>
-        <%= yield :meta_og %>
-    <% else %>
-        <meta property="og:title" content="Peegin Dictionary - Is a pidgin english dictionary and translator. Where anyone can define the meaning of any word without hassle." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://peegin.com" />
-        <%= tag :meta, property: 'og:image', content: image_url('peegin.jpg') %>
-    <% end %>
-    
+  <%= display_meta_tags %>
+
    <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

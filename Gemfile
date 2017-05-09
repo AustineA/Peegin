@@ -24,6 +24,7 @@ gem 'pg'
 gem 'puma'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'font-awesome-sass', '~> 4.7'
+gem 'meta-tags'
 
 group :development, :test do
   gem 'byebug'
