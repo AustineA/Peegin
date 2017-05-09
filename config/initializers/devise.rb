@@ -5,6 +5,7 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
   config.case_insensitive_keys = [:email]
   config.strip_whitespace_keys = [:email]
+  config.authentication_keys = [ :name ]
   config.skip_session_storage = [:http_auth]
   config.stretches = Rails.env.test? ? 1 : 11
   config.reconfirmable = true
@@ -13,8 +14,8 @@ Devise.setup do |config|
   config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
   config.reset_password_within = 6.hours
   config.sign_out_via = :delete
-  config.omniauth :facebook, '182794135483291' , '1487c8ebd70bb7bb33e0893c25565ee6',
-                  scope: 'email', info_fields: 'email, name',
+  config.omniauth :facebook, '161201897397027' , '2d2254f578da9a859455f34d7c136786',
                   callback_url: 'http://peegin.com/users/auth/facebook/callback'
+
 
 end

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   #resources :peegins
   resources :peegins, only: [:new, :index]
   resources :peegins, :path=> '', except: [:new, :index]
