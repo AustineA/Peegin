@@ -12,7 +12,6 @@
 //
 //= require social-share-button
 //= require jquery
-//= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
@@ -20,11 +19,11 @@
 
 var intLoad
  intLoad = $(function (){
-  $(document).ready(function() {
+  $(document).on('turbolinks:load',function() {
     if ($('.pagination').length) {
       $(window).scroll(function() {
         var url = $('.pagination .next_page').attr('href');
-        if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 100) {
+        if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 250) {
         $('.pagination').html('<%=image_tag "ajax-loader.gif"%>  Loading')
           return $.getScript(url);
         }
