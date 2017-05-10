@@ -53,7 +53,9 @@ class PeeginsController < ApplicationController
               card: 'summary_large_image',
               description: @peegin.meaning,
               image: view_context.image_url('twitter-card.jpg')
-             }
+            },
+
+            icon: view_context.image_url('favicon.png'), type: 'image/png'
 
 
   end
