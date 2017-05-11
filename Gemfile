@@ -24,6 +24,7 @@ gem 'puma'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'font-awesome-sass', '~> 4.7'
 gem 'meta-tags'
+gem 'sitemap_generator'
 
 group :development, :test do
   gem 'byebug'
