@@ -25,6 +25,9 @@ gem 'omniauth-facebook', '~> 4.0'
 gem 'font-awesome-sass', '~> 4.7'
 gem 'meta-tags'
 gem 'sitemap_generator'
+gem "browser", require: "browser/browser"
+
+
 
 group :development, :test do
   gem 'byebug'

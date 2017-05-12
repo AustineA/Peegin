@@ -2,7 +2,7 @@
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  background: #182634;
+  background: #FF0000;
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -17,11 +17,11 @@
   display: block;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: -5px;
   text-align: center;
   padding: 0;
   margin: 0;
-  line-height: 55px;
+  line-height: 65px;
   font-family: 'Roboto';
   font-weight: 300;
   animation: plus-out 0.3s;
@@ -41,6 +41,12 @@
   width: 100%;
   border: 1px solid #182634;
   background-color: #182634;
+}
+
+.helper-b.ed-btn.opera-mini{
+  border: 1px solid #FAD93D;
+  background-color: #02a882;
+  margin-top: 8px;
 }
 
 .side-panel.btn-nu{
@@ -391,7 +397,11 @@ footer.page-footer {
 .show {
     margin-bottom: 190px;
 }
-
+@media (max-width : 360px){
+  .navbar-fixed-top{
+    position: absolute;
+  }
+}
 @media (max-width : 567px){
 	.helper-b{
 		font-size: 12px;

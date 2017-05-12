@@ -3,6 +3,7 @@ class PeeginsController < ApplicationController
   before_action :set_peegin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins]
   impressionist :actions=>[:show]
+  before_action :agent_smith, only: [:show, :search, :index, :userpeegins]
 
 
 
@@ -16,6 +17,11 @@ class PeeginsController < ApplicationController
 
       @searchem = Peegin.random
   end
+
+  def agent_smith
+      @browser = Browser.new(request.headers['User-Agent'])
+  end
+
 
   def userpeegins
     @user = User.find(params[:id])
@@ -38,7 +44,6 @@ class PeeginsController < ApplicationController
    impressionist(@peegin) # 2nd argument is optional
 
    @showthem = Peegin.random
-
    set_meta_tags og: {
               title:    @peegin.title,
               description: @peegin.meaning,
