@@ -78,16 +78,19 @@
       </div>
     </div>
     <% end %>
+    </div>
+</div>
+
+
+
 <% if @browser.opera_mini?%>
 
 <% else %>
-    <div id="container-floating">
-          <%= link_to @usered do %>
-            <div id="floating-button" >
-                <p class="plus"><i class="fa fa-random fa-2x"></i></p>
-            </div>
-        <%end%>
+    <%= render 'layouts/lol' %>
 <% end %>
-    </div>
-</div>
+
+</section>
+
+<section>
+  <%=will_paginate @all_user_peegin,inner_window:1, renderer: BootstrapPagination::Rails %>
 </section>

@@ -15,20 +15,19 @@
   </div>
 
 <!-- floating button -->
-  <div id="container-floating">
-    <%= link_to @lol do %>
-      <div id="floating-button" >
-          <p class="plus"><i class="fa fa-random fa-2x"></i></p>
-      </div>
-    <%end%>
-  </div>
+<% if @browser.opera_mini?%>
 
+  <% else %>
+    <%= render 'layouts/lol' %>
+<% end %>
 
 </section>
-
+<% if @browser.opera_mini? %>
+  <%=will_paginate @peegin, inner_window:1,renderer: BootstrapPagination::Rails %>
+<% else %>
 <section class="container">
   <div id="infinite-scrolling">
     <%=will_paginate @peegin %>
   </div>
-
+<% end %>
 </section>

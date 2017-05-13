@@ -4,7 +4,7 @@ class PeeginsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins]
   impressionist :actions=>[:show]
   before_action :agent_smith, only: [:show, :search, :index, :userpeegins]
-
+  before_action :lol, only: [:show, :search, :index, :userpeegins]
 
 
   def search
@@ -14,27 +14,25 @@ class PeeginsController < ApplicationController
       else
       redirect_to peegins_path
       end
-
-      @searchem = Peegin.random
   end
 
   def agent_smith
       @browser = Browser.new(request.headers['User-Agent'])
   end
 
+  def lol
+      @lol = Peegin.random
+  end
 
   def userpeegins
     @user = User.find(params[:id])
-    @all_user_peegin = @user.peegins
-
-    @usered = Peegin.random
+    @all_user_peegin = @user.peegins.paginate(:page => params[:page], :per_page => 10)
   end
 
 
 
   def index
     @peegin = Peegin.all.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10)
-    @lol = Peegin.random
   end
 
   def show
@@ -42,8 +40,6 @@ class PeeginsController < ApplicationController
     @meta_description = @peegin.meaning
     @peegin = Peegin.find_by_permalink(params[:id])
    impressionist(@peegin) # 2nd argument is optional
-
-   @showthem = Peegin.random
    set_meta_tags og: {
               title:    @peegin.title,
               description: @peegin.meaning,
