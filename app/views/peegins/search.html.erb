@@ -5,9 +5,27 @@
 
   <%= render 'layouts/side_bar' %>
 
+<% if @peegins.empty?%>
+<div class="col-md-8 col-sm-12 col-xs-12">
+  <div class="panel panel-default peegined <%= controller_name %> <%= action_name %>">
+    <div class="panel-body">
 
-<% if params[:search].nil?%>
-<%= "search for #{params[:search]} not found"%>
+        <%= link_to :back do%>
+          <span class="fa fa-angle-left"> Back</span>
+        <% end %>
+        <br>
+        <hr>
+      <p style="font-size:20px;">
+        <strong>
+          <%= "Search for '#{params[:search]}' not found"%>
+        </strong>
+      </p>
+      <p>
+        Please <%=link_to 'add word', new_peegin_path%> or request for the meaning  of  <%=  link_to "'#{params[:search]}'", "https://twitter.com/peegin_"%>
+      </p>
+    </div>
+  </div>
+</div>
 <%else%>
     <%@peegins.each do |peegin|%>
     <div class="col-md-8 col-sm-12 col-xs-12">

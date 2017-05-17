@@ -28,9 +28,14 @@
         <% if @peegin.user == current_user || current_user.try(:admin?) %>
         <p class="pull-right"> <%= link_to 'Edit', edit_peegin_path(@peegin) %> | <%= link_to 'Delete', @peegin, method: :delete, data: { confirm: 'Are you sure?' } %> </p>
         <% end %>
-        <h1 class="titled">
-          <%=@peegin.title %>
-        </h1>
+        <%= link_to :back do%>
+          <span class="fa fa-angle-left"> Back</span>
+        <% end %>
+        <br>
+        <br>
+          <h1 class="titled">
+            <%=@peegin.title %>
+          </h1>
         <br>
         <br>
         <strong>Meaning</strong>
