@@ -8,19 +8,34 @@
       <h1 class="side-bar" id="side" >IS DEFINED</h1><br>
       <h1 class="side-bar" id="side" >BY YOU</h1><br>
       <div>
+          <%= link_to new_peegin_path  do %>
         <button type="button" class="btn btn-default create-peegin">
-        <%= link_to new_peegin_path  do %>
+
           <%= image_tag "add.png", class: "btn1", height: "28px", width: "28px" %>
 
             <span style="color: #FAD93D !important;">Define A New Word</span>
 
-          <% end %>
+
         </button>
+          <% end %>
       </div>
 
     </div>
   </div>
+  <div>
 
+  </div>
+  <% if user_signed_in? == false %>
+    <%= link_to user_facebook_omniauth_authorize_path  do %>
+    <div class="helper-b btn2">
+      <i class="fa fa-facebook" style="font-size:20px;"></i> <span> Sign In With Facebook</span>
+    </div>
+  <%end%>
+  <%end%>
+
+  <div class="side-info">
+    <%=link_to "Terms Of Service", "/pages/terms", class: "side-info" %> | <%=link_to  "Privacy Policy","/pages/privacy", class: "side-info" %> | <a class="side-info"href="http://amaniart.net" target="_blank">© 2017 Copyright</a>
+  </div>
 
 
 </div>
