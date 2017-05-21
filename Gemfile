@@ -26,7 +26,7 @@ gem 'font-awesome-sass', '~> 4.7'
 gem 'meta-tags'
 gem 'sitemap_generator'
 gem "browser", require: "browser/browser"
-gem "searchjoy", '~> 0.3.1'
+gem "searchjoy", :git => 'git://github.com/amtheguy/searchjoy'
 
 
 

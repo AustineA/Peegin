@@ -1,5 +1,5 @@
 
-ENV["SEARCHJOY_USERNAME"] = "amani"
-ENV["SEARCHJOY_PASSWORD"] = "louisdex13"
+ENV["SEARCHJOY_USERNAME"] = "peegin"
+ENV["SEARCHJOY_PASSWORD"] = "omonaija"
 
 Searchjoy.top_searches = 500

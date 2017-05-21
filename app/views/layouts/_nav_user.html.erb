@@ -26,7 +26,7 @@
                 <%= image_tag "user.png" , height: "30px", width: "30px"%>
                 <ul class="dropdown-menu mobile-drop" role="menu">
                   <% if current_user.admin? %>
-                    <li> <%=link_to "Search Analystics", searchjoy_path%> </li>
+                    <li> <%=link_to "Search Analystics", "/searchjoy/searches/overview?search_type=Peegin"%> </li>
                   <% end %>
                   <% if current_user.peegins.present? %>
                   <li> <%= link_to "My Peegins", userpeegins_peegin_path(current_user)%> </li>
