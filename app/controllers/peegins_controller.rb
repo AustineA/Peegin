@@ -10,7 +10,7 @@ class PeeginsController < ApplicationController
   def search
 
       if params[:search].present?
-        @peegins = Peegin.search params[:search], order: { cached_votes_score: :desc},  fields: [:title, :origin, :synonyms],misspellings: {edit_distance: 1, below: 1}, page: params[:page], per_page: 8
+        @peegins = Peegin.search params[:search], track: true ,order: { cached_votes_score: :desc},  fields: [:title, :origin, :synonyms],misspellings: {edit_distance: 1, below: 1}, page: params[:page], per_page: 8
       else
       redirect_to peegins_path
       end
@@ -38,7 +38,7 @@ class PeeginsController < ApplicationController
   def show
     @meta_title = @peegin.title + " - meaning in pidgin english | Peegin Dictionary"
     @meta_description = @peegin.meaning
-    @peegin = Peegin.find_by_permalink(params[:id])
+
    impressionist(@peegin) # 2nd argument is optional
    set_meta_tags og: {
               title:    @peegin.title,
@@ -57,8 +57,6 @@ class PeeginsController < ApplicationController
             },
 
             icon: view_context.image_url('favicon.png'), type: 'image/png'
-
-
   end
 
   def new

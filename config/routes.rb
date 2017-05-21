@@ -15,6 +15,10 @@ Rails.application.routes.draw do
       put "dislike" => "peegins#downvote"
     end
   end
+
+  authenticate :user, -> (user) { user.admin? } do
+    mount Searchjoy::Engine, at: "searchjoy"
+  end
 post 'peegins' => 'peegins#create'
 
 get "/pages/:page" => "pages#show"
