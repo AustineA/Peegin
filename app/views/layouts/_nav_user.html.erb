@@ -26,7 +26,7 @@
                 <%= image_tag "user.png" , height: "30px", width: "30px"%>
                 <ul class="dropdown-menu mobile-drop" role="menu">
                   <% if current_user.admin? %>
-                    <li> <%=link_to "Search Analystics", "/searchjoy/searches/overview?search_type=Peegin"%> </li>
+                    <li> <%=link_to "Search Analytics", "/searchjoy/searches/overview?search_type=Peegin"%> </li>
                   <% end %>
                   <% if current_user.peegins.present? %>
                   <li> <%= link_to "My Peegins", userpeegins_peegin_path(current_user)%> </li>
@@ -70,7 +70,7 @@
          <ul class="dropdown-menu" role="menu">
            <li>Logged in as <strong><%= current_user.name %></strong></li>
            <% if current_user.admin? %>
-             <li> <%=link_to "Search Analystics", "/searchjoy/searches/overview?search_type=Peegin"%> </li>
+             <li> <%=link_to "Search Analytics", "/searchjoy/searches/overview?search_type=Peegin"%> </li>
            <% end %>
            <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
             <% if current_user.peegins.present? %>
