@@ -27,6 +27,7 @@ gem 'meta-tags'
 gem 'sitemap_generator'
 gem "browser", require: "browser/browser"
 gem "searchjoy", :git => 'git://github.com/amtheguy/searchjoy'
+gem 'rack-cors', :require => 'rack/cors'
 
 
 
