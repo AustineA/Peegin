@@ -18,8 +18,10 @@ class PeeginsController < ApplicationController
 
   def agent_smith
       @browser = Browser.new(request.headers['User-Agent'])
-  end
 
+      @droid = request.user_agent.include?("AndroidApp")
+  end
+  
   def lol
       @lol = Peegin.random()
   end

@@ -40,6 +40,9 @@
     <%= render '/layouts/nav_guest' %>
   <% end %>
 
-  <%= render '/layouts/footer' %>
+  <% if @droid %>
+    <%else%>
+      <%= render '/layouts/footer' %>
+  <%end%>
 </body>
 </html>

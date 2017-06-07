@@ -6,9 +6,13 @@
 
   <%= render 'layouts/side_bar' %>
 
+
+  <% if @droid %>
+  <%else%>
   <div class="col-xs-12 hidden-md hidden-lg">
     <%= render 'layouts/helper_tag' %>
   </div>
+  <%end%>
 
   <div id="peegin">
     <%= render @peegin %>
