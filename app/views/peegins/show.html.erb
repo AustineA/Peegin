@@ -1,26 +1,38 @@
-<section class="container all-peegin">
+<section
+
+
+<% if @droid %>
+  <%else%>
+    class="container all-peegin"
+  <%end%>
+
+
+  >
 
   <%= render 'layouts/side_bar' %>
 
 <div class="col-md-8 col-sm-12 col-xs-12">
 
-  <div class="panel panel-default side-panel btn-nu" id="close-it">
-    <div class="panel-body ">
-      <%= link_to new_peegin_path  do %>
-          <div class="helper-b ed-btn">
-              <i class="fa fa-pencil-square-o fa-2x btn1 ed"></i> <div class="nu-ad"style="color: #FAD93D !important;">Add Your Own Word</div>
-          </div>
-      <% end %>
-      <% if @browser.opera_mini?%>
-          <%= link_to @lol do %>
-              <div class="helper-b ed-btn opera-mini">
-                  <i class="fa fa-random fa-2x btn1 ed"></i> <div class="nu-ad"style="color: #FAD93D !important;">Shuffle Word</div>
-              </div>
-          <% end %>
-          <% end %>
+  <% if @droid %>
+    <%else%>
+        <div class="panel panel-default side-panel btn-nu" id="close-it">
+          <div class="panel-body ">
+            <%= link_to new_peegin_path  do %>
+                <div class="helper-b ed-btn">
+                    <i class="fa fa-pencil-square-o fa-2x btn1 ed"></i> <div class="nu-ad"style="color: #FAD93D !important;">Add Your Own Word</div>
+                </div>
+            <% end %>
+            <% if @browser.opera_mini?%>
+                <%= link_to @lol do %>
+                    <div class="helper-b ed-btn opera-mini">
+                        <i class="fa fa-random fa-2x btn1 ed"></i> <div class="nu-ad"style="color: #FAD93D !important;">Shuffle Word</div>
+                    </div>
+                <% end %>
+                <% end %>
 
-    </div>
-  </div>
+          </div>
+        </div>
+      <%end%>
 
 
     <div class="panel panel-default peegined <%= controller_name %> <%= action_name %>">

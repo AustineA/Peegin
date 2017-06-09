@@ -1,7 +1,16 @@
 <% @meta_title="Peegin - Search Result" %>
 <% @meta_description="Peegin Dictionary" %>
 
-<section class="container all-peegin">
+<section
+
+
+<% if @droid %>
+  <%else%>
+    class="container all-peegin"
+  <%end%>
+
+
+    >
 
   <%= render 'layouts/side_bar' %>
 

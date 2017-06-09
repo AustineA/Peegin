@@ -34,14 +34,15 @@
 
   <%= yield %>
 
-  <% if user_signed_in? %>
-    <%= render '/layouts/nav_user' %>
-  <% else %>
-    <%= render '/layouts/nav_guest' %>
-  <% end %>
-
   <% if @droid %>
     <%else%>
+        <% if user_signed_in? %>
+          <%= render '/layouts/nav_user' %>
+        <% else %>
+          <%= render '/layouts/nav_guest' %>
+        <% end %>
+
+
       <%= render '/layouts/footer' %>
   <%end%>
 </body>
