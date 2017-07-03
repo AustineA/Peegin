@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170521083137) do
+ActiveRecord::Schema.define(version: 20170624173817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20170521083137) do
     t.string   "title"
     t.string   "meaning"
     t.string   "example"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.string   "permalink"
     t.integer  "user_id"
     t.integer  "cached_votes_total",      default: 0
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20170521083137) do
     t.float    "cached_weighted_average", default: 0.0
     t.string   "origin"
     t.string   "synonyms"
+    t.boolean  "front_page",              default: false
   end
 
   add_index "peegins", ["cached_votes_down"], name: "index_peegins_on_cached_votes_down", using: :btree

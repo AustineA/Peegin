@@ -14,6 +14,14 @@ class Peegin < ActiveRecord::Base
 	validates :synonyms, :length => { :maximum => 50}
 
 
+	scope :home, -> { where(front_page: true) }
+
+	def self.set_front
+		Peegin.home.each{ |e| e.update_attributes(front_page: false)}
+		Peegin.all.sample(100).each{ |e| e.update_attributes(front_page: true)}
+	end
+
+
 	def to_param
 		permalink
 	end

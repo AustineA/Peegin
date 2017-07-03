@@ -21,7 +21,7 @@ class PeeginsController < ApplicationController
 
       @droid = request.user_agent.include?("AndroidApp")
   end
-  
+
   def lol
       @lol = Peegin.random()
   end
@@ -34,7 +34,12 @@ class PeeginsController < ApplicationController
 
 
   def index
-    @peegin = Peegin.all.order('random()').paginate(:page => params[:page], :per_page => 10)
+    if @droid
+      @peegin = Peegin.home.paginate(:page => params[:page], :per_page => 10)
+    else
+      @peegin = Peegin.all.order('random()').paginate(:page => params[:page], :per_page => 10)
+
+   end
   end
 
   def show
