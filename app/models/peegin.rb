@@ -15,6 +15,8 @@ class Peegin < ActiveRecord::Base
 
 
 	scope :home, -> { where(front_page: true) }
+	scope :phrase, -> { where(basic_phrase: true)}
+	scope :wod, -> { where(word_of_the_day: true)}
 
 	def self.set_front
 		Peegin.home.each{ |e| e.update_attributes(front_page: false)}

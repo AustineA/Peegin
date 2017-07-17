@@ -21,6 +21,9 @@
          <%= f.text_field :synonyms, class:"og-h",:placeholder => "eg. Help, Please"%> <br>
          <%= f.label :origin, "Where Did The Meaning Of This Word Originate From?" %>
          <%= f.text_field :origin, class:"og-h",:placeholder => "eg. Lagos"%> <br>
+         <%  if current_user.try(:admin?) %>
+         <%= f.check_box :word_of_the_day, class:"wod" %> <br>
+         <%end%>
          <%= f.submit "Submit Your Peegin", class: "btn-submit btn btn-primary" %>
          <%= link_to "Back", peegins_path(@peegin), class: "btn btn-primary" %>
 

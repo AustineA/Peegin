@@ -1,10 +1,10 @@
 class PeeginsController < ApplicationController
 
   before_action :set_peegin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins]
+  before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins, :phrase, :wod, :random]
   impressionist :actions=>[:show]
-  before_action :agent_smith, only: [:show, :search, :index, :userpeegins]
-  before_action :lol, only: [:show, :search, :index, :userpeegins]
+  before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random]
+  before_action :lol, only: [:show, :search, :index, :userpeegins, :phrase, :wod]
 
 
   def search
@@ -26,6 +26,11 @@ class PeeginsController < ApplicationController
       @lol = Peegin.random()
   end
 
+  def random
+    @peegin = Peegin.random()
+    render action: :show
+  end
+
   def userpeegins
     @user = User.find(params[:id])
     @all_user_peegin = @user.peegins.paginate(:page => params[:page], :per_page => 10)
@@ -41,6 +46,17 @@ class PeeginsController < ApplicationController
 
    end
   end
+
+  def phrase
+    @peegin = Peegin.phrase.paginate(:page => params[:page], :per_page => 10)
+    render action: :index
+  end
+
+  def wod
+    @peegin = Peegin.wod.paginate(:page => params[:page], :per_page => 10)
+    render action: :index
+  end
+
 
   def show
     @meta_title = @peegin.title + " - meaning in pidgin english | Peegin Dictionary"
@@ -137,6 +153,6 @@ class PeeginsController < ApplicationController
       end
 
     def peegin_params
-      params.require(:peegin).permit(:title, :meaning, :example, :slug, :origin, :synonyms)
+      params.require(:peegin).permit(:title, :meaning, :example, :slug, :origin, :synonyms, :word_of_the_day)
     end
 end

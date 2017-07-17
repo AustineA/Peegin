@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :peegins do
     collection do
 	     get 'search'
+       get 'wod'
+       get 'phrase'
+       get 'random'
     end
     member do
 	     get 'userpeegins'
