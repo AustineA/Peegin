@@ -4,7 +4,6 @@ class PeeginsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins, :phrase, :wod, :random]
   impressionist :actions=>[:show]
   before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random]
-  before_action :lol, only: [:show, :search, :index, :userpeegins, :phrase, :wod]
 
 
   def search
@@ -20,10 +19,10 @@ class PeeginsController < ApplicationController
       @browser = Browser.new(request.headers['User-Agent'])
 
       @droid = request.user_agent.include?("AndroidApp")
-  end
 
-  def lol
-      @lol = Peegin.random()
+      #Side bar word of the day
+      @wod = Peegin.wod.all.limit(1)
+
   end
 
   def random

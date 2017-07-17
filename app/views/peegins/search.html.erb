@@ -58,13 +58,17 @@
             <%= simple_format(peegin.meaning) %>
             </p>
             <br>
-
-            <% if peegin.origin? %>
-            <%= link_to peegin do %>
-            <p class="origin">
-             <%="Click To See Example Sentence"%>
+            <strong>Example</strong>
+            <p class="exampled">
+              <i>
+            <%=simple_format(peegin.example)%>
+              </i>
             </p>
-            <% end %>
+            <br>
+            <% if peegin.origin? %>
+            <p class="origin">
+              <%="Origin: #{peegin.origin}"%>
+            </p>
             <% end %>
             <br>
             <br>
