@@ -28,6 +28,8 @@
                   <% if current_user.admin? %>
                     <li> <%=link_to "Search Analytics", "/searchjoy/searches/overview?search_type=Peegin"%> </li>
                   <% end %>
+                  <li><%= link_to 'Recent Words', recent_peegins_path %></li>
+                  <li><%= link_to 'Word Of The Day', wod_peegins_path %></li>
                   <% if current_user.peegins.present? %>
                   <li> <%= link_to "My Peegins", userpeegins_peegin_path(current_user)%> </li>
                   <%end%>
@@ -69,6 +71,8 @@
          <%= image_tag "user.png" , height: "42px", width: "42px"%>
          <ul class="dropdown-menu" role="menu">
            <li>Logged in as <strong><%= current_user.name %></strong></li>
+           <li><%= link_to 'Recent Words', recent_peegins_path %></li>
+           <li><%= link_to 'Word Of The Day', wod_peegins_path %></li>
            <% if current_user.admin? %>
              <li> <%=link_to "Search Analytics", "/searchjoy/searches/overview?search_type=Peegin"%> </li>
            <% end %>

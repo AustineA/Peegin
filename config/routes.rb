@@ -9,6 +9,7 @@ Rails.application.routes.draw do
        get 'wod'
        get 'phrase'
        get 'random'
+       get 'recent'
     end
     member do
 	     get 'userpeegins'

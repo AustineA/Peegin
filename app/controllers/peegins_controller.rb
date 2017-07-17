@@ -1,9 +1,10 @@
 class PeeginsController < ApplicationController
 
   before_action :set_peegin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins, :phrase, :wod, :random]
+  before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins, :phrase, :wod, :random, :recent]
   impressionist :actions=>[:show]
-  before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random]
+  before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random, :recent]
+  before_action :lol, only: [:show, :search, :index, :userpeegins, :recent, :wod]
 
 
   def search
@@ -24,11 +25,21 @@ class PeeginsController < ApplicationController
       @wod = Peegin.wod.all.limit(1)
 
   end
+  def lol
+      @lol = Peegin.random()
+  end
 
   def random
     @peegin = Peegin.random()
     render action: :show
   end
+
+
+  def recent
+      @peegin = Peegin.all.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10)
+      render action: :index
+  end
+
 
   def userpeegins
     @user = User.find(params[:id])
