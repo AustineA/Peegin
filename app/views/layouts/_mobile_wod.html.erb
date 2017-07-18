@@ -1,0 +1,34 @@
+<%@wod.each do |peegin|%>
+<div>
+
+
+  <div class="wod-main">
+      <div class="wod-body">
+        <h1 style="font-family:Lora, serif; font-weight:bold; text-align:center;">Word Of The Day</h1>
+        <hr class="wod-ul">
+        <%= link_to peegin do %>
+        <h1 class="titled" style="color:#182634">
+          <%=peegin.title %>
+        </h1>
+        <%end%>
+        <br>
+        <br>
+        <strong>Meaning</strong>
+        <p class="described">
+        <%= simple_format(peegin.meaning) %>
+        </p>
+        <br>
+        <strong>Example</strong>
+        <p class="exampled">
+          <i>
+        <%=simple_format(peegin.example)%>
+          </i>
+        </p>
+        <br>
+      </div>
+
+
+    </div>
+</div>
+
+<%end%>
