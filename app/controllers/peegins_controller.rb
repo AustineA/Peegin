@@ -137,21 +137,17 @@ class PeeginsController < ApplicationController
   end
 
   def upvote
-    if user_signed_in?
-      @peegin.upvote_from current_user
-      redirect_to peegin_path, notice: 'Thanks for voting! Please share with your friends'
-    else
-      redirect_to peegin_path, alert:'Sorry You need to Sign in to vote'
-    end
+    session[:voting_id] = request.remote_ip
+    voter = Session.find_or_create_by(ip: session[:voting_id])
+    voter.likes @peegin
+    redirect_to peegin_path, notice: 'Thanks for voting! Please share with your friends'
   end
 
   def downvote
-    if user_signed_in?
-      @peegin.downvote_from current_user
-      redirect_to peegin_path, notice: 'Ouch! your vote has been counted. Please share with your friends'
-    else
-      redirect_to peegin_path, alert: 'Sorry you need to sign in to vote'
-    end
+    session[:voting_id] = request.remote_ip
+    voter = Session.find_or_create_by(ip: session[:voting_id])
+    voter.dislikes @peegin
+    redirect_to peegin_path, notice: 'Ouch! your vote has been counted. Please share with your friends'
   end
 
   private

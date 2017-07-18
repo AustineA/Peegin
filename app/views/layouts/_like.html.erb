@@ -1,0 +1,14 @@
+<ul class="socialed">
+   <li class="socialed">
+     <%= link_to dislike_peegin_path(peegin), method: :put do%>
+       <i class="fa fa-thumbs-down fa-2x ic"></i>
+    <span class="score-app"><%= peegin.get_downvotes.size %></span>
+    <% end %>
+ </li>
+ <li class="socialed">
+   <%= link_to like_peegin_path(peegin), method: :put do%>
+   <i class="fa fa-thumbs-up fa-2x ic"></i>
+   <span class="score-app"><%= peegin.get_upvotes.size %></span>
+   <% end %>
+ </li>
+</ul>
