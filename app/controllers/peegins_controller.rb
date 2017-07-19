@@ -5,7 +5,7 @@ class PeeginsController < ApplicationController
   impressionist :actions=>[:show]
   before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random, :recent]
   before_action :lol, only: [:show, :search, :index, :userpeegins, :recent, :wod]
-  before_action :phrase, only: [:show]
+
 
 
   def search
@@ -53,6 +53,7 @@ class PeeginsController < ApplicationController
 
       @peegin = Peegin.home.order('random()').paginate(:page => params[:page], :per_page => 10)
 
+
   end
 
   def phrase
@@ -89,6 +90,7 @@ class PeeginsController < ApplicationController
             },
 
             icon: view_context.image_url('favicon.png'), type: 'image/png'
+            @phrase = Peegin.phrase
   end
 
   def new
