@@ -14,9 +14,10 @@ class Peegin < ActiveRecord::Base
 	validates :synonyms, :length => { :maximum => 50}
 
 
-	scope :home, -> { where(front_page: true) }
+	#scope :home, -> { where(front_page: true) }
 	scope :phrase, -> { where(basic_phrase: true)}
 	scope :wod, -> { where(word_of_the_day: true)}
+	scope :home, -> { where(basic_phrase: false) }
 
 	def self.set_front
 		Peegin.home.each{ |e| e.update_attributes(front_page: false)}

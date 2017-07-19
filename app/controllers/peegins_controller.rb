@@ -5,6 +5,7 @@ class PeeginsController < ApplicationController
   impressionist :actions=>[:show]
   before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random, :recent]
   before_action :lol, only: [:show, :search, :index, :userpeegins, :recent, :wod]
+  before_action :phrase, only: [:show]
 
 
   def search
@@ -36,7 +37,7 @@ class PeeginsController < ApplicationController
 
 
   def recent
-      @peegin = Peegin.all.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10)
+      @peegin = Peegin.home.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10)
       render action: :index
   end
 
@@ -49,16 +50,14 @@ class PeeginsController < ApplicationController
 
 
   def index
-    if @droid
-      @peegin = Peegin.home.paginate(:page => params[:page], :per_page => 10)
-    else
-      @peegin = Peegin.all.order('random()').paginate(:page => params[:page], :per_page => 10)
 
-   end
+      @peegin = Peegin.home.order('random()').paginate(:page => params[:page], :per_page => 10)
+
   end
 
   def phrase
     @peegin = Peegin.phrase.paginate(:page => params[:page], :per_page => 10)
+    @phrase = Peegin.phrase
     render action: :index
   end
 
@@ -159,6 +158,6 @@ class PeeginsController < ApplicationController
       end
 
     def peegin_params
-      params.require(:peegin).permit(:title, :meaning, :example, :slug, :origin, :synonyms, :word_of_the_day)
+      params.require(:peegin).permit(:title, :meaning, :example, :slug, :origin, :synonyms, :word_of_the_day, :basic_phrase)
     end
 end

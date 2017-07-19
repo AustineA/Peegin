@@ -21,6 +21,15 @@
       </i>
     </p>
     <br>
+    <%if @phrase%>
+    <p class="exampled">
+      <%if peegin.synonyms?%>
+      <strong>Synonyms:</strong>
+    <%=peegin.synonyms.split(/\W+/).to_s%>
+    </p>
+    <%end%>
+    <br>
+    <%else%>
     <% if peegin.user %>
       <%= link_to userpeegins_peegin_path(peegin.user) do %>
         <span style="color:#182634"><strong>By <span style="color:#02a882"> <%= peegin.user.name if peegin.user %></span> <%= peegin.created_at.strftime( "%B %e, %Y")%></strong></span>
@@ -28,6 +37,7 @@
     <% end %>
     <br>
     <br>
+
     <ul class="hate">
       <% if @droid %>
       <%else%>
@@ -62,6 +72,8 @@
       <% end %>
       </li>
     </ul>
+
+    <%end%>
   </div>
 
 
