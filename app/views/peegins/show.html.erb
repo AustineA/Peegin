@@ -79,8 +79,7 @@
         <% end %>
         <br>
         <br>
-        <%if @phrase%>
-        <%else%>
+
         <% if @peegin.user %>
           <%= link_to userpeegins_peegin_path(@peegin.user) do %>
              <span style="color:#182634"><strong>By <span style="color:#02a882"> <%= @peegin.user.name if @peegin.user%></span> <%= @peegin.created_at.strftime( "%B %e, %Y")%></strong></span>
@@ -123,7 +122,6 @@
 
             </ul>
         <%end%>
-      <%end%>
       </div>
     </div>
 </div>

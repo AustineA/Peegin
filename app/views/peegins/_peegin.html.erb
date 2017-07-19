@@ -4,10 +4,16 @@
     <% if peegin.user == current_user || current_user.try(:admin?) %>
     <p class="pull-right"> <%= link_to 'Edit', edit_peegin_path(peegin) %> | <%= link_to 'Delete', peegin, method: :delete, data: { confirm: 'Are you sure you want to delet this Peegin?' }, :remote => true, :class => 'delete_peegin' %> </p>
     <% end %>
+    <%if @phrase%>
+    <h1 class="titled" style="color:#182634">
+      <%=peegin.title %>
+    </h1>
+    <%else%>
     <%= link_to peegin do %>
     <h1 class="titled" style="color:#182634">
       <%=peegin.title %>
     </h1>
+    <%end%>
     <%end%>
     <br>
     <br>

@@ -70,7 +70,7 @@ class PeeginsController < ApplicationController
 
   def show
     if @droid
-      @meta_title =  "Oya make you go check out weytin \'#{@peegin.title}' for Peegin Dictionary"
+      @meta_title =  "Oya make you go check out weytin \'#{@peegin.title}' mean for Peegin Dictionary"
       else
         @meta_title = @peegin.title + " - meaning in pidgin english | Peegin Dictionary"
     end
