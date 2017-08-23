@@ -2,7 +2,7 @@
 
   <div class="container">
     <nav class="row">
-      <div class="col-md-10 hidden-xs hidden-sm">
+      <div class="col-md-11 hidden-xs hidden-sm">
           <%= link_to root_path do %>
       		<%= image_tag "logo.png" , class: "brand"%>
       		<% end %>
@@ -40,12 +40,6 @@
                 </ul>
               <% end %>
 
-
-
-              <%= link_to new_peegin_path, class: "btns ui-mobile" do %>
-                <%= image_tag "add.png" , height: "30px", width: "30px"%>
-              <% end %>
-
             </div>
 
 	          <%= link_to root_path do %>
@@ -66,7 +60,7 @@
          </div>
 
 
-      <div class="col-md-2 hidden-xs hidden-sm">
+      <div class="col-md-1 hidden-xs hidden-sm">
       <span class ="btns navbar-right" >
         <%= link_to "#", class: "dropdown-toggle", "data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false" do %>
          <%= image_tag "user.png" , height: "42px", width: "42px"%>
@@ -88,14 +82,6 @@
         <% end %>
 
       </span>
-
-
-  <span class="btns navbar-right">
-
-    <%= link_to new_peegin_path do %>
-      <%= image_tag "add.png" , height: "42px", width: "42px"%>
-    <% end %>
-  </span>
 
 
       </div>
