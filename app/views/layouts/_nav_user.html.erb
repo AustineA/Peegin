@@ -22,9 +22,13 @@
           <div class="col-xs-12 hidden-md hidden-lg">
             <div class="ui-mobile">
 
-              <%= link_to  "#", class: "btns ui-mobile dropdown-toggle pull-right", "data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false" do %>
-                <%= image_tag "user.png" , height: "30px", width: "30px"%>
-                <ul class="dropdown-menu mobile-drop" role="menu">
+
+                <%= image_tag "user.png" , height: "30px", width: "30px", class: "btns ui-mobile dropdown-toggle pull-right", "data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false"%>
+                <ul class="dropdown-menu mobile-drop user_in " role="menu">
+
+                  <li style="color:#02a882;">
+                    Logged in as <strong><%= current_user.name %></strong>
+                  </li>
                   <% if current_user.admin? %>
                     <li><%= link_to 'Word Of The Day', wod_peegins_path %></li>
                     <li> <%=link_to "Search Analytics", "/searchjoy/searches/overview?search_type=Peegin"%> </li>
@@ -36,9 +40,8 @@
                   <%end%>
                   <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
                   <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
-                  <li>Logged in as <strong><%= current_user.name %></strong>.</li>
                 </ul>
-              <% end %>
+
 
             </div>
 
@@ -62,10 +65,10 @@
 
       <div class="col-md-1 hidden-xs hidden-sm">
       <span class ="btns navbar-right" >
-        <%= link_to "#", class: "dropdown-toggle", "data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false" do %>
-         <%= image_tag "user.png" , height: "42px", width: "42px"%>
+
+         <%= image_tag "user.png" , height: "42px", width: "42px", class: "dropdown-toggle", "data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false"%>
          <ul class="dropdown-menu" role="menu">
-           <li>Logged in as <strong><%= current_user.name %></strong></li>
+           <li style="color:#02a882;">Logged in as <strong><%= current_user.name %></strong></li>
            <li><%= link_to 'Recent Words', recent_peegins_path %></li>
            <li><%= link_to 'Learn Pidgin', phrase_peegins_path %></li>
 
@@ -79,7 +82,7 @@
             <%end%>
            <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
          </ul>
-        <% end %>
+
 
       </span>
 

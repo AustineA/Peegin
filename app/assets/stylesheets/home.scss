@@ -384,17 +384,24 @@ textarea {
 	right: -80px !important;
 	left: auto;
 	height: auto;
-	min-width: 200px;
+	min-width: 400px;
+  min-height: 500px;
 	text-align: center;
 	border: 1px solid rgba(0, 0, 0, 0);
-	padding: 15px 0;
+	padding: 150px 0;
+  font-size: 30px;
 	background-color: #d8d8d8;
+  opacity: .95;
 }
 
 .mobile-drop{
 	left: -80px;
 	text-align: center;
 	}
+
+  .dropdown-menu.mobile-drop {
+      padding: 80px 0;
+  }
 
 .pagination > .active > span {
 	background-color: #02a882;
