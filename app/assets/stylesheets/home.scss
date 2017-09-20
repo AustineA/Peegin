@@ -380,6 +380,11 @@ textarea {
 	margin-top: 50px;
 }
 
+.dropdown-menu > li > a {
+    color: #fff;
+    border-bottom: 1px solid #02a882;
+}
+
 .dropdown-menu{
 	right: -80px !important;
 	left: auto;
@@ -390,7 +395,7 @@ textarea {
 	border: 1px solid rgba(0, 0, 0, 0);
 	padding: 150px 0;
   font-size: 30px;
-	background-color: #d8d8d8;
+	background-color: #182634;
   opacity: .95;
 }
 
