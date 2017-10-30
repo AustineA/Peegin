@@ -7,7 +7,6 @@ class PeeginsController < ApplicationController
   before_action :lol, only: [:show, :search, :index, :userpeegins, :recent, :wod]
 
 
-
   def search
 
       if params[:search].present?
@@ -31,8 +30,16 @@ class PeeginsController < ApplicationController
   end
 
   def random
-    @peegin = Peegin.random()
-    render action: :show
+     @peegin = Peegin.random()
+
+    if @droid
+      @meta_title =  "Oya make you go check out weytin \'#{@peegin.title}' mean for Peegin Dictionary"
+      else
+        @meta_title = @peegin.title + " - meaning in pidgin english | Peegin Dictionary"
+    end
+    @meta_description = @peegin.meaning
+    # render action: :show
+    redirect_to peegin_path(@peegin.title.parameterize) and return
   end
 
 
