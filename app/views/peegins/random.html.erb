@@ -1,0 +1,106 @@
+<% @turbo_no=' name="turbolinks-cache-control" content="no-cache" '%>
+
+<section
+
+
+<% if @droid %>
+  <%else%>
+    class="container all-peegin"
+  <%end%>
+
+
+    >
+
+  <%= render 'layouts/side_bar' %>
+
+    <%@peegin.each do |peegin|%>
+    <div class="col-md-8 col-sm-12 col-xs-12">
+
+
+      <div class="panel panel-default peegined <%= controller_name %> <%= action_name %>">
+          <div class="panel-body">
+            <% if peegin.user == current_user || current_user.try(:admin?) %>
+            <p class="pull-right"> <%= link_to 'Edit', edit_peegin_path(peegin) %> | <%= link_to 'Delete', peegin, method: :delete, data: { confirm: 'Are you sure you want to delet this Peegin?' }%> </p>
+            <% end %>
+            <%= link_to peegin do %>
+            <h1 class="titled" style="color:#182634">
+              <%=peegin.title %>
+            </h1>
+            <%end%>
+            <br>
+            <br>
+            <p class="described">
+            <%= simple_format(peegin.meaning) %>
+            </p>
+            <br>
+            <strong>Example</strong>
+            <p class="exampled">
+              <i>
+            <%=simple_format(peegin.example)%>
+              </i>
+            </p>
+            <br>
+            <% if peegin.origin? %>
+            <p class="origin">
+              <%="Origin: #{peegin.origin}"%>
+            </p>
+            <% end %>
+            <br>
+            <br>
+            <% if peegin.user %>
+              <%= link_to userpeegins_peegin_path(peegin.user) do %>
+                <span style="color:#182634"><strong>By <span style="color:#02a882"> <%= peegin.user.name %></span> <%= peegin.created_at.strftime( "%B %e, %Y")%></strong></span>
+              <% end %>
+            <% end %>
+            <br>
+            <br>
+            <ul class="hate">
+              <% if @droid %>
+                <%else%>
+                 <li class="haterz">
+                   <%= link_to like_peegin_path(peegin), method: :put do%>
+                     <i class="fa fa-thumbs-up fa-2x ic"></i>
+                     <span class="score"><%= peegin.get_upvotes.size %></span>
+                   <% end %>
+                 </li>
+                  <li class="haterz">
+                    <%= link_to dislike_peegin_path(peegin), method: :put do%>
+                    <i class="fa fa-thumbs-down fa-2x ic"></i>
+                   <span class="score"><%= peegin.get_downvotes.size %></span>
+                   <% end %>
+                </li>
+              <%end%>
+              <li class="haterz views">
+                <%= "#{peegin.impressionist_count} Views" %>
+              </li>
+            </ul>
+
+            <% if @droid %>
+            <%else%>
+              <ul class="socialed">
+                <li class="socialed">
+                  <% if peegin.user == current_user %>
+                  <%= social_share_button_tag("I just add the meaning of \'#{peegin.title}' inside Peegin Dictionary, go add your own pidgin", :url => "http://peegin.com#{peegin_path(peegin)}", :image => ("https://www.dropbox.com/s/8t3kfr23pkb2a5k/FB-Cover.jpg"), via: "Peegin_") %>
+                  <%else%>
+                  <%= social_share_button_tag("Oya make you go check out weytin \'#{peegin.title}' mean for Peegin Dictionary", :url => "http://peegin.com#{peegin_path(peegin)}", :image => ("https://www.dropbox.com/s/8t3kfr23pkb2a5k/FB-Cover.jpg"), via: "Peegin_") %>
+                <% end %>
+                </li>
+              </ul>
+              <%end%>
+
+          </div>
+
+
+        </div>
+  </div>
+
+  <%end%>
+
+
+  <% if @browser.opera_mini?%>
+
+    <% else %>
+  <%= render 'layouts/lol' %>
+  <% end %>
+
+</section>

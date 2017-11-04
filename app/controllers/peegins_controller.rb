@@ -38,8 +38,8 @@ class PeeginsController < ApplicationController
         @meta_title = @peegin.title + " - meaning in pidgin english | Peegin Dictionary"
     end
     @meta_description = @peegin.meaning
-    # render action: :show
-    redirect_to peegin_path(@peegin.title.parameterize) and return
+    render action: :show
+    # redirect_to peegin_path(@peegin.title.parameterize) and return
   end
 
 
