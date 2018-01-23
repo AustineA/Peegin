@@ -93,7 +93,7 @@ class PeeginsController < ApplicationController
               description: @peegin.meaning,
               type:     'website',
               url:      peegin_url(@peegin),
-              image:    view_context.image_url('facebook-card.jpg')
+              image:    'https://s3-eu-west-2.amazonaws.com/learntocode.com.ng/wp-content/uploads/2018/01/23210822/Facebook.jpg'
             },
 
             twitter: {
@@ -101,7 +101,7 @@ class PeeginsController < ApplicationController
               site: '@peegin_',
               card: 'summary_large_image',
               description: @peegin.meaning,
-              image: view_context.image_url('twitter-card.jpg')
+              image: 'https://s3-eu-west-2.amazonaws.com/learntocode.com.ng/wp-content/uploads/2018/01/23210233/Twitter.jpg'
             },
 
             icon: view_context.image_url('favicon.png'), type: 'image/png'
