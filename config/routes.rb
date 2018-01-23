@@ -10,6 +10,7 @@ Rails.application.routes.draw do
        get 'phrase'
        get 'random'
        get 'recent'
+       get 'clean'
     end
     member do
 	     get 'userpeegins'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170717231143) do
+ActiveRecord::Schema.define(version: 20180122212134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20170717231143) do
     t.boolean  "front_page",              default: false
     t.boolean  "word_of_the_day",         default: false
     t.boolean  "basic_phrase",            default: false
+    t.boolean  "clean",                   default: true
   end
 
   add_index "peegins", ["cached_votes_down"], name: "index_peegins_on_cached_votes_down", using: :btree
