@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
       resources :peegins, only: [:new, :index]
       resources :peegins, :path=> '', except: [:new, :index]
+      resources :sessions, only: [:create, :destroy]
       resources :peegins do
         collection do
     	     get 'search'

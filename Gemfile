@@ -29,6 +29,7 @@ gem "browser", require: "browser/browser"
 gem "searchjoy", :git => 'git://github.com/amtheguy/searchjoy'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'twitter', '~> 5.16'
+gem 'simple_token_authentication', '~> 1.0'
 
 
 
