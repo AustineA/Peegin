@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
+
       resources :peegins, only: [:new, :index]
       resources :peegins, :path=> '', except: [:new, :index]
-      resources :sessions, only: [:create, :destroy]
+      resource :session, only: [:create]do
+        delete "/sign_out", :to => 'sessions#destroy'
+      end
+
+
       resources :peegins do
         collection do
     	     get 'search'
