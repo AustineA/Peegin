@@ -1,5 +1,6 @@
 class Api::PeeginsController < Api::ApplicationController
 
+  protect_from_forgery with: :null_session
   before_action :set_peegin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins, :phrase, :wod, :random, :recent, :clean]
   impressionist actions: [:show], unique: [:session_hash]
@@ -8,7 +9,6 @@ class Api::PeeginsController < Api::ApplicationController
 
 
   def search
-
       if params[:search].present?
         @peegins = Peegin.search params[:search], track: true ,order: { cached_votes_score: :desc},  fields: [:title, :origin, :synonyms],misspellings: {edit_distance: 1, below: 1}, page: params[:page], per_page: 8
       else
@@ -57,10 +57,7 @@ class Api::PeeginsController < Api::ApplicationController
 
 
   def index
-
-      @peegin = Peegin.home.order('random()').paginate(:page => params[:page], :per_page => 10)
-
-
+    @peegin = Peegin.home.order('random()').paginate(:page => params[:page], :per_page => 10)
   end
 
   def phrase
@@ -110,44 +107,39 @@ class Api::PeeginsController < Api::ApplicationController
 
   def new
     if current_user.name?
-    @peegin = current_user.peegins.build
-  else
-    redirect_to root_path, alert: 'Add a Name to your account and continue'
+      @peegin = current_user.peegins.build
+    else
+      redirect_to root_path, alert: 'Add a Name to your account and continue'
+    end
+  end
 
-  end
-  end
 
   def edit
-
   end
+
 
   def create
-
     @peegin = current_user.peegins.build(peegin_params)
     if @peegin.save
-      redirect_to @peegin, notice: 'Your Peegin has been added'
+      render :show
     else
-      render 'new'
+      head(:unprocessable_entity)
     end
   end
+
 
   def update
-
-
     if @peegin.update(peegin_params)
-      redirect_to @peegin
+      render :show
     else
-      render 'edit'
+      head(:unprocessable_entity)
     end
   end
 
+
   def destroy
-
     @peegin.destroy
-    respond_to do |format|
-      format.json { head :no_content }
-   end
-
+    head(:unprocessable_entity)
   end
 
   def upvote
@@ -164,9 +156,8 @@ class Api::PeeginsController < Api::ApplicationController
     redirect_to peegin_path, notice: 'Ouch! your vote has been counted. Please share with your friends'
   end
 
+
   private
-
-
 
     def set_peegin
         @peegin = Peegin.find_by_permalink(params[:id])

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
       resources :peegins, only: [:new, :index]
       resources :peegins, :path=> '', except: [:new, :index]
+      resources :users, only: [:create]
       resource :session, only: [:create]do
         delete "/sign_out", :to => 'sessions#destroy'
       end
