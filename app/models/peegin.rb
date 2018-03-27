@@ -34,7 +34,7 @@ class Peegin < ActiveRecord::Base
 
 	def generate_permalink
 		pattern=self.title.parameterize
-		duplicates = Peegin.where(permalink: pattern)
+		duplicates = Peegin.where('permalink like ?', "%#{pattern}%")
 
 		if duplicates.present?
 			self.permalink = "#{pattern}-#{duplicates.count+1}"
