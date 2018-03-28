@@ -32,6 +32,21 @@ Rails.application.routes.draw do
 
       root 'peegins#index'
     end
+
+
+    namespace :public do
+      resources :peegins, only: [:index, :search, :wod, :random, :recent] do
+        collection do
+          get 'search'
+          get 'wod'
+          get 'random'
+          get 'recent'
+      end
+    end
+    root 'peegins#index'
+    end
+
+
   end
 
   devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
