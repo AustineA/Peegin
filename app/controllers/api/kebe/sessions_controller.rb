@@ -1,4 +1,4 @@
-class Api::SessionsController < Api::ApplicationController
+class Api::Kebe::SessionsController < Api::Kebe::ApplicationController
   protect_from_forgery with: :null_session
 
   def create

@@ -1,4 +1,4 @@
-# app/views/api/search/index.json.jbuilder
+# app/views/api/kebe/search/index.json.jbuilder
 if @peegins.empty?
   json.message("no record")
 else

@@ -1,4 +1,4 @@
-class Api::PeeginsController < Api::ApplicationController
+class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
 
   protect_from_forgery with: :null_session
   before_action :set_peegin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
 
+    namespace :kebe do
+
       resources :peegins, only: [:new, :index]
       resources :peegins, :path=> '', except: [:new, :index]
       resources :users, only: [:create]
@@ -29,6 +31,7 @@ Rails.application.routes.draw do
       end
 
       root 'peegins#index'
+    end
   end
 
   devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

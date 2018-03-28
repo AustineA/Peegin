@@ -1,4 +1,4 @@
-# app/views/api/peegins/show.json.jbuilder
+# app/views/api/kebe/peegins/show.json.jbuilder
 json.peegin do
   json.(@peegin, :title, :meaning, :example, :origin, :created_at, :permalink)
 
