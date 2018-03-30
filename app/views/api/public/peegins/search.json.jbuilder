@@ -1,9 +1,10 @@
-# app/views/api/public/search/index.json.jbuilder
+
 if @peegins.empty?
   json.message("no record")
 else
   json.peegins @peegins do |peegin|
-    json.(peegin, :title, :meaning, :example, :origin, :created_at, :permalink)
+    json.(peegin, :title, :example, :origin, :created_at, :permalink)
+    json.meaning(peegin.meaning + " - via peegin.com")
 
     json.user do
       json.name peegin.user.name

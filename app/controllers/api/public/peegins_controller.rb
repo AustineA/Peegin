@@ -2,7 +2,7 @@ class Api::Public::PeeginsController < Api::Public::ApplicationController
 
   protect_from_forgery with: :null_session
   before_action :set_peegin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins, :phrase, :wod, :random, :recent, :clean]
+  before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins, :phrase, :wod, :random, :recent, :clean, :udo]
   impressionist actions: [:show], unique: [:session_hash]
   before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random, :recent, :clean]
   before_action :lol, only: [:show, :search, :index, :userpeegins, :recent, :wod]
@@ -45,20 +45,19 @@ class Api::Public::PeeginsController < Api::Public::ApplicationController
 
   def recent
       @peegin = Peegin.home.order(created_at: :desc).limit(100)
-      render action: :index
+      render action: :recent
   end
 
+  def udo
+    @peegin = Peegin.home.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10)
+    render action: :index
+  end
 
   def userpeegins
     @user = User.find(params[:id])
     @all_user_peegin = @user.peegins.paginate(:page => params[:page], :per_page => 10)
   end
 
-
-
-  def index
-    @peegin = Peegin.home.order('random()').limit(20)
-  end
 
   def phrase
     @peegin = Peegin.phrase.paginate(:page => params[:page], :per_page => 10)

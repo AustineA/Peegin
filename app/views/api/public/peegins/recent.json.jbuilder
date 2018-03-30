@@ -1,6 +1,5 @@
 
-
-json.peegins @all_user_peegin do |peegin|
+json.peegins @peegin do |peegin|
   json.(peegin, :title, :example, :origin, :created_at, :permalink)
   json.meaning(peegin.meaning + " - via peegin.com")
 

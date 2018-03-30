@@ -35,15 +35,15 @@ Rails.application.routes.draw do
 
 
     namespace :public do
-      resources :peegins, only: [:index, :search, :wod, :random, :recent] do
+      resources :peegins, only: [:search, :wod, :random, :recent, :udo] do
         collection do
           get 'search'
           get 'wod'
           get 'random'
           get 'recent'
+          get 'udo'
       end
     end
-    root 'peegins#index'
     end
 
 
