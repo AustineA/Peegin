@@ -10,7 +10,7 @@ end
 
 
 json.peegins @peegin do |peegin|
-  json.(peegin, :title, :meaning, :example, :origin, :permalink)
+  json.(peegin, :title, :meaning, :example, :synonyms, :origin, :permalink)
   json.created_at(peegin.created_at.strftime( "%B %e, %Y"))
 
   json.user do
