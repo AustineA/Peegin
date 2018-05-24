@@ -20,6 +20,7 @@ Rails.application.routes.draw do
            get 'random'
            get 'recent'
            get 'clean'
+           get 'explore'
         end
         member do
     	     get 'userpeegins'
@@ -41,7 +42,6 @@ Rails.application.routes.draw do
           get 'wod'
           get 'random'
           get 'recent'
-          get 'udo'
       end
     end
     end
@@ -61,6 +61,7 @@ Rails.application.routes.draw do
        get 'random'
        get 'recent'
        get 'clean'
+       get 'explore'
     end
     member do
 	     get 'userpeegins'

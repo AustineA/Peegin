@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180324213242) do
+ActiveRecord::Schema.define(version: 20180513193204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20180324213242) do
     t.boolean  "word_of_the_day",         default: false
     t.boolean  "basic_phrase",            default: false
     t.boolean  "clean",                   default: true
+    t.integer  "impressions_count",       default: 0
   end
 
   add_index "peegins", ["cached_votes_down"], name: "index_peegins_on_cached_votes_down", using: :btree
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 20180324213242) do
   add_index "peegins", ["cached_weighted_average"], name: "index_peegins_on_cached_weighted_average", using: :btree
   add_index "peegins", ["cached_weighted_score"], name: "index_peegins_on_cached_weighted_score", using: :btree
   add_index "peegins", ["cached_weighted_total"], name: "index_peegins_on_cached_weighted_total", using: :btree
+  add_index "peegins", ["impressions_count"], name: "index_peegins_on_impressions_count", using: :btree
   add_index "peegins", ["user_id"], name: "index_peegins_on_user_id", using: :btree
 
   create_table "searchjoy_searches", force: :cascade do |t|

@@ -48,10 +48,6 @@ class Api::Public::PeeginsController < Api::Public::ApplicationController
       render action: :recent
   end
 
-  def udo
-    @peegin = Peegin.home.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10)
-    render action: :index
-  end
 
   def userpeegins
     @user = User.find(params[:id])
