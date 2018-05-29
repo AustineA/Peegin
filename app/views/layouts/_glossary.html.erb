@@ -1,0 +1,17 @@
+<div>
+
+<% if current_user %>
+  <div class="panel">
+<%else%>
+  <div class="panel wod-side">
+    <%end%>
+      <div class="panel-body">
+        <ul class="glossary" style="padding-left: 0 !important;">
+          <% @glossary.each do |letter, peegins| %>
+              <li style="display: inline; margin-left:5px;"> <%=link_to letter, "/peegins/glossary/##{letter.downcase}"%> </li>
+          <% end %>
+        </ul>
+
+      </div>
+    </div>
+</div>

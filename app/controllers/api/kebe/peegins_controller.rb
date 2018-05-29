@@ -2,9 +2,9 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
 
   protect_from_forgery with: :null_session
   before_action :set_peegin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins, :phrase, :wod, :random, :recent, :clean]
+  before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins, :phrase, :wod, :random, :recent, :clean, :explore]
   impressionist actions: [:show], unique: [:session_hash]
-  before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random, :recent, :clean]
+  before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random, :recent, :clean, :explore]
   before_action :lol, only: [:show, :search, :index, :userpeegins, :recent, :wod]
 
 
@@ -58,6 +58,10 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
 
   def index
     @peegin = Peegin.home.order('random()').paginate(:page => params[:page], :per_page => 10)
+  end
+
+  def explore
+    @trend = Peegin.most_hit(1.day.ago)
   end
 
   def phrase

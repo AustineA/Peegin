@@ -1,0 +1,44 @@
+<% @meta_title="Peegin - Glossary" %>
+<% @meta_description="Peegin Dictionary" %>
+
+<section
+
+
+<% if @droid %>
+  <%else%>
+    class="container all-peegin"
+  <%end%>
+
+
+    >
+
+  <%= render 'layouts/side_bar' %>
+
+
+<div class="col-md-8 col-sm-12 col-xs-12">
+  <div class="panel panel-default peegined <%= controller_name %> <%= action_name %>">
+    <div class="panel-body" style="text-align: center;">
+
+      <% @glossary.each do |letter, peegins| %>
+      <div id="<%=letter.downcase%>" style="padding-top:50px">
+          <h1><%= letter %> </h1>
+        <%peegins.each do |peegin| %>
+        <%= link_to peegin do %>
+          <p style="font-size: 18px;"><%=peegin.title %></p>
+        <% end %>
+        <% end %>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+  <% if @browser.opera_mini?%>
+
+    <% else %>
+  <%= render 'layouts/lol' %>
+  <% end %>
+
+</section>

@@ -115,6 +115,7 @@ GEM
       domain_name (~> 0.5)
     http-form_data (1.0.3)
     http_parser.rb (0.6.0)
+    httpclient (2.8.3)
     i18n (0.7.0)
     impressionist (1.5.2)
       nokogiri (~> 1.6)
@@ -165,6 +166,9 @@ GEM
     pkg-config (1.1.7)
     public_suffix (3.0.1)
     puma (3.8.2)
+    punching_bag (0.6.0)
+      railties (>= 3.2)
+      voight_kampff (~> 0.2)
     rack (1.6.4)
     rack-cors (0.4.1)
     rack-test (0.6.3)
@@ -254,6 +258,9 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.4)
+    voight_kampff (0.2.2)
+      httpclient (~> 2.2)
+      nokogiri (~> 1.6)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (2.3.0)
@@ -284,6 +291,7 @@ DEPENDENCIES
   omniauth-facebook (~> 4.0)
   pg
   puma
+  punching_bag
   rack-cors
   rails (= 4.2.6)
   rails_12factor
@@ -305,4 +313,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.14.6
+   1.16.1

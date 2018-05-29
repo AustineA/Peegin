@@ -1,10 +1,11 @@
 class PeeginsController < ApplicationController
 
   before_action :set_peegin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins, :phrase, :wod, :random, :recent, :clean, :explore]
+  before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins, :phrase, :wod, :random, :recent, :clean, :explore, :glossary]
   impressionist actions: [:show], unique: [:session_hash]
-  before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random, :recent, :clean, :explore]
-  before_action :lol, only: [:show, :search, :index, :userpeegins, :recent, :wod]
+  before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random, :recent, :clean, :explore, :glossary]
+  before_action :lol, only: [:show, :search, :index, :userpeegins, :recent, :wod, :glossary]
+  before_action :glossary, only: [:show, :search, :index, :userpeegins, :recent, :wod]
 
 
   def search
@@ -61,7 +62,14 @@ class PeeginsController < ApplicationController
   end
 
   def explore
-    
+    @trend = Peegin.most_hit(1.day.ago)
+  end
+
+  def glossary
+    @glossary = Peegin.order("title ASC").group_by do |peegin|
+      p = peegin.title.upcase
+      p[0]
+    end
   end
 
   def phrase
@@ -89,6 +97,9 @@ class PeeginsController < ApplicationController
     @meta_description = @peegin.meaning
 
    impressionist(@peegin) # 2nd argument is optional
+
+   @peegin.punch(request)
+
    set_meta_tags og: {
               title:    @peegin.title,
               description: @peegin.meaning,

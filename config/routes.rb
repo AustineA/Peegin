@@ -62,6 +62,7 @@ Rails.application.routes.draw do
        get 'recent'
        get 'clean'
        get 'explore'
+       get 'glossary'
     end
     member do
 	     get 'userpeegins'

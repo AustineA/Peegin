@@ -3,6 +3,7 @@ class Peegin < ActiveRecord::Base
 	belongs_to :user
 	before_create :generate_permalink
 	acts_as_votable
+	acts_as_punchable
 	is_impressionable :counter_cache => true
 	include Randomable
 
