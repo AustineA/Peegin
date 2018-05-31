@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 20180524081739) do
     t.boolean  "word_of_the_day",         default: false
     t.boolean  "basic_phrase",            default: false
     t.boolean  "clean",                   default: true
-    t.integer  "impressions_count",       default: 0
   end
 
   add_index "peegins", ["cached_votes_down"], name: "index_peegins_on_cached_votes_down", using: :btree
@@ -74,7 +73,6 @@ ActiveRecord::Schema.define(version: 20180524081739) do
   add_index "peegins", ["cached_weighted_average"], name: "index_peegins_on_cached_weighted_average", using: :btree
   add_index "peegins", ["cached_weighted_score"], name: "index_peegins_on_cached_weighted_score", using: :btree
   add_index "peegins", ["cached_weighted_total"], name: "index_peegins_on_cached_weighted_total", using: :btree
-  add_index "peegins", ["impressions_count"], name: "index_peegins_on_impressions_count", using: :btree
   add_index "peegins", ["user_id"], name: "index_peegins_on_user_id", using: :btree
 
   create_table "punches", force: :cascade do |t|
