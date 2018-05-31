@@ -4,7 +4,7 @@ class Peegin < ActiveRecord::Base
 	before_create :generate_permalink
 	acts_as_votable
 	acts_as_punchable
-	is_impressionable :counter_cache => true
+	is_impressionable 
 	include Randomable
 
 	validates_presence_of :title, :meaning, :example, :synonyms, { :message => "cannot be blank" }

@@ -11,7 +11,7 @@ json.trending @trend do |trend|
   end
 
   json.views do
-    json.view trend.impressionist_count
+    json.view trend.hits
   end
 
 end
