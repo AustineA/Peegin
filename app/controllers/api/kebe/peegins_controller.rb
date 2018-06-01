@@ -51,7 +51,7 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
 
   def userpeegins
     @user = User.find(params[:id])
-    @all_user_peegin = @user.peegins.paginate(:page => params[:page], :per_page => 10)
+    @all_user_peegin = @user.peegins.order(created_at: :desc)
   end
 
 
