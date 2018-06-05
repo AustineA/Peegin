@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -31,17 +30,16 @@ ActiveRecord::Schema.define(version: 20180524081739) do
     t.text     "params"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index", using: :btree
+    t.index ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index", using: :btree
+    t.index ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index", using: :btree
+    t.index ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index", using: :btree
+    t.index ["impressionable_type", "impressionable_id", "params"], name: "poly_params_request_index", using: :btree
+    t.index ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index", using: :btree
+    t.index ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index", using: :btree
+    t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", using: :btree
+    t.index ["user_id"], name: "index_impressions_on_user_id", using: :btree
   end
-
-  add_index "impressions", ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index", using: :btree
-  add_index "impressions", ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index", using: :btree
-  add_index "impressions", ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index", using: :btree
-  add_index "impressions", ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index", using: :btree
-  add_index "impressions", ["impressionable_type", "impressionable_id", "params"], name: "poly_params_request_index", using: :btree
-  add_index "impressions", ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index", using: :btree
-  add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index", using: :btree
-  add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", using: :btree
-  add_index "impressions", ["user_id"], name: "index_impressions_on_user_id", using: :btree
 
   create_table "peegins", force: :cascade do |t|
     t.string   "title"
@@ -64,16 +62,15 @@ ActiveRecord::Schema.define(version: 20180524081739) do
     t.boolean  "word_of_the_day",         default: false
     t.boolean  "basic_phrase",            default: false
     t.boolean  "clean",                   default: true
+    t.index ["cached_votes_down"], name: "index_peegins_on_cached_votes_down", using: :btree
+    t.index ["cached_votes_score"], name: "index_peegins_on_cached_votes_score", using: :btree
+    t.index ["cached_votes_total"], name: "index_peegins_on_cached_votes_total", using: :btree
+    t.index ["cached_votes_up"], name: "index_peegins_on_cached_votes_up", using: :btree
+    t.index ["cached_weighted_average"], name: "index_peegins_on_cached_weighted_average", using: :btree
+    t.index ["cached_weighted_score"], name: "index_peegins_on_cached_weighted_score", using: :btree
+    t.index ["cached_weighted_total"], name: "index_peegins_on_cached_weighted_total", using: :btree
+    t.index ["user_id"], name: "index_peegins_on_user_id", using: :btree
   end
-
-  add_index "peegins", ["cached_votes_down"], name: "index_peegins_on_cached_votes_down", using: :btree
-  add_index "peegins", ["cached_votes_score"], name: "index_peegins_on_cached_votes_score", using: :btree
-  add_index "peegins", ["cached_votes_total"], name: "index_peegins_on_cached_votes_total", using: :btree
-  add_index "peegins", ["cached_votes_up"], name: "index_peegins_on_cached_votes_up", using: :btree
-  add_index "peegins", ["cached_weighted_average"], name: "index_peegins_on_cached_weighted_average", using: :btree
-  add_index "peegins", ["cached_weighted_score"], name: "index_peegins_on_cached_weighted_score", using: :btree
-  add_index "peegins", ["cached_weighted_total"], name: "index_peegins_on_cached_weighted_total", using: :btree
-  add_index "peegins", ["user_id"], name: "index_peegins_on_user_id", using: :btree
 
   create_table "punches", force: :cascade do |t|
     t.integer  "punchable_id",                          null: false
@@ -82,10 +79,9 @@ ActiveRecord::Schema.define(version: 20180524081739) do
     t.datetime "ends_at",                               null: false
     t.datetime "average_time",                          null: false
     t.integer  "hits",                      default: 1, null: false
+    t.index ["average_time"], name: "index_punches_on_average_time", using: :btree
+    t.index ["punchable_type", "punchable_id"], name: "punchable_index", using: :btree
   end
-
-  add_index "punches", ["average_time"], name: "index_punches_on_average_time", using: :btree
-  add_index "punches", ["punchable_type", "punchable_id"], name: "punchable_index", using: :btree
 
   create_table "searchjoy_searches", force: :cascade do |t|
     t.integer  "user_id"
@@ -97,12 +93,11 @@ ActiveRecord::Schema.define(version: 20180524081739) do
     t.integer  "convertable_id"
     t.string   "convertable_type"
     t.datetime "converted_at"
+    t.index ["convertable_id", "convertable_type"], name: "index_searchjoy_searches_on_convertable_id_and_convertable_type", using: :btree
+    t.index ["created_at"], name: "index_searchjoy_searches_on_created_at", using: :btree
+    t.index ["search_type", "created_at"], name: "index_searchjoy_searches_on_search_type_and_created_at", using: :btree
+    t.index ["search_type", "normalized_query", "created_at"], name: "index_searchjoy_searches_on_search_type_normalized_query", using: :btree
   end
-
-  add_index "searchjoy_searches", ["convertable_id", "convertable_type"], name: "index_searchjoy_searches_on_convertable_id_and_convertable_type", using: :btree
-  add_index "searchjoy_searches", ["created_at"], name: "index_searchjoy_searches_on_created_at", using: :btree
-  add_index "searchjoy_searches", ["search_type", "created_at"], name: "index_searchjoy_searches_on_search_type_and_created_at", using: :btree
-  add_index "searchjoy_searches", ["search_type", "normalized_query", "created_at"], name: "index_searchjoy_searches_on_search_type_normalized_query", using: :btree
 
   create_table "sessions", force: :cascade do |t|
     t.string   "ip"
@@ -128,11 +123,10 @@ ActiveRecord::Schema.define(version: 20180524081739) do
     t.string   "provider"
     t.string   "uid"
     t.string   "authentication_token",   limit: 30
+    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "votes", force: :cascade do |t|
     t.integer  "votable_id"
@@ -144,9 +138,8 @@ ActiveRecord::Schema.define(version: 20180524081739) do
     t.integer  "vote_weight"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
+    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
   end
-
-  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
-  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
 end
