@@ -31,6 +31,7 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'twitter', '~> 5.16'
 gem 'simple_token_authentication', '~> 1.0'
 gem "punching_bag"
+gem 'bootsnap', require: false
 
 
 
