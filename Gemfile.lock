@@ -290,9 +290,9 @@ DEPENDENCIES
   browser
   byebug
   coffee-rails (~> 4.1.0)
-  devise (~> 4.2, >= 4.2.1)
+  devise
   font-awesome-sass (~> 4.7)
-  impressionist
+  impressionist (~> 1.5, >= 1.5.1)
   jbuilder (~> 2.0)
   jquery-rails
   json!
@@ -307,7 +307,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   searchjoy!
   searchkick (~> 1.5.1)
-  simple_token_authentication (~> 1.0)
+  simple_token_authentication
   sitemap_generator
   social-share-button (~> 0.10.0)
   spring
