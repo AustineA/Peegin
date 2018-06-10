@@ -36,12 +36,16 @@ Rails.application.routes.draw do
 
 
     namespace :public do
-      resources :peegins, only: [:search, :wod, :random, :recent, :udo] do
+      resources :peegins, only: [:search, :wod, :random, :recent] do
         collection do
           get 'search'
           get 'wod'
           get 'random'
           get 'recent'
+      end
+      member do
+        put "like" => "peegins#upvote"
+        put "dislike" => "peegins#downvote"
       end
     end
     end

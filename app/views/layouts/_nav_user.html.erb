@@ -10,7 +10,7 @@
         <div class="input-group navbar-search">
           <%= form_tag search_peegins_path, method: :get, role: "search" do %>
                <span class="input-group-btn">
-                 <%= text_field_tag :search, params[:search], class: "form-control search-pad", placeholder: "Search for a Pidgin...like \'Epp' or a simple English Word like \'Help'" %>
+                 <%= text_field_tag :search, params[:search], class: "form-control search-pad", placeholder: "Search Peegin" %>
                  <%= button_tag( :class => "btn btn-default search-margin") do %>
                 <span class="glyphicon glyphicon-search" aria-hidden="true"> </span>
                 <% end %>
@@ -26,7 +26,7 @@
                 <%= image_tag "user.png" , height: "30px", width: "30px", class: "btns ui-mobile dropdown-toggle pull-right", "data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false"%>
                 <ul class="dropdown-menu mobile-drop user_in " role="menu">
 
-                  <li style="color:#02a882;">
+                  <li style="color:#28E2B7;">
                     Logged in as <strong><%= current_user.name %></strong>
                   </li>
                   <% if current_user.admin? %>
@@ -66,9 +66,12 @@
       <div class="col-md-1 hidden-xs hidden-sm">
       <span class ="btns navbar-right" >
 
-         <%= image_tag "user.png" , height: "42px", width: "42px", class: "dropdown-toggle", "data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false"%>
+        <div class="peegin-menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span> <%=current_user.name[0]%></span>
+        </div>
+
          <ul class="dropdown-menu" role="menu">
-           <li style="color:#02a882;">Logged in as <strong><%= current_user.name %></strong></li>
+           <li style="color:#28E2B7;">Logged in as <strong style="color:#28E2B7;" ><%= current_user.name %></strong></li>
            <li><%= link_to 'Recent Words', recent_peegins_path %></li>
            <li><%= link_to 'Learn Pidgin', phrase_peegins_path %></li>
 

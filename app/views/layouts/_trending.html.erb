@@ -1,0 +1,18 @@
+<div style="margin-top: 88px;">
+
+<% if current_user %>
+  <div class="panel">
+<%else%>
+  <div class="panel">
+    <%end%>
+      <div class="panel-body">
+        <h1 style="font-family:Roboto; font-weight:200; font-size:25px; margin-bottom:30px;">Trending Words</h1>
+        <div class="glossary" style="padding-left: 0 !important; margin-bottom: 5px;">
+          <% @trend.each do |trend| %>
+            <p style="display: inline-block;"> <%=link_to trend.title, trend, class: "trending-pills"%> </p>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+</div>

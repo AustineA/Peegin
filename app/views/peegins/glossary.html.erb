@@ -15,12 +15,12 @@
   <%= render 'layouts/side_bar' %>
 
 
-<div class="col-md-8 col-sm-12 col-xs-12">
+<div class="col-md-6 col-sm-12 col-xs-12">
   <div class="panel panel-default peegined <%= controller_name %> <%= action_name %>">
     <div class="panel-body" style="text-align: center;">
 
       <% @glossary.each do |letter, peegins| %>
-      <div id="<%=letter.downcase%>" style="padding-top:50px">
+      <div id="<%=letter.downcase%>" style="padding-top:90px">
           <h1><%= letter %> </h1>
         <%peegins.each do |peegin| %>
         <%= link_to peegin do %>
@@ -34,6 +34,7 @@
   </div>
 </div>
 
+<%= render 'layouts/side_bar_new' %>
 
   <% if @browser.opera_mini?%>
 

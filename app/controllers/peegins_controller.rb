@@ -6,6 +6,7 @@ class PeeginsController < ApplicationController
   before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random, :recent, :clean, :explore, :glossary]
   before_action :lol, only: [:show, :search, :index, :userpeegins, :recent, :wod, :glossary]
   before_action :glossary, only: [:show, :search, :index, :userpeegins, :recent, :wod]
+  before_action :explore, only: [:show, :search, :index, :userpeegins, :recent, :wod, :glossary]
 
 
   def search
@@ -62,7 +63,7 @@ class PeeginsController < ApplicationController
   end
 
   def explore
-    @trend = Peegin.most_hit(1.day.ago)
+    @trend = Peegin.most_hit(1.day.ago, 6)
   end
 
   def glossary

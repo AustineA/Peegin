@@ -1,49 +1,26 @@
-<div class="col-md-4 hidden-xs hidden-sm pull-right">
+<div class="col-md-3 hidden-xs hidden-sm">
 
-
-  <div class="panel panel-default side-panel">
-    <div class="panel-body ">
-      <h1 class="side-bar" id="side" >PEEGIN ENGLISH</h1><br>
-      <h1 class="side-bar" id="side" >DICTIONARY</h1><br>
-      <h1 class="side-bar" id="side" >IS DEFINED</h1><br>
-      <h1 class="side-bar" id="side" >BY YOU</h1><br>
-      <div>
-          <%= link_to new_peegin_path  do %>
-        <button type="button" class="btn btn-default create-peegin">
-
-          <%= image_tag "add.png", class: "btn1", height: "28px", width: "28px" %>
-
-            <span style="color: #FAD93D !important;">Define A New Word</span>
-
-
-        </button>
-          <% end %>
-      </div>
-
-    </div>
-  </div>
   <div>
-
+    <% if action_name == "edit"%>
+    <%else%>
+      <%= render 'layouts/wod' %>
+      <%= render 'layouts/glossary' %>
+    <%end%>
   </div>
-  <% if user_signed_in? == false %>
-    <%= link_to user_facebook_omniauth_authorize_path  do %>
-    <div class="helper-b btn2">
-      <i class="fa fa-facebook" style="font-size:20px;"></i> <span> Sign In With Facebook</span>
+
+
+
+  <div style="text-align:center">
+    <h1 style="color:#9B9B9B !important;">Available On</h1>
+    <div class="appstores">
+
+        <a href="https://itunes.apple.com/us/app/peegin/id1394079205" target="_blank">
+          <img src="https://s3-eu-west-2.amazonaws.com/learntocode.com.ng/wp-content/uploads/2018/06/10163119/appstore.png" alt="Peegin Dictionary Playstore"><br><br>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=net.amaniart.peegin" target="_blank">
+          <img src="https://s3-eu-west-2.amazonaws.com/learntocode.com.ng/wp-content/uploads/2018/06/10163122/playstore.png" alt="Peegin Dictionary Playstore"><br><br>
+        </a>
     </div>
-  <%end%>
-  <%end%>
-<% if action_name == "edit"%>
-<%else%>
-  <%= render 'layouts/glossary' %>
-  <%= render 'layouts/wod' %>
-<%end%>
-  <div class="side-info">
-    <h1>Available On</h1>
-    <a href="https://play.google.com/store/apps/details?id=net.amaniart.peegin" target="_blank">
-      <img src="https://play.google.com/intl/en_us/badges/images/badge_new.png" alt="Peegin Dictionary Playstore"><br><br>
-    </a>
-    <%=link_to "Terms Of Service", "/pages/terms", class: "side-info" %> | <%=link_to  "Privacy Policy","/pages/privacy", class: "side-info" %> | <a class="side-info"href="http://amaniart.net" target="_blank">© 2017 Copyright</a>
-      <a class="side-info" href="https://twitter.com/peegin_" target="_blank">Contact Us</a>  | Built With <span style="color:#E85284" class="fa fa-heart"></span> by <a class="side-info" href="http://austineamani.me" target="_blank"><strong>Austine Amani</strong></a>
   </div>
 
 

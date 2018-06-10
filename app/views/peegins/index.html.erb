@@ -30,9 +30,11 @@
   </div>
 
 
-  <div id="peegin">
+  <div id="peegin" class="col-md-6 col-sm-12 col-xs-12">
     <%= render @peegin %>
   </div>
+
+    <%= render 'layouts/side_bar_new' %>
 
 <!-- floating button -->
 <% if @browser.opera_mini?%>
@@ -45,7 +47,7 @@
 <% if @browser.opera_mini? %>
   <%=will_paginate @peegin, inner_window:1,renderer: BootstrapPagination::Rails %>
 <% else %>
-<section class="container">
+<section class="container" style="text-align:center;">
   <div id="infinite-scrolling">
     <%=will_paginate @peegin %>
   </div>

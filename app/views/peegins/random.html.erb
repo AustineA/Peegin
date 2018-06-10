@@ -1,4 +1,4 @@
-<% @turbo_no=' name="turbolinks-cache-control" content="no-cache" '%>
+
 
 <section
 
@@ -49,7 +49,7 @@
             <br>
             <% if peegin.user %>
               <%= link_to userpeegins_peegin_path(peegin.user) do %>
-                <span style="color:#182634"><strong>By <span style="color:#02a882"> <%= peegin.user.name %></span> <%= peegin.created_at.strftime( "%B %e, %Y")%></strong></span>
+                <span style="color:#182634"><strong>By <span style="color:#28E2B7"> <%= peegin.user.name %></span> <%= peegin.created_at.strftime( "%B %e, %Y")%></strong></span>
               <% end %>
             <% end %>
             <br>

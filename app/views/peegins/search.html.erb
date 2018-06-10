@@ -15,7 +15,7 @@
   <%= render 'layouts/side_bar' %>
 
 <% if @peegins.empty?%>
-<div class="col-md-8 col-sm-12 col-xs-12">
+<div class="col-md-6 col-sm-12 col-xs-12">
   <div class="panel panel-default peegined <%= controller_name %> <%= action_name %>">
     <div class="panel-body">
       <% if @droid %>
@@ -38,8 +38,9 @@
   </div>
 </div>
 <%else%>
+  <div class="col-md-6 col-sm-12 col-xs-12">
     <%@peegins.each do |peegin|%>
-    <div class="col-md-8 col-sm-12 col-xs-12">
+
 
 
       <div class="panel panel-default peegined <%= controller_name %> <%= action_name %>">
@@ -74,7 +75,7 @@
             <br>
             <% if peegin.user %>
               <%= link_to userpeegins_peegin_path(peegin.user) do %>
-                <span style="color:#182634"><strong>By <span style="color:#02a882"> <%= peegin.user.name %></span> <%= peegin.created_at.strftime( "%B %e, %Y")%></strong></span>
+                <span style="color:#182634"><strong>By <span style="color:#28E2B7"> <%= peegin.user.name %></span> <%= peegin.created_at.strftime( "%B %e, %Y")%></strong></span>
               <% end %>
             <% end %>
             <br>
@@ -82,18 +83,12 @@
             <ul class="hate">
               <% if @droid %>
                 <%else%>
-                 <li class="haterz">
+                 <li class="haterz" style="margin-top:3px;">
                    <%= link_to like_peegin_path(peegin), method: :put do%>
-                     <i class="fa fa-thumbs-up fa-2x ic"></i>
+                       <span style="color:#E85284" class="fa fa-heart"></span>
                      <span class="score"><%= peegin.get_upvotes.size %></span>
                    <% end %>
                  </li>
-                  <li class="haterz">
-                    <%= link_to dislike_peegin_path(peegin), method: :put do%>
-                    <i class="fa fa-thumbs-down fa-2x ic"></i>
-                   <span class="score"><%= peegin.get_downvotes.size %></span>
-                   <% end %>
-                </li>
               <%end%>
               <li class="haterz views">
                 <%= "#{peegin.impressionist_count} Views" %>
@@ -117,10 +112,12 @@
 
 
         </div>
-  </div>
+
 
   <%end%>
   <%end%>
+  </div>
+  <%= render 'layouts/side_bar_new' %>
 
   <% if @browser.opera_mini?%>
 
@@ -130,6 +127,6 @@
 
 </section>
 
-<section>
+<section style="text-align: center;">
   <%=will_paginate @peegins,inner_window:1, renderer: BootstrapPagination::Rails %>
 </section>

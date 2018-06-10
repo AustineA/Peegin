@@ -3,12 +3,13 @@
 <% if current_user %>
   <div class="panel">
 <%else%>
-  <div class="panel wod-side">
+  <div class="panel">
     <%end%>
       <div class="panel-body">
+        <h1 style="font-family:Roboto; font-weight:200; font-size:25px; margin-bottom:30px;">Browse</h1>
         <ul class="glossary" style="padding-left: 0 !important;">
           <% @glossary.each do |letter, peegins| %>
-              <li style="display: inline; margin-left:5px;"> <%=link_to letter, "/peegins/glossary/##{letter.downcase}"%> </li>
+              <li style="display: inline; margin-left:5px; font-family: Dosis;"> <%=link_to letter, "/peegins/glossary/##{letter.downcase}"%> </li>
           <% end %>
         </ul>
 
