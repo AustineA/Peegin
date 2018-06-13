@@ -5,17 +5,6 @@
   <div class="col-md-12 formed">
     <div class="panel panel-default peegined">
       <div class="panel-body">
-
-        <br>
-        <%= link_to user_facebook_omniauth_authorize_path  do %>
-          <div class="helper-b btn2">
-            <i class="fa fa-facebook" style="font-size:20px;"></i> <span> Sign In With Facebook</span>
-          </div>
-        <%end%>
-        <br>
-        <br>
-        <h2 style="text-align: center;">Or</h2>
-        <hr>
       <h2>Sign up</h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>

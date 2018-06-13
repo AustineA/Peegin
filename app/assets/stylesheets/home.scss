@@ -465,13 +465,23 @@ input[type=text],[type=email],[type=password] {
     box-sizing: border-box;
 }
 
+[type=email],[type=password] {
+  border-radius: 12px;
+  border: 1px solid #c1c1c1;
+}
+
 textarea.eg-h{
 		height: 80px;
 		margin: 0 0 20px 0;
+    border-radius: 12px;
+    border: 1px solid #c1c1c1;
+    background: #fff;
 }
 
 input[type=text].tl-h,input[type=text].og-h{
 	margin: 0 0 20px 0;
+  border-radius: 12px;
+  border: 1px solid #c1c1c1;
 }
 
 input[type=text].search-pad{
@@ -487,7 +497,8 @@ input[type=text].search-pad::placeholder{
 }
 
 input[type=text].mn-h{
-		  margin: 0 0 20px 0;
+	margin: 0 0 20px 0;
+  background: #fff;
 }
 
 .search-margin{
@@ -507,11 +518,11 @@ textarea {
     height: 150px;
     padding: 12px 20px;
     box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
 		margin: 0 0 20px 0;
     resize: none;
-		background: #f1f1f1;
+    border-radius: 12px;
+    border: 1px solid #c1c1c1;
+    background: #fff;
 }
 
 .devise-share{
@@ -659,7 +670,7 @@ and (max-width : 982px){
 
 
 	.navbared{
-		padding: 5px 13px;
+		padding: 13px;
 	}
 
 .side-panel .btn-nu{
@@ -714,7 +725,7 @@ and (max-width : 982px){
 		margin-bottom: 100px;
 	}
   .socialed {
-  	margin-top: -5px;
+  	margin-top: 0;
   }
 
 	.signing{
