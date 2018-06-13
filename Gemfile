@@ -31,8 +31,8 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'twitter', '~> 5.16'
 gem 'simple_token_authentication'
 gem "punching_bag"
-gem 'bootsnap', require: false
-
+gem 'webpacker'
+gem 'foreman'
 
 
 group :development, :test do

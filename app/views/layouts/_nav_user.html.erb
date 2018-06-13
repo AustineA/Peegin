@@ -1,98 +1,122 @@
-<div class="navbared navbar-default navbar-fixed-top <%= controller_name %> <%= action_name %>">
+<div class="navbared navbar-default navbar-fixed-top <%= controller_name %> <%= action_name %>" id='hello'>
 
   <div class="container">
     <nav class="row">
       <div class="col-md-11 hidden-xs hidden-sm">
-          <%= link_to root_path do %>
-      		<%= image_tag "logo.png" , class: "brand"%>
-      		<% end %>
+        <%= link_to root_path do %>
+        <%= image_tag "logo.png" , class: "brand"%>
+      <% end %>
 
-        <div class="input-group navbar-search">
-          <%= form_tag search_peegins_path, method: :get, role: "search" do %>
-               <span class="input-group-btn">
-                 <%= text_field_tag :search, params[:search], class: "form-control search-pad", placeholder: "Search Peegin" %>
-                 <%= button_tag( :class => "btn btn-default search-margin") do %>
-                <span class="glyphicon glyphicon-search" aria-hidden="true"> </span>
-                <% end %>
-              </span>
-          <% end %>
-        </div><!-- /input-group -->
-    </div>
-          <!-- mobile -->
-          <div class="col-xs-12 hidden-md hidden-lg">
-            <div class="ui-mobile">
-
-
-                <%= image_tag "user.png" , height: "30px", width: "30px", class: "btns ui-mobile dropdown-toggle pull-right", "data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false"%>
-                <ul class="dropdown-menu mobile-drop user_in " role="menu">
-
-                  <li style="color:#28E2B7;">
-                    Logged in as <strong><%= current_user.name %></strong>
-                  </li>
-                  <% if current_user.admin? %>
-                    <li><%= link_to 'Word Of The Day', wod_peegins_path %></li>
-                    <li> <%=link_to "Search Analytics", "/searchjoy/searches/overview?search_type=Peegin"%> </li>
-                  <% end %>
-                  <li><%= link_to 'Recent Words', recent_peegins_path %></li>
-                  <li><%= link_to 'Learn Pidgin', phrase_peegins_path %></li>
-                  <% if current_user.peegins.present? %>
-                  <li> <%= link_to "My Peegins", userpeegins_peegin_path(current_user)%> </li>
-                  <%end%>
-                  <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
-                  <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
-                </ul>
-
-
-            </div>
-
-	          <%= link_to root_path do %>
-				<%= image_tag "logo.png" , class: "brand-mobile" , height: "30px", width: "126px" %>
-				<% end %>
-
-             <div class="input-group navbar-search search-mobile">
-               <%= form_tag search_peegins_path, method: :get, role: "search" do %>
-                  <span class="input-group-btn">
-                      <%= text_field_tag :search, params[:search], class: "form-control search-pad", placeholder: "Search for an English word like \'Help' " %>
-                      <%= button_tag( :class => "btn btn-default search-margin") do %>
-                     <span class="glyphicon glyphicon-search" aria-hidden="true"> </span>
-                     <% end %>
-                   </span>
-               <% end %>
-              </div><!-- /input-group -->
-
-         </div>
-
-
-      <div class="col-md-1 hidden-xs hidden-sm">
-      <span class ="btns navbar-right" >
-
-        <div class="peegin-menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span> <%=current_user.name[0]%></span>
-        </div>
-
-         <ul class="dropdown-menu" role="menu">
-           <li style="color:#28E2B7;">Logged in as <strong style="color:#28E2B7;" ><%= current_user.name %></strong></li>
-           <li><%= link_to 'Recent Words', recent_peegins_path %></li>
-           <li><%= link_to 'Learn Pidgin', phrase_peegins_path %></li>
-
-           <% if current_user.admin? %>
-             <li><%= link_to 'Word Of The Day', wod_peegins_path %></li>
-             <li> <%=link_to "Search Analytics", "/searchjoy/searches/overview?search_type=Peegin"%> </li>
-           <% end %>
-           <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
-            <% if current_user.peegins.present? %>
-            <li> <%= link_to "My Peegins", userpeegins_peegin_path(current_user)%> </li>
-            <%end%>
-           <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
-         </ul>
-
-
+      <div class="input-group navbar-search">
+        <%= form_tag search_peegins_path, method: :get, role: "search" do %>
+        <span class="input-group-btn">
+          <%= text_field_tag :search, params[:search], class: "form-control search-pad", placeholder: "Search Peegin" %>
+          <%= button_tag( :class => "btn btn-default search-margin") do %>
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        <% end %>
       </span>
+    <% end %>
+  </div>
+  <!-- /input-group -->
+</div>
+<!-- mobile -->
+<div class="col-xs-12 hidden-md hidden-lg v3-m-nav" >
+  <div v-if="toggle" id="themAll">
 
+  <div class="ui-mobile">
 
-      </div>
-    </nav>
+    <div class="peegin-menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span><%=current_user.name[0]%></span>
+    </div>
+
+    <ul class="dropdown-menu mobile-drop user_in " role="menu">
+
+      <li style="color:#28E2B7;">
+        Logged in as
+        <strong style="color:#28E2B7;"><%= current_user.name %></strong>
+      </li>
+      <% if current_user.admin? %>
+        <li><%= link_to 'Word Of The Day', wod_peegins_path %></li>
+        <li>
+          <%=link_to "Search Analytics", "/searchjoy/searches/overview?search_type=Peegin"%>
+        </li>
+      <% end %>
+      <li><%= link_to 'Recent Words', recent_peegins_path %></li>
+      <li><%= link_to 'Learn Pidgin', phrase_peegins_path %></li>
+      <% if current_user.peegins.present? %>
+        <li>
+          <%= link_to "My Peegins", userpeegins_peegin_path(current_user)%>
+        </li>
+      <%end%>
+      <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+      <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+    </ul>
 
   </div>
+
+  <div v-on:click="showEmAll()">
+    <span class="fa fa-search v3-m-search"></span>
+  </div>
+
+  <%= link_to root_path do %>
+  <%= image_tag "logo.png" , class: "brand-mobile", style: "width: 30%; max-width: 153px; padding-top:5px;" %>
+<% end %>
+</div>
+
+<div style="display:none;" id="v3search">
+
+  <div class="input-group navbar-search search-mobile">
+    <%= form_tag search_peegins_path, method: :get, role: "search" do %>
+    <span class="input-group-btn">
+      <%= text_field_tag :search, params[:search], class: "form-control search-pad", placeholder: "Search for an English word like \'Help' " %>
+      <%= button_tag( :class => "btn btn-default search-margin") do %>
+      <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    <% end %>
+  </span>
+  <% end %>
+  </div>
+
+    <div class="v3-close" v-on:click="hideEm()">
+      <p>X</p>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-1 hidden-xs hidden-sm">
+<span class="btns navbar-right">
+
+  <div class="peegin-menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span>
+      <%=current_user.name[0]%></span>
+  </div>
+
+  <ul class="dropdown-menu" role="menu">
+    <li style="color:#28E2B7;">Logged in as
+      <strong style="color:#28E2B7;"><%= current_user.name %></strong>
+    </li>
+    <li><%= link_to 'Recent Words', recent_peegins_path %></li>
+    <li><%= link_to 'Learn Pidgin', phrase_peegins_path %></li>
+
+    <% if current_user.admin? %>
+      <li><%= link_to 'Word Of The Day', wod_peegins_path %></li>
+      <li>
+        <%=link_to "Search Analytics", "/searchjoy/searches/overview?search_type=Peegin"%>
+      </li>
+    <% end %>
+    <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+    <% if current_user.peegins.present? %>
+      <li>
+        <%= link_to "My Peegins", userpeegins_peegin_path(current_user)%>
+      </li>
+    <%end%>
+    <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+  </ul>
+
+</span>
+
+</div>
+</nav>
+
+</div>
 
 </div>

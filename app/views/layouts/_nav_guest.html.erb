@@ -1,4 +1,4 @@
-<div class="navbared navbar-default navbar-fixed-top <%= controller_name %> <%= action_name %>">
+<div class="navbared navbar-default navbar-fixed-top <%= controller_name %> <%= action_name %>" id='hello'>
 
   <div class="container">
     <nav class="row">
@@ -18,26 +18,31 @@
           </div><!-- /input-group -->
       </div>
       <!-- mobile -->
-      <div class="col-xs-12 hidden-md hidden-lg">
+      <div class="col-xs-12 hidden-md hidden-lg v3-m-nav">
+        <div v-if="toggle" id="themAll">
         <div class="ui-mobile">
-
-
-            <%= image_tag "user.png" , height: "30px", width: "30px", class: "btns ui-mobile dropdown-toggle pull-right", "data-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false"%>
+          <div class="peegin-menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span>P</span>
+          </div>
 
             <ul class="dropdown-menu mobile-drop" role="menu">
               <li><%= link_to 'Recent Words', recent_peegins_path %></li>
               <li><%= link_to 'Learn Pidgin', phrase_peegins_path %></li>
               <li><%= link_to "Login", new_user_session_path %></li>
-              <li>  <%= link_to "Sign up", new_user_registration_path %></li>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
             </ul>
 
-
-
         </div>
-       <%= link_to root_path do %>
-       <%= image_tag "logo.png" , class: "brand-mobile" , height: "30px", width: "126px"%>
-       <% end %>
 
+        <div v-on:click="showEmAll()">
+          <span class="fa fa-search v3-m-search"></span>
+        </div>
+
+       <%= link_to root_path do %>
+       <%= image_tag "logo.png" , class: "brand-mobile" ,style: "width: 30%; max-width: 153px; padding-top:5px;" %>
+       <% end %>
+     </div>
+     <div style="display:none;" id="v3search">
          <div class="input-group navbar-search search-mobile">
            <%= form_tag search_peegins_path, method: :get, role: "search" do %>
            <span class="input-group-btn">
@@ -47,7 +52,14 @@
               <% end %>
             </span>
            <% end %>
-              </div><!-- /input-group -->
+        </div>
+
+        <div class="v3-close" v-on:click="hideEm()">
+          <p>X</p>
+        </div>
+      </div>
+
+              <!-- /input-group -->
 
          </div>
 

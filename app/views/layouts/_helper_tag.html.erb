@@ -1,10 +1,7 @@
 <div class="panel panel-default side-panel" id="close-it">
 
   <div class="panel-body ">
-    <p class="heading" >PEEGIN ENGLISH DICTIONARY IS DEFINED BY YOU </p>
-  <br>
-  <br>
-
+    <p class="heading" style="text-align: center" > The Official Pidgin English Dictionary </p>
 <% if user_signed_in? == true %>
   <%= link_to new_peegin_path  do %>
       <div class="helper-b ed-btn">
@@ -15,9 +12,9 @@
 
 
 <% if user_signed_in? == false %>
-  <%= link_to user_facebook_omniauth_authorize_path  do %>
-  <div class="helper-b btn2">
-    <i class="fa fa-facebook" style="font-size:20px;"></i> <span> Sign In With Facebook</span>
+  <%= link_to new_user_session_path  do %>
+  <div class="helper-b ed-btn">
+    <i style="font-size:20px;"></i> <span> Sign In</span>
   </div>
 <%end%>
 <%end%>
