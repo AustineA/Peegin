@@ -60,7 +60,7 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
   end
 
   def explore
-    @trend = Peegin.most_hit(1.day.ago)
+    @trend = Peegin.most_hit(1.day.ago, 6)
   end
 
   def phrase
