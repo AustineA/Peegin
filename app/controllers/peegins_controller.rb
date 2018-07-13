@@ -5,8 +5,8 @@ class PeeginsController < ApplicationController
   impressionist actions: [:show], unique: [:session_hash]
   before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random, :recent, :clean, :explore, :glossary]
   before_action :lol, only: [:show, :search, :index, :userpeegins, :recent, :wod, :glossary]
-  before_action :glossary, only: [:show, :search, :index, :userpeegins, :recent, :wod]
-  before_action :explore, only: [:show, :search, :index, :userpeegins, :recent, :wod, :glossary]
+  before_action :glossary, only: [:show, :search, :index, :userpeegins, :recent, :wod, :phrase]
+  before_action :explore, only: [:show, :search, :index, :userpeegins, :recent, :wod, :glossary, :phrase]
 
 
   def search
