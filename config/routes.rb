@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   namespace :api, defaults: { format: :json } do
 
     namespace :kebe do
@@ -86,5 +86,5 @@ get "/pages/:page" => "pages#show"
 
   root 'peegins#index'
 
-
+  
 end
