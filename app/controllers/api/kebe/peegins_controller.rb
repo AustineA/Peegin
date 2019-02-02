@@ -164,7 +164,7 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
 
     def set_peegin
         @peegin = Peegin.find_by_permalink(params[:id])
-      end
+    end
 
     def peegin_params
       params.require(:peegin).permit(:title, :meaning, :example, :slug, :origin, :synonyms, :word_of_the_day, :basic_phrase)

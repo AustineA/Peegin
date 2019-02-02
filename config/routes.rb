@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
   namespace :api, defaults: { format: :json } do
+    
+    namespace :lunabase do
+      resources :contacts, only: [:show, :index, :create]
+    end
 
     namespace :kebe do
 

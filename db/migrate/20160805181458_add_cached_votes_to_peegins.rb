@@ -1,4 +1,4 @@
-class AddCachedVotesToPeegins < ActiveRecord::Migration
+class AddCachedVotesToPeegins < ActiveRecord::Migration[5.1]
     def self.up
      add_column :peegins, :cached_votes_total, :integer, :default => 0
      add_column :peegins, :cached_votes_score, :integer, :default => 0

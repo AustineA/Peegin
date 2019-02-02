@@ -1,4 +1,4 @@
-class AddPermalinkToPeegin < ActiveRecord::Migration
+class AddPermalinkToPeegin < ActiveRecord::Migration[5.1]
   def change
     add_column :peegins, :permalink, :string
   end

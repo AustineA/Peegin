@@ -1,4 +1,4 @@
-class CreatePunchesTable < ActiveRecord::Migration
+class CreatePunchesTable < ActiveRecord::Migration[5.1]
   def self.up
     create_table :punches do |t|
       t.integer :punchable_id, :null => false

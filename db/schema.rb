@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_24_081739) do
+ActiveRecord::Schema.define(version: 2019_02_02_165933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "interest"
+    t.string "project_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "impressions", id: :serial, force: :cascade do |t|
     t.string "impressionable_type"
@@ -62,6 +71,7 @@ ActiveRecord::Schema.define(version: 2018_05_24_081739) do
     t.boolean "word_of_the_day", default: false
     t.boolean "basic_phrase", default: false
     t.boolean "clean", default: true
+    t.integer "impressions_count", default: 0
     t.index ["cached_votes_down"], name: "index_peegins_on_cached_votes_down"
     t.index ["cached_votes_score"], name: "index_peegins_on_cached_votes_score"
     t.index ["cached_votes_total"], name: "index_peegins_on_cached_votes_total"
