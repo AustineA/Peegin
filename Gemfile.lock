@@ -243,8 +243,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    searchkick (1.5.1)
-      activemodel
+    searchkick (2.5.0)
+      activemodel (>= 4.1)
       elasticsearch (>= 1)
       hashie
     simple_oauth (0.3.1)
@@ -343,7 +343,7 @@ DEPENDENCIES
   railties
   sass-rails (~> 5.0)
   searchjoy!
-  searchkick (~> 1.5.1)
+  searchkick (~> 2.5.0)
   simple_token_authentication
   sitemap_generator
   social-share-button (~> 0.10.0)
