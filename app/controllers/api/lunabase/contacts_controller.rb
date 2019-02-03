@@ -10,6 +10,7 @@ class Api::Lunabase::ContactsController < ApplicationController
         @contact = Contact.create(contact_params)
         if @contact.save
             render :show, status: :created
+            ContactFormMailer.send_form(@contact).deliver_later
         else
           head(:unprocessable_entity)
         end
@@ -27,6 +28,6 @@ class Api::Lunabase::ContactsController < ApplicationController
     end
 
     def contact_params
-      params.require(:contact).permit(:name, :email, :project_description, :interest)
+      params.require(:contact).permit(:name, :email, :project_description, :interest, :phone)
     end
 end
