@@ -1,4 +1,5 @@
 class Api::Lunabase::ContactsController < ApplicationController
+    protect_from_forgery with: :null_session
     before_action :set_contact, only: [:show]
 
     def index
