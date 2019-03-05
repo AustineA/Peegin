@@ -1,6 +1,12 @@
 <% @meta_title="Peegin - Search Result" %>
 <% @meta_description="Peegin Dictionary" %>
 
+
+ <% if @browser.device.mobile? %>
+    <%= render '/layouts/popup' %>    
+  <% end %>
+
+  
 <section
 
 

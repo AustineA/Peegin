@@ -1,7 +1,10 @@
 <% @meta_title="Peegin - The Official Pidgin Dictionary" %>
 <% @meta_description="Peegin Dictionary - Is a pidgin english dictionary and translator. Where anyone can define the meaning of any word without hassle." %>
 
-
+ <% if @browser.device.mobile? %>
+    <%= render '/layouts/popup' %>    
+  <% end %>
+  
 <section
 
   <% if @droid %>
