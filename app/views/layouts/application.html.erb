@@ -7,6 +7,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_pack_tag 'hello_vue' %>
+  <%= javascript_pack_tag 'popup' %>
+
   <%= csrf_meta_tags %>
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="msvalidate.01" content="D14A70D1C5D1A36845802F9579B61701" />
@@ -35,6 +37,9 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <%= value %>
    </div>
+  <% end %>
+ <% if @browser.device.mobile? %>
+    <%= render '/layouts/popup' %>    
   <% end %>
 
   <%= yield %>

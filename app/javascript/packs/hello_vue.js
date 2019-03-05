@@ -2,7 +2,6 @@
 
 import TurbolinksAdapter from 'vue-turbolinks';
 import Vue from 'vue/dist/vue.esm'
-import App from '../app.vue'
 
 Vue.use(TurbolinksAdapter)
 document.addEventListener('turbolinks:load', () => {
@@ -13,7 +12,6 @@ document.addEventListener('turbolinks:load', () => {
       counter: 0,
       toggle: true
     },
-    components: { App },
     methods: {
       showEmAll(){
         var searchbar = document.getElementById('v3search');

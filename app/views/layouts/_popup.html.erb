@@ -1,0 +1,26 @@
+<div class="mobile-modal" id='popup' v-if="!download"> 
+      <div class="m-modal-body">
+      <div @click="close()">
+        <span class="close-app">X</span>
+      </div>
+      <div>
+        <h2>Peegin "Sweeter"</h2>
+        <p>When You Use The App</p>
+        <a class="btn-app" @click="downloadApp()"
+          <% if @browser.device.iphone? %>
+             href="https://itunes.apple.com/us/app/peegin/id1394079205">
+          <p>Get The App</p> 
+
+              <img src="https://s3-eu-west-2.amazonaws.com/learntocode.com.ng/wp-content/uploads/2018/06/10163119/appstore.png"/>
+            </a>
+          <% else %>
+             href="https://play.google.com/store/apps/details?id=net.amaniart.peegin">
+          <p>Get The App</p> 
+
+              <img src="https://s3-eu-west-2.amazonaws.com/learntocode.com.ng/wp-content/uploads/2018/06/10163122/playstore.png"/>
+            </a>
+          <% end %>
+        </div>
+      </div>
+      </div>
+    </div>

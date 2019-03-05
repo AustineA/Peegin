@@ -8,6 +8,68 @@
   src:font-url('HelveticaNeue.ttc') format('ttc'),
 }
 
+.mobile-modal{
+  height: 100%;
+  width: 100%;
+  background: rgba(17,29,74, .40);
+  z-index: 2000;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-modal-body{
+  width: 90%;
+  height: 70%;
+  background: #111D4A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFD200;
+  position: relative;
+  border-radius: 12px;
+}
+
+.close-app{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: #28E2B7;
+  color: #111D4A;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3001;
+  cursor: pointer;
+}
+
+.m-modal-body>div p,
+.m-modal-body>div h2{
+  text-align: center;
+}
+
+.btn-app{
+  display: flex;
+  background: #E0245E;
+  padding: 10px 40px;
+  border-radius: 12px; 
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  font-size: 18px;
+}
+
+.btn-app > p{
+  margin: 0 10px 0  0!important;
+  font-weight: bold;
+}
 .fa-search.v3-m-search{
   float: right;
   padding-top: 5px;
@@ -52,6 +114,7 @@
   -ms-align-items: center;
   align-items: center;
   font-size: 20px;
+  cursor: pointer;
 }
 
 body{
@@ -176,6 +239,7 @@ strong{
 
 .col-md-3.sidebar{
   position: sticky !important;
+  position: -webkit-sticky !important;
   top: 120px;
 }
 
@@ -631,6 +695,13 @@ footer.page-footer {
   .show {
       margin-bottom: 0px;
   }
+}
+
+@media (min-width: 240px) and (max-width: 320px){
+ .btn-app {
+   padding: 10px;
+   font-size: 14px;
+ }
 }
 
 // Mobile style
