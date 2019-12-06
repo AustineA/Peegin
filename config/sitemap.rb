@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://www.peegin.com"
+SitemapGenerator::Sitemap.default_host = "https://www.peegin.com"
 
 SitemapGenerator::Sitemap.create do
 

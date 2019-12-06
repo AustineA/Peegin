@@ -59,7 +59,7 @@ class PeeginsController < ApplicationController
 
 
   def index
-      @peegin = Peegin.home.order('random()').paginate(:page => params[:page], :per_page => 10)
+      @peegin = Peegin.home.includes(:user).order('random()').paginate(:page => params[:page], :per_page => 10)
   end
 
   def explore
