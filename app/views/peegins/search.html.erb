@@ -1,64 +1,61 @@
-<% @meta_title="Peegin - Search Result" %>
-<% @meta_description="Peegin Dictionary" %>
+<% @meta_title = "Peegin - Search Result" %>
+<% @meta_description = "Peegin Dictionary" %>
 
 
- <%# if @browser.device.mobile? %>
-    <%#= render '/layouts/popup' %>    
-  <%# end %>
+ <% # if @browser.device.mobile? %>
+    <% #= render '/layouts/popup' %>    
+  <% # end %>
 
   
 <section
 
 
 <% if @droid %>
-  <%else%>
+  <% else %>
     class="container all-peegin"
-  <%end%>
+  <% end %>
 
 
     >
 
-  <%= render 'layouts/side_bar' %>
+  <%= render "layouts/side_bar" %>
 
-<% if @peegins.empty?%>
+<% if @peegins.empty? %>
 <div class="col-md-6 col-sm-12 col-xs-12">
   <div class="panel panel-default peegined <%= controller_name %> <%= action_name %>">
     <div class="panel-body">
       <% if @droid %>
-        <%else%>
-          <%= link_to :back do%>
+        <% else %>
+          <%= link_to :back do %>
             <span class="fa fa-angle-left"> Back</span>
           <% end %>
         <br>
         <hr>
-        <%end%>
+        <% end %>
       <p style="font-size:20px;">
         <strong>
-          <%= "Search for '#{params[:search]}' not found"%>
+          <%= "Search for '#{params[:search]}' not found" %>
         </strong>
       </p>
       <p>
-        Please <%=link_to 'add word', new_peegin_path%> or request for the meaning  of  <%=  link_to "'#{params[:search]}'", "https://twitter.com/peegin_"%>
+        Please <%= link_to "add word", new_peegin_path %> or request for the meaning  of  <%= link_to "'#{params[:search]}'", "https://twitter.com/peegin_" %>
       </p>
     </div>
   </div>
 </div>
-<%else%>
+<% else %>
   <div class="col-md-6 col-sm-12 col-xs-12">
-    <%@peegins.each do |peegin|%>
-
-
-
+    <% @peegins.each.with_index(1) do |peegin, index| %>
       <div class="panel panel-default peegined <%= controller_name %> <%= action_name %>">
           <div class="panel-body">
             <% if peegin.user == current_user || current_user.try(:admin?) %>
-            <p class="pull-right"> <%= link_to 'Edit', edit_peegin_path(peegin) %> | <%= link_to 'Delete', peegin, method: :delete, data: { confirm: 'Are you sure you want to delet this Peegin?' }%> </p>
+            <p class="pull-right"> <%= link_to "Edit", edit_peegin_path(peegin) %> | <%= link_to "Delete", peegin, method: :delete, data: { confirm: "Are you sure you want to delet this Peegin?" } %> </p>
             <% end %>
             <%= link_to peegin do %>
             <h1 class="titled" style="color:#182634">
-              <%=peegin.title %>
+              <%= peegin.title %>
             </h1>
-            <%end%>
+            <% end %>
             <br>
             <br>
             <p class="described">
@@ -68,51 +65,53 @@
             <strong>Example</strong>
             <p class="exampled">
               <i>
-            <%=simple_format(peegin.example)%>
+            <%= simple_format(peegin.example) %>
               </i>
             </p>
             <br>
             <% if peegin.origin? %>
             <p class="origin">
-              <%="Origin: #{peegin.origin}"%>
+              <%= "Origin: #{peegin.origin}" %>
             </p>
             <% end %>
             <br>
             <br>
             <% if peegin.user %>
               <%= link_to userpeegins_peegin_path(peegin.user) do %>
-                <span style="color:#182634"><strong>By <span style="color:#28E2B7"> <%= peegin.user.name %></span> <%= peegin.created_at.strftime( "%B %e, %Y")%></strong></span>
+                <span style="color:#182634"><strong>By <span style="color:#28E2B7"> <%= peegin.user.name %></span> <%= peegin.created_at.strftime("%B %e, %Y") %></strong></span>
               <% end %>
             <% end %>
             <br>
             <br>
             <ul class="hate">
               <% if @droid %>
-                <%else%>
+                <% else %>
                  <li class="haterz" style="margin-top:3px;">
-                   <%= link_to like_peegin_path(peegin), method: :put do%>
+                   <%= link_to like_peegin_path(peegin), method: :put do %>
                        <span style="color:#E85284" class="fa fa-heart"></span>
                      <span class="score"><%= peegin.get_upvotes.size %></span>
                    <% end %>
                  </li>
-              <%end%>
+              <% end %>
               <li class="haterz views">
                 <%= "#{peegin.impressionist_count} Views" %>
               </li>
             </ul>
 
             <% if @droid %>
-            <%else%>
+            <% else %>
               <ul class="socialed">
                 <li class="socialed">
                   <% if peegin.user == current_user %>
                   <%= social_share_button_tag("I just add the meaning of \'#{peegin.title}' inside Peegin Dictionary, go add your own pidgin", :url => "http://peegin.com#{peegin_path(peegin)}", :image => ("https://www.dropbox.com/s/8t3kfr23pkb2a5k/FB-Cover.jpg"), via: "Peegin_") %>
-                  <%else%>
+                  <% else %>
                   <%= social_share_button_tag("Oya make you go check out weytin \'#{peegin.title}' mean for Peegin Dictionary", :url => "http://peegin.com#{peegin_path(peegin)}", :image => ("https://www.dropbox.com/s/8t3kfr23pkb2a5k/FB-Cover.jpg"), via: "Peegin_") %>
                 <% end %>
                 </li>
               </ul>
-              <%end%>
+              <% end %>
+
+
 
           </div>
 
@@ -120,19 +119,38 @@
         </div>
 
 
-  <%end%>
-  <%end%>
-  </div>
-  <%= render 'layouts/side_bar_new' %>
+<% if index % 2 == 0 %>
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- inbetweets -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3794230478740435"
+     data-ad-slot="7892977559"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<% end %>
 
-  <% if @browser.opera_mini?%>
+  <% end %>
+
+
+
+  <% end %>
+
+
+  </div>
+  <%= render "layouts/side_bar_new" %>
+
+  <% if @browser.opera_mini? %>
 
     <% else %>
-  <%= render 'layouts/lol' %>
+  <%= render "layouts/lol" %>
   <% end %>
 
 </section>
 
 <section style="text-align: center;">
-  <%=will_paginate @peegins,inner_window:1, renderer: BootstrapPagination::Rails %>
+  <%= will_paginate @peegins, inner_window: 1, renderer: BootstrapPagination::Rails %>
 </section>
