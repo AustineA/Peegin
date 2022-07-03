@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.5.1"
+ruby "2.7.2"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -14,7 +14,8 @@ gem 'turbolinks'
 gem 'jbuilder'
 gem 'devise'
 gem 'acts_as_votable', '~> 0.10.0'
-gem 'searchkick', '~> 2.5.0'
+gem 'searchkick'
+gem "elasticsearch"   
 gem 'social-share-button', '~> 0.10.0'
 gem 'will_paginate', '~> 3.1'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'

@@ -184,8 +184,8 @@ class PeeginsController < ApplicationController
 
 
     def set_peegin
-        @peegin = Peegin.find_by_permalink(params[:id])
-      end
+      @peegin = Peegin.find_by_permalink(params[:id])
+    end
 
     def peegin_params
       params.require(:peegin).permit(:title, :meaning, :example, :slug, :origin, :synonyms, :word_of_the_day, :basic_phrase)

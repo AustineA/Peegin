@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_02_03_105317) do
     t.string "phone"
   end
 
-  create_table "impressions", id: :serial, force: :cascade do |t|
+  create_table "impressions", force: :cascade do |t|
     t.string "impressionable_type"
     t.integer "impressionable_id"
     t.integer "user_id"
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 2019_02_03_105317) do
     t.text "message"
     t.text "referrer"
     t.text "params"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index"
     t.index ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index"
     t.index ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2019_02_03_105317) do
     t.index ["user_id"], name: "index_impressions_on_user_id"
   end
 
-  create_table "peegins", id: :serial, force: :cascade do |t|
+  create_table "peegins", force: :cascade do |t|
     t.string "title"
     t.string "meaning"
     t.string "example"
@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(version: 2019_02_03_105317) do
     t.boolean "word_of_the_day", default: false
     t.boolean "basic_phrase", default: false
     t.boolean "clean", default: true
-    t.integer "impressions_count", default: 0
     t.index ["cached_votes_down"], name: "index_peegins_on_cached_votes_down"
     t.index ["cached_votes_score"], name: "index_peegins_on_cached_votes_score"
     t.index ["cached_votes_total"], name: "index_peegins_on_cached_votes_total"
@@ -83,7 +82,7 @@ ActiveRecord::Schema.define(version: 2019_02_03_105317) do
     t.index ["user_id"], name: "index_peegins_on_user_id"
   end
 
-  create_table "punches", id: :serial, force: :cascade do |t|
+  create_table "punches", force: :cascade do |t|
     t.integer "punchable_id", null: false
     t.string "punchable_type", limit: 20, null: false
     t.datetime "starts_at", null: false
@@ -94,7 +93,7 @@ ActiveRecord::Schema.define(version: 2019_02_03_105317) do
     t.index ["punchable_type", "punchable_id"], name: "punchable_index"
   end
 
-  create_table "searchjoy_searches", id: :serial, force: :cascade do |t|
+  create_table "searchjoy_searches", force: :cascade do |t|
     t.integer "user_id"
     t.string "search_type"
     t.string "query"
@@ -110,13 +109,13 @@ ActiveRecord::Schema.define(version: 2019_02_03_105317) do
     t.index ["search_type", "normalized_query", "created_at"], name: "index_searchjoy_searches_on_search_type_normalized_query"
   end
 
-  create_table "sessions", id: :serial, force: :cascade do |t|
+  create_table "sessions", force: :cascade do |t|
     t.string "ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", id: :serial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -139,18 +138,20 @@ ActiveRecord::Schema.define(version: 2019_02_03_105317) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "votes", id: :serial, force: :cascade do |t|
-    t.integer "votable_id"
+  create_table "votes", force: :cascade do |t|
     t.string "votable_type"
-    t.integer "voter_id"
+    t.bigint "votable_id"
     t.string "voter_type"
+    t.bigint "voter_id"
     t.boolean "vote_flag"
     t.string "vote_scope"
     t.integer "vote_weight"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+    t.index ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id"
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+    t.index ["voter_type", "voter_id"], name: "index_votes_on_voter_type_and_voter_id"
   end
 
 end

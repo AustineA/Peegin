@@ -88,7 +88,7 @@ post 'peegins' => 'peegins#create'
 
 get "/pages/:page" => "pages#show"
 
-  root 'peegins#index'
+root 'peegins#index'
 
   
 end
