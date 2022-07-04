@@ -15,7 +15,7 @@ gem 'jbuilder'
 gem 'devise'
 gem 'acts_as_votable'
 gem 'searchkick'
-gem "elasticsearch"   
+gem  "elasticsearch", "< 7.14" 
 gem 'social-share-button'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
