@@ -8,7 +8,7 @@ json.trending @trend do |trend|
 
   json.user do
    json.name trend.user.name
-  end if peegin.user.name
+  end if trend.user.name
 
   json.views do
     json.view trend.hits

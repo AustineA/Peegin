@@ -8,7 +8,7 @@ json.peegin do
 
   json.user do
    json.name @peegin.user.name
-  end if peegin.user.name
+  end if @peegin.user.name
 
   json.views do
     json.view @peegin.impressionist_count
