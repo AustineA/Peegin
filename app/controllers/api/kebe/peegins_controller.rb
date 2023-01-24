@@ -5,7 +5,7 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
   impressionist actions: [:show], unique: [:session_hash]
   before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random, :recent, :clean, :explore]
   before_action :lol, only: [:show, :search, :index, :userpeegins, :recent, :wod]
-
+  before_action :set_voter, only: [:show, :userpeegins, :wod, :index, :explore, :upvote, :downvote, :clean, :search]
 
   def search
       if params[:search].present?
@@ -146,9 +146,8 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
   end
 
   def upvote
-    session[:voting_id] = request.remote_ip
-    voter = Session.find_or_create_by(ip: session[:voting_id])
-    @peegin.liked_by voter
+    @peegin.liked_by @voter
+
 
     render :show
     # redirect_to peegin_path, notice: 'Thanks for voting! Please share with your friends'
@@ -156,8 +155,8 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
 
   def downvote
     session[:voting_id] = request.remote_ip
-    voter = Session.find_or_create_by(ip: session[:voting_id])
-    @peegin.disliked_by voter
+    @voter = Session.find_or_create_by(ip: session[:voting_id])
+    @peegin.disliked_by @voter
 
     render :show
   end
@@ -167,6 +166,11 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
 
     def set_peegin
         @peegin = Peegin.find_by_permalink(params[:id])
+    end
+
+    def set_voter
+      session[:voting_id] = request.remote_ip
+      @voter = Session.find_or_create_by(ip: session[:voting_id])
     end
 
     def peegin_params
