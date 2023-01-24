@@ -5,6 +5,8 @@ json.links do
   json.total_entries @peegin.total_entries
   json.next_page "/api/kebe/peegins?page=#{@peegin.next_page}"
   json.previous_page "/api/kebe/peegins?page=#{@peegin.previous_page}"
+  json.next_page_endpoint "/peegins?page=#{@peegin.next_page}"
+  json.previous_page_endpoint "/peegins?page=#{@peegin.previous_page}"
 end
 
 
