@@ -15,7 +15,7 @@ gem 'jbuilder'
 gem 'devise'
 gem 'acts_as_votable'
 gem 'searchkick'
-gem  "elasticsearch", "< 7.14" 
+gem  "elasticsearch"
 gem 'social-share-button'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
@@ -32,6 +32,7 @@ gem 'twitter'
 gem "punching_bag"
 gem 'webpacker'
 gem 'foreman'
+gem 'simple_token_authentication', '~> 1.0' # see semver.org
 
 # Rails 5.1
 gem "actionmailer"
@@ -40,7 +41,7 @@ gem "activemodel"
 gem "activesupport"
 gem "coffee-rails"
 gem "railties"
-gem 'bootsnap', '~> 1.1', '>= 1.1.7', require: false
+gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do
   gem 'byebug'
@@ -50,6 +51,7 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'listen'
+  gem 'solargraph'
 end
 
 group :production do

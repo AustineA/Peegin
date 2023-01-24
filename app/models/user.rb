@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  acts_as_token_authenticatable
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -14,7 +15,7 @@ class User < ApplicationRecord
 
 
   def make_admin!
-    self.update_attribute(:admin, true)
+    self.update(:admin, true)
   end
 
   def self.down

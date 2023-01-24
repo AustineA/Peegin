@@ -1,4 +1,5 @@
 class Api::Kebe::SessionsController < Api::Kebe::ApplicationController
+  before_action :authenticate_user!, only: [:destroy]
   protect_from_forgery with: :null_session
 
   def create
@@ -13,12 +14,19 @@ class Api::Kebe::SessionsController < Api::Kebe::ApplicationController
   end
 
   def destroy
-    current_user.authentication_token = nil
-    if current_user.save
-      head(:ok)
-    else
-      head(:unauthorized)
-    end
+    #  current_user = User.where(email: params[:email]).first
+
+    # email = unless request.headers['X-User-Email'].nil?
+    #   request.headers['X-User-Email']
+    # end
+
+    # current_user = User.find_by_email email
+
+    # if current_user.update!(authentication_token:  nil)
+    #   head(:ok)
+    # else
+    #   head(:unauthorized)
+    # end
   end
 
 end

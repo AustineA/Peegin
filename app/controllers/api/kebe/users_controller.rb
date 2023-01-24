@@ -1,13 +1,18 @@
 class Api::Kebe::UsersController < Api::Kebe::ApplicationController
-  protect_from_forgery with: :null_session
+  # protect_from_forgery with: :null_session
 
   def create
-      @user = User.new(user_params)
-      if @user.save
-        render :create
-      else
-        head(:unprocessable_entity)
-      end
+    if User.where(email: params[:user][:email]).exists?
+      render json: { message: "Account already exist" }, status: :conflict
+      return
+    end
+
+    @user = User.new(user_params)
+    if @user.save
+      render :create
+    else
+      head(:unprocessable_entity)
+    end
   end
 
 

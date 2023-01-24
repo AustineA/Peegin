@@ -26,3 +26,4 @@ yarn-debug.log*
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+peegin_1_23.sql
