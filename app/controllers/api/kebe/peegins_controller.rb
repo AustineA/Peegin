@@ -1,6 +1,6 @@
 class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
 
-  before_action :set_peegin, only: [:show, :edit, :update, :destroy]
+  before_action :set_peegin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins, :phrase, :wod, :random, :recent, :clean, :explore]
   impressionist actions: [:show], unique: [:session_hash]
   before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random, :recent, :clean, :explore]
@@ -146,7 +146,6 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
   end
 
   def upvote
-    @peegin = Peegin.find(params[:id])
     session[:voting_id] = request.remote_ip
     voter = Session.find_or_create_by(ip: session[:voting_id])
     @peegin.liked_by voter
@@ -156,7 +155,6 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
   end
 
   def downvote
-    @peegin = Peegin.find(params[:id])
     session[:voting_id] = request.remote_ip
     voter = Session.find_or_create_by(ip: session[:voting_id])
     @peegin.disliked_by voter
