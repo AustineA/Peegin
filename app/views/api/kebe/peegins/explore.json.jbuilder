@@ -3,12 +3,12 @@
 json.trending @trend do |trend|
   json.(trend, :title, :synonyms, :origin, :permalink)
   json.created_at(trend.created_at.strftime( "%B %e, %Y"))
-  json.meaning (trend.meaning.gsub(/(?:\n\r?|\r\n?)/, '<br>'))
-  json.example (trend.example.gsub(/(?:\n\r?|\r\n?)/, '<br>'))
+  json.meaning
+  json.example
 
   json.user do
    json.name trend.user.name
-  end
+  end if peegin.user.name
 
   json.views do
     json.view trend.hits

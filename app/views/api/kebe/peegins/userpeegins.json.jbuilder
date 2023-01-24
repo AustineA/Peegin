@@ -2,12 +2,12 @@
 json.peegins @all_user_peegin do |peegin|
   json.(peegin, :title, :synonyms, :origin, :permalink)
   json.created_at(peegin.created_at.strftime( "%B %e, %Y"))
-  json.meaning (peegin.meaning.gsub(/(?:\n\r?|\r\n?)/, '<br>'))
-  json.example (peegin.example.gsub(/(?:\n\r?|\r\n?)/, '<br>'))
+  json.meaning
+  json.example
 
   json.user do
    json.name peegin.user.name
-  end
+  end if peegin.user.name
 
   json.views do
     json.view peegin.impressionist_count
