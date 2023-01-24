@@ -1,6 +1,6 @@
 class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
 
-  before_action :set_peegin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :set_peegin, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins, :phrase, :wod, :random, :recent, :clean, :explore]
   impressionist actions: [:show], unique: [:session_hash]
   before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random, :recent, :clean, :explore]
@@ -146,17 +146,22 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
   end
 
   def upvote
+    @peegin = Peegin.find(params[:id])
     session[:voting_id] = request.remote_ip
     voter = Session.find_or_create_by(ip: session[:voting_id])
-    voter.likes @peegin
-    redirect_to peegin_path, notice: 'Thanks for voting! Please share with your friends'
+    @peegin.liked_by voter
+
+    render :show
+    # redirect_to peegin_path, notice: 'Thanks for voting! Please share with your friends'
   end
 
   def downvote
+    @peegin = Peegin.find(params[:id])
     session[:voting_id] = request.remote_ip
     voter = Session.find_or_create_by(ip: session[:voting_id])
-    voter.dislikes @peegin
-    redirect_to peegin_path, notice: 'Ouch! your vote has been counted. Please share with your friends'
+    @peegin.disliked_by voter
+
+    render :show
   end
 
 

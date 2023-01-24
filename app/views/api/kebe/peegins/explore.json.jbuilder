@@ -5,13 +5,8 @@ json.trending @trend do |trend|
   json.created_at(trend.created_at.strftime( "%B %e, %Y"))
   json.meaning
   json.example
-
-  json.user do
-   json.name trend.user.name
-  end if trend.user.name
-
-  json.views do
-    json.view trend.hits
-  end
+  json.by trend.user.name if trend.user.name
+  json.views trend.impressionist_count
+  json.likes trend.get_upvotes.size
 
 end

@@ -4,13 +4,7 @@ json.peegins @all_user_peegin do |peegin|
   json.created_at(peegin.created_at.strftime( "%B %e, %Y"))
   json.meaning
   json.example
-
-  json.user do
-   json.name peegin.user.name
-  end if peegin.user.name
-
-  json.views do
-    json.view peegin.impressionist_count
-  end
-
+  json.by peegin.user.name if peegin.user.name
+  json.views peegin.impressionist_count
+  json.likes peegin.get_upvotes.size
 end
