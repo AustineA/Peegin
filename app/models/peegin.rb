@@ -2,6 +2,7 @@ class Peegin < ApplicationRecord
 	searchkick
 	belongs_to :user
 	before_create :generate_permalink
+	after_create :clean_peegin
 	acts_as_votable
 	acts_as_punchable
 	is_impressionable
@@ -18,7 +19,7 @@ class Peegin < ApplicationRecord
 	#scope :home, -> { where(front_page: true) }
 	scope :phrase, -> { where(basic_phrase: true)}
 	scope :wod, -> { where(word_of_the_day: true)}
-	scope :home, -> { where(basic_phrase: false) }
+	scope :home, -> { where(basic_phrase: false, clean: true) }
 	scope :clean, -> { where(clean: true) }
 
 	def self.set_front
@@ -42,6 +43,16 @@ class Peegin < ApplicationRecord
 		else
 			self.permalink = self.title.parameterize
 		end
+
+	end
+
+	def clean_peegin
+		dirts = ["sex", "fuck", "vagina", "dick", "preek", "toto", "pussy", "penis", "testis", "vagina"]
+		lowcase_peegin = self.meaning.downcase
+
+		dirts.each do |word|
+      self.update(clean: false) if lowcase_peegin.include? word
+    end
 
 	end
 
