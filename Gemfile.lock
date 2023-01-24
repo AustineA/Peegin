@@ -450,7 +450,7 @@ DEPENDENCIES
   rails (~> 7.0.0)
   rails_12factor
   railties
-  sass-rails (~> 5.0)
+  sass-rails
   searchkick
   simple_token_authentication (~> 1.0)
   sitemap_generator
