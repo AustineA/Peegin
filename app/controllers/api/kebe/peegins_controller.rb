@@ -88,7 +88,8 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
     end
     @meta_description = @peegin.meaning
 
-   impressionist(@peegin) # 2nd argument is optional
+    impressionist(@peegin,"", :unique => [:ip_address]) # 2nd argument is optional
+    @peegin.punch(request)
    set_meta_tags og: {
               title:    @peegin.title,
               description: @peegin.meaning,

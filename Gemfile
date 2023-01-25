@@ -19,7 +19,7 @@ gem  "elasticsearch", "< 7.14"
 gem 'social-share-button'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
-gem 'impressionist', '~> 1.6.1'
+gem 'impressionist'
 gem 'pg'
 gem 'puma'
 gem 'omniauth-facebook'

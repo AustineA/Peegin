@@ -97,7 +97,7 @@ class PeeginsController < ApplicationController
     end
     @meta_description = @peegin.meaning
 
-   impressionist(@peegin) # 2nd argument is optional
+   impressionist(@peegin,"", :unique => [:session_hash]) # 2nd argument is optional
 
    @peegin.punch(request)
 

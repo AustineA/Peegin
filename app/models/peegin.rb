@@ -5,7 +5,7 @@ class Peegin < ApplicationRecord
 	after_create :clean_peegin
 	acts_as_votable
 	acts_as_punchable
-	is_impressionable
+	is_impressionable :counter_cache => true
 	include Randomable
 
 	validates_presence_of :title, :meaning, :example, :synonyms, { :message => "cannot be blank" }
