@@ -6,7 +6,7 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
   before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random, :recent, :clean, :explore]
   before_action :lol, only: [:show, :search, :index, :userpeegins, :recent, :wod]
   before_action :set_voter, only: [:show, :userpeegins, :wod, :index, :explore, :upvote, :downvote, :clean, :search]
-  protect_from_forgery with: :null_session
+  skip_before_action :verify_authenticity_token
 
   def search
       if params[:search].present?
