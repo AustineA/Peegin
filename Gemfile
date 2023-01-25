@@ -15,11 +15,11 @@ gem 'jbuilder'
 gem 'devise'
 gem 'acts_as_votable'
 gem 'searchkick'
-gem  "elasticsearch"
+gem  "elasticsearch", "< 7.14"
 gem 'social-share-button'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
-gem 'impressionist'
+gem 'impressionist', '~> 1.6.1'
 gem 'pg'
 gem 'puma'
 gem 'omniauth-facebook'
@@ -33,6 +33,7 @@ gem "punching_bag"
 gem 'webpacker'
 gem 'foreman'
 gem 'simple_token_authentication', '~> 1.0' # see semver.org
+gem 'sprockets', '~>3.0'
 
 # Rails 5.1
 gem "actionmailer"
