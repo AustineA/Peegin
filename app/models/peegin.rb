@@ -23,8 +23,8 @@ class Peegin < ApplicationRecord
 	scope :clean, -> { where(clean: true) }
 
 	def self.set_front
-		Peegin.home.each{ |e| e.update_attributes(front_page: false)}
-		Peegin.all.sample(100).each{ |e| e.update_attributes(front_page: true)}
+		Peegin.home.each{ |e| e.update(front_page: false)}
+		Peegin.all.sample(100).each{ |e| e.update(front_page: true)}
 	end
 
 
