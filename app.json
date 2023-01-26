@@ -1,10 +1,48 @@
 {
   "name": "peegin",
   "description": " ",
-  "keywords": [ ],
+  "keywords": [],
   "scripts": {
     "dokku": {
       "postdeploy": "bundle exec rake db:migrate"
     }
-  }
+  },
+  "cron": [
+    {
+      "command": "rails wordoftheday",
+      "schedule": "0 0 * * *"
+    },
+    {
+      "command": "rails wordoftheday",
+      "schedule": "0 1 * * *"
+    },
+    {
+      "command": "rails tweet",
+      "schedule": "0 8 * * *"
+    },
+    {
+      "command": "rails tweet",
+      "schedule": "30 10 * * *"
+    },
+    {
+      "command": "rails tweet",
+      "schedule": "0 12 * * *"
+    },
+    {
+      "command": "rails tweet",
+      "schedule": "0 15 * * *"
+    },
+    {
+      "command": "rails tweet",
+      "schedule": "0 17 * * *"
+    },
+    {
+      "command": "rails tweet",
+      "schedule": "0 20 * * *"
+    },
+    {
+      "command": "rails tweet",
+      "schedule": "0 22 * * *"
+    }
+  ]
 }
