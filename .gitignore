@@ -34,3 +34,4 @@ peegin_1_23.sql
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+peegin.sql
