@@ -2,8 +2,6 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
 
   before_action :set_peegin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins, :phrase, :wod, :random, :recent, :clean, :explore]
-  impressionist actions: [:show], unique: [:session_hash]
-  before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random, :recent, :clean, :explore]
   before_action :lol, only: [:show, :search, :index, :userpeegins, :recent, :wod]
   before_action :set_voter, only: [:show, :userpeegins, :wod, :index, :explore, :upvote, :downvote, :clean, :search]
   skip_before_action :verify_authenticity_token
@@ -16,15 +14,6 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
       end
   end
 
-  def agent_smith
-      @browser = Browser.new(request.headers['User-Agent'])
-
-      @droid = request.user_agent.include?("AndroidApp")
-
-      #Side bar word of the day
-      @wod = Peegin.wod.all.limit(1)
-
-  end
   def lol
       @lol = Peegin.random()
   end
@@ -81,33 +70,8 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
   end
 
   def show
-    if @droid
-      @meta_title =  "Oya make you go check out weytin \'#{@peegin.title}' mean for Peegin Dictionary"
-      else
-        @meta_title = @peegin.title + " - meaning in pidgin english | Peegin Dictionary"
-    end
-    @meta_description = @peegin.meaning
-
     impressionist(@peegin,"", :unique => [:ip_address]) # 2nd argument is optional
     @peegin.punch(request)
-   set_meta_tags og: {
-              title:    @peegin.title,
-              description: @peegin.meaning,
-              type:     'website',
-              url:      peegin_url(@peegin),
-              image:    'https://s3-eu-west-2.amazonaws.com/learntocode.com.ng/wp-content/uploads/2018/01/23210822/Facebook.jpg'
-            },
-
-            twitter: {
-              site_name: @peegin.title,
-              site: '@peegin_',
-              card: 'summary_large_image',
-              description: @peegin.meaning,
-              image: 'https://s3-eu-west-2.amazonaws.com/learntocode.com.ng/wp-content/uploads/2018/01/23210233/Twitter.jpg'
-            },
-
-            icon: view_context.image_url('favicon.png'), type: 'image/png'
-            @phrase = Peegin.phrase
   end
 
   def new

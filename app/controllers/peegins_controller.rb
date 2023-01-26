@@ -96,9 +96,6 @@ class PeeginsController < ApplicationController
         @meta_title = @peegin.title + " - meaning in pidgin english | Peegin Dictionary"
     end
     @meta_description = @peegin.meaning
-
-   impressionist(@peegin,"", :unique => [:session_hash]) # 2nd argument is optional
-
    @peegin.punch(request)
 
    set_meta_tags og: {
