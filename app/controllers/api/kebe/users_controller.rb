@@ -11,7 +11,7 @@ class Api::Kebe::UsersController < Api::Kebe::ApplicationController
     if @user.save
       render :create
     else
-      head(:unprocessable_entity)
+      render json: { message: @user.errors.full_messages.to_sentence }, status: :unprocessable_entity
     end
   end
 

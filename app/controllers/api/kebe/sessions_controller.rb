@@ -8,7 +8,7 @@ class Api::Kebe::SessionsController < Api::Kebe::ApplicationController
     if @user&.valid_password?(params[:password])
         render :create, status: :created
     else
-        head(:unauthorized)
+        render json: { message: "Invalid email or password"}, status: :not_found
     end
 
   end

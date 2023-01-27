@@ -92,7 +92,7 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
     if @peegin.save
       render :show
     else
-      head(:unprocessable_entity)
+      render json: { message: @peegin.errors.full_messages.to_sentence }, status: :unprocessable_entity
     end
   end
 
@@ -101,14 +101,14 @@ class Api::Kebe::PeeginsController < Api::Kebe::ApplicationController
     if @peegin.update(peegin_params)
       render :show
     else
-      head(:unprocessable_entity)
+     render json: { message: @peegin.errors.full_messages.to_sentence }, status: :unprocessable_entity
     end
   end
 
 
   def destroy
     @peegin.destroy
-    head(:unprocessable_entity)
+    render json: { message: @peegin.errors.full_messages.to_sentence }, status: :unprocessable_entity
   end
 
   def upvote
