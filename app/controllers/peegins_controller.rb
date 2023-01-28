@@ -2,7 +2,6 @@ class PeeginsController < ApplicationController
 
   before_action :set_peegin, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, except: [:index, :show, :search, :upvote, :downvote, :userpeegins, :phrase, :wod, :random, :recent, :clean, :explore, :glossary]
-  impressionist actions: [:show], unique: [:session_hash]
   before_action :agent_smith, only: [:show, :search, :index, :userpeegins, :phrase, :wod, :random, :recent, :clean, :explore, :glossary]
   before_action :lol, only: [:show, :search, :index, :userpeegins, :recent, :wod, :glossary]
   before_action :glossary, only: [:show, :search, :index, :userpeegins, :recent, :wod, :phrase]
@@ -96,7 +95,8 @@ class PeeginsController < ApplicationController
         @meta_title = @peegin.title + " - meaning in pidgin english | Peegin Dictionary"
     end
     @meta_description = @peegin.meaning
-   @peegin.punch(request)
+    impressionist(@peegin,"", :unique => [:ip_address])
+    @peegin.punch(request)
 
    set_meta_tags og: {
               title:    @peegin.title,
