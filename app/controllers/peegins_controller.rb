@@ -6,7 +6,7 @@ class PeeginsController < ApplicationController
   before_action :lol, only: [:show, :search, :index, :userpeegins, :recent, :wod, :glossary]
   before_action :glossary, only: [:show, :search, :index, :userpeegins, :recent, :wod, :phrase]
   before_action :explore, only: [:show, :search, :index, :userpeegins, :recent, :wod, :glossary, :phrase]
-  impressionist actions: [:show], unique: [:session_hash]
+
 
   def search
 
@@ -97,6 +97,11 @@ class PeeginsController < ApplicationController
     @meta_description = @peegin.meaning
     # impressionist(@peegin,"", :unique => [:ip_address])
     @peegin.punch(request)
+
+    HTTParty.get(
+      "https://peegin.com/api/kebe/peegins/#{@peegin.permalink}",
+      headers: {'content-type' => 'application/json'}
+    )
 
    set_meta_tags og: {
               title:    @peegin.title,
