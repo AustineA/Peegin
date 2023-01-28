@@ -2,16 +2,15 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[6.1].define(version: 2019_02_03_105317) do
-
+ActiveRecord::Schema[7.0].define(version: 2023_01_28_070039) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,12 +19,12 @@ ActiveRecord::Schema[6.1].define(version: 2019_02_03_105317) do
     t.string "email"
     t.string "interest"
     t.string "project_description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "phone"
   end
 
-  create_table "impressions", force: :cascade do |t|
+  create_table "impressions", id: :serial, force: :cascade do |t|
     t.string "impressionable_type"
     t.integer "impressionable_id"
     t.integer "user_id"
@@ -38,8 +37,8 @@ ActiveRecord::Schema[6.1].define(version: 2019_02_03_105317) do
     t.text "message"
     t.text "referrer"
     t.text "params"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index"
     t.index ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index"
     t.index ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index"
@@ -51,12 +50,12 @@ ActiveRecord::Schema[6.1].define(version: 2019_02_03_105317) do
     t.index ["user_id"], name: "index_impressions_on_user_id"
   end
 
-  create_table "peegins", force: :cascade do |t|
+  create_table "peegins", id: :serial, force: :cascade do |t|
     t.string "title"
     t.string "meaning"
     t.string "example"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "permalink"
     t.integer "user_id"
     t.integer "cached_votes_total", default: 0
@@ -72,6 +71,7 @@ ActiveRecord::Schema[6.1].define(version: 2019_02_03_105317) do
     t.boolean "word_of_the_day", default: false
     t.boolean "basic_phrase", default: false
     t.boolean "clean", default: true
+    t.integer "impressions_count", default: 0
     t.index ["cached_votes_down"], name: "index_peegins_on_cached_votes_down"
     t.index ["cached_votes_score"], name: "index_peegins_on_cached_votes_score"
     t.index ["cached_votes_total"], name: "index_peegins_on_cached_votes_total"
@@ -82,52 +82,52 @@ ActiveRecord::Schema[6.1].define(version: 2019_02_03_105317) do
     t.index ["user_id"], name: "index_peegins_on_user_id"
   end
 
-  create_table "punches", force: :cascade do |t|
+  create_table "punches", id: :serial, force: :cascade do |t|
     t.integer "punchable_id", null: false
     t.string "punchable_type", limit: 20, null: false
-    t.datetime "starts_at", null: false
-    t.datetime "ends_at", null: false
-    t.datetime "average_time", null: false
+    t.datetime "starts_at", precision: nil, null: false
+    t.datetime "ends_at", precision: nil, null: false
+    t.datetime "average_time", precision: nil, null: false
     t.integer "hits", default: 1, null: false
     t.index ["average_time"], name: "index_punches_on_average_time"
     t.index ["punchable_type", "punchable_id"], name: "punchable_index"
   end
 
-  create_table "searchjoy_searches", force: :cascade do |t|
+  create_table "searchjoy_searches", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.string "search_type"
     t.string "query"
     t.string "normalized_query"
     t.integer "results_count"
-    t.datetime "created_at"
+    t.datetime "created_at", precision: nil
     t.integer "convertable_id"
     t.string "convertable_type"
-    t.datetime "converted_at"
+    t.datetime "converted_at", precision: nil
     t.index ["convertable_id", "convertable_type"], name: "index_searchjoy_searches_on_convertable_id_and_convertable_type"
     t.index ["created_at"], name: "index_searchjoy_searches_on_created_at"
     t.index ["search_type", "created_at"], name: "index_searchjoy_searches_on_search_type_and_created_at"
     t.index ["search_type", "normalized_query", "created_at"], name: "index_searchjoy_searches_on_search_type_normalized_query"
   end
 
-  create_table "sessions", force: :cascade do |t|
+  create_table "sessions", id: :serial, force: :cascade do |t|
     t.string "ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
     t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
+    t.datetime "current_sign_in_at", precision: nil
+    t.datetime "last_sign_in_at", precision: nil
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "name"
     t.boolean "admin"
     t.string "provider"
@@ -138,20 +138,18 @@ ActiveRecord::Schema[6.1].define(version: 2019_02_03_105317) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "votes", force: :cascade do |t|
+  create_table "votes", id: :serial, force: :cascade do |t|
+    t.integer "votable_id"
     t.string "votable_type"
-    t.bigint "votable_id"
+    t.integer "voter_id"
     t.string "voter_type"
-    t.bigint "voter_id"
     t.boolean "vote_flag"
     t.string "vote_scope"
     t.integer "vote_weight"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-    t.index ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id"
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
-    t.index ["voter_type", "voter_id"], name: "index_votes_on_voter_type_and_voter_id"
   end
 
 end
