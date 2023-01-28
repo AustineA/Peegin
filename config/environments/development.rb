@@ -59,7 +59,7 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-   config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_options = { from: "no-reply@lunabase.xyz" }
@@ -74,4 +74,12 @@ Rails.application.configure do
     :authentication => "login",
     :enable_starttls_auto => true,
   }
+  # Raises error for missing translations.
+  # config.i18n.raise_on_missing_translations = true
+
+  # Annotate rendered view with file names.
+  # config.action_view.annotate_rendered_view_with_filenames = true
+
+  # Uncomment if you wish to allow Action Cable access from any origin.
+  # config.action_cable.disable_request_forgery_protection = true
 end
