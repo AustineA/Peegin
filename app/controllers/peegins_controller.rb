@@ -6,7 +6,7 @@ class PeeginsController < ApplicationController
   before_action :lol, only: [:show, :search, :index, :userpeegins, :recent, :wod, :glossary]
   before_action :glossary, only: [:show, :search, :index, :userpeegins, :recent, :wod, :phrase]
   before_action :explore, only: [:show, :search, :index, :userpeegins, :recent, :wod, :glossary, :phrase]
-
+  impressionist actions: [:show], unique: [:ip_address]
 
   def search
 
@@ -95,7 +95,7 @@ class PeeginsController < ApplicationController
         @meta_title = @peegin.title + " - meaning in pidgin english | Peegin Dictionary"
     end
     @meta_description = @peegin.meaning
-    impressionist(@peegin,"", :unique => [:ip_address])
+    # impressionist(@peegin,"", :unique => [:ip_address])
     @peegin.punch(request)
 
    set_meta_tags og: {
