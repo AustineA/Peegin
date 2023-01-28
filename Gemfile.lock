@@ -77,7 +77,7 @@ GEM
     benchmark (0.2.1)
     binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
-    bootsnap (1.15.0)
+    bootsnap (1.16.0)
       msgpack (~> 1.2)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
@@ -202,7 +202,7 @@ GEM
     msgpack (1.6.0)
     multi_json (1.15.0)
     multi_xml (0.6.0)
-    multipart-post (2.2.3)
+    multipart-post (2.3.0)
     naught (1.1.0)
     net-imap (0.3.4)
       date
@@ -215,8 +215,6 @@ GEM
       net-protocol
     nio4r (2.5.8)
     nokogiri (1.14.0-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.14.0-x86_64-linux)
       racc (~> 1.4)
     oauth2 (2.0.9)
       faraday (>= 0.17.3, < 3.0)
@@ -447,7 +445,7 @@ DEPENDENCIES
   puma
   punching_bag
   rack-cors
-  rails (~> 7.0.0)
+  rails (~> 7.0.4.2)
   rails_12factor
   railties
   sass-rails
