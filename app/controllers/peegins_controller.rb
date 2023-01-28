@@ -6,7 +6,7 @@ class PeeginsController < ApplicationController
   before_action :lol, only: [:show, :search, :index, :userpeegins, :recent, :wod, :glossary]
   before_action :glossary, only: [:show, :search, :index, :userpeegins, :recent, :wod, :phrase]
   before_action :explore, only: [:show, :search, :index, :userpeegins, :recent, :wod, :glossary, :phrase]
-  impressionist actions: [:show], unique: [:ip_address]
+  impressionist actions: [:show], unique: [:session_hash]
 
   def search
 
